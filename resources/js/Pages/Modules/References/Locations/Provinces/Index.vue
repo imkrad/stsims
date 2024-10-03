@@ -44,7 +44,7 @@
                             <td class="text-center" v-else><span class="text-muted">Old name not specified</span></td>
                             <td class="text-center">{{list.region.region}} <span class="text-muted">({{ list.region.name }})</span></td>
                             <td class="text-end">
-                                <b-button @click="openEdit(list,index)" variant="soft-primary" v-b-tooltip.hover title="Edit" size="sm" class="edit-list">
+                                <b-button @click="openUpdate(list,index)" variant="soft-primary" v-b-tooltip.hover title="Edit" size="sm" class="edit-list">
                                     <i class="ri-pencil-fill align-bottom"></i>
                                 </b-button>
                             </td>
@@ -53,17 +53,18 @@
                 </table>
                 <Pagination class="ms-2 me-2" v-if="meta" @fetch="fetch" :lists="lists.length" :links="links" :pagination="meta" />
             </div>
-
+            <Update :regions="regions" ref="update"/>
         </div>
     </div>
 </template>
 <script>
 import _ from 'lodash';
+import Update from './Update.vue';
 import Multiselect from "@vueform/multiselect";
 import PageHeader from '@/Shared/Components/PageHeader.vue';
 import Pagination from "@/Shared/Components/Pagination.vue";
 export default {
-    components: { PageHeader, Pagination, Multiselect },
+    components: { PageHeader, Pagination, Multiselect, Update },
     props: ['regions'],
     data(){
         return {
@@ -74,7 +75,8 @@ export default {
             filter: {
                 keyword: null,
                 region: null
-            }
+            },
+            index: null
         }
     },
     watch: {
@@ -110,6 +112,13 @@ export default {
                 }
             })
             .catch(err => console.log(err));
+        },
+        openUpdate(data,index){
+            this.index = index;
+            this.$refs.update.show(data);
+        },
+        openCreate(){
+            this.$refs.update.create();
         },
         refresh(){
             this.filter.keyword = null;

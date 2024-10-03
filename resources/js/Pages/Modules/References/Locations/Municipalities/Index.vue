@@ -7,7 +7,7 @@
                 <b-col lg>
                     <div class="input-group mb-1">
                         <span class="input-group-text"> <i class="ri-search-line search-icon"></i></span>
-                        <input type="text" v-model="filter.keyword" placeholder="Search Municipality" class="form-control" style="width: 60%;">
+                        <input type="text" v-model="filter.keyword" placeholder="Search Municipality" class="form-control" style="width: 100px;">
                         <Multiselect class="white" style="width: 15%;" :options="provinces" v-model="filter.province" label="name" :searchable="true" placeholder="Select Province" />
                         <Multiselect class="white" style="width: 15%;" :options="regions" v-model="filter.region" label="name" :searchable="true" placeholder="Select Region" />
                         <span @click="refresh()" class="input-group-text" v-b-tooltip.hover title="Refresh" style="cursor: pointer;"> 

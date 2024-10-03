@@ -2,6 +2,10 @@
 
 namespace App\Services\Reference;
 
+use App\Models\ListStatus;
+use App\Models\ListAgency;
+use App\Models\ListPrivilege;
+use App\Models\ListDropdown;
 use App\Models\LocationRegion;
 use App\Models\LocationProvince;
 use App\Models\LocationMunicipality;
@@ -10,6 +14,53 @@ use App\Http\Resources\DefaultResource;
 
 class ViewClass
 {
+    public function statuses($request){
+        $data = DefaultResource::collection(
+            ListStatus::when($request->keyword, function ($query, $keyword) {
+                $query->where('name', 'LIKE', "%{$keyword}%");
+            })
+            ->orderBy('created_at','DESC')
+            ->paginate($request->count)
+        );
+        return $data;
+    }
+
+    public function privileges($request){
+        $data = DefaultResource::collection(
+            ListPrivilege::when($request->keyword, function ($query, $keyword) {
+                $query->where('name', 'LIKE', "%{$keyword}%")->orWhere('short', 'LIKE', "%{$keyword}%");
+            })
+            ->orderBy('created_at','DESC')
+            ->paginate($request->count)
+        );
+        return $data;
+    }
+
+    public function agencies($request){
+        $data = DefaultResource::collection(
+            ListAgency::with('region')->when($request->keyword, function ($query, $keyword) {
+                $query->where('name', 'LIKE', "%{$keyword}%")->orWhere('code', 'LIKE', "%{$keyword}%");
+            })->when($request->region, function ($query, $region) {
+                $query->where('region_code',$region);
+            })
+            ->orderBy('created_at','DESC')
+            ->paginate($request->count)
+        );
+        return $data;
+    }
+
+    public function dropdowns($request){
+        $data = DefaultResource::collection(
+            ListDropdown::where('type',$request->type)->when($request->keyword, function ($query, $keyword) {
+                $query->where('name', 'LIKE', "%{$keyword}%");
+            })->when($request->classification, function ($query, $classification) {
+                $query->where('classification',$classification);
+            })
+            ->paginate($request->count)
+        );
+        return $data;
+    }
+
     public function regions($request){
         $data = DefaultResource::collection(
                 LocationRegion::when($request->keyword, function ($query, $keyword) {

@@ -29,8 +29,8 @@ class LocationMunicipality extends Model
     public function getActivitylogOptions(): LogOptions {
         return LogOptions::defaults()
         ->logOnly(['name','old_name','district','province_code'])
-        ->setDescriptionForEvent(fn(string $eventName) => "$eventName the barangay details")
-        ->useLogName('Barangay')
+        ->setDescriptionForEvent(fn(string $eventName) => "$eventName the municipality details")
+        ->useLogName('Municipality')
         ->logOnlyDirty()
         ->dontSubmitEmptyLogs();
     }

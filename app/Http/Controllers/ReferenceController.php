@@ -8,6 +8,7 @@ use App\Traits\HandlesTransaction;
 use App\Services\Reference\ViewClass;
 use App\Services\Reference\SaveClass;
 use App\Services\Reference\UpdateClass;
+use App\Http\Requests\ReferenceRequest;
 
 class ReferenceController extends Controller
 {
@@ -22,6 +23,18 @@ class ReferenceController extends Controller
 
     public function index(Request $request){
         switch($request->option){
+            case 'statuses':
+                return $this->view->statuses($request);
+            break;
+            case 'privileges':
+                return $this->view->privileges($request);
+            break;
+            case 'agencies':
+                return $this->view->agencies($request);
+            break;
+            case 'dropdowns':
+                return $this->view->dropdowns($request);
+            break;
             case 'regions':
                 return $this->view->regions($request);
             break;
@@ -39,10 +52,70 @@ class ReferenceController extends Controller
         }   
     }
 
+    public function store(ReferenceRequest $request){
+        $result = $this->handleTransaction(function () use ($request) {
+            switch($request->option){
+                case 'program':
+                    return $this->save->program($request);
+                break;
+                case 'status':
+                    return $this->save->status($request);
+                break;
+                case 'agency':
+                    return $this->save->agency($request);
+                break;
+                case 'privilege':
+                    return $this->save->privilege($request);
+                break;
+                case 'dropdown':
+                    return $this->save->dropdown($request);
+                break;
+                case 'province':
+                    return $this->save->province($request);
+                break;
+            }
+        });
+
+        return back()->with([
+            'data' => $result['data'],
+            'message' => $result['message'],
+            'info' => $result['info'],
+            'status' => $result['status'],
+        ]);
+    }
+
+    public function update(ReferenceRequest $request){
+        $result = $this->handleTransaction(function () use ($request) {
+            switch($request->option){
+                case 'status':
+                    return $this->update->status($request);
+                break;
+                case 'privilege':
+                    return $this->update->privilege($request);
+                break;
+                case 'barangay':
+                    return $this->update->barangay($request);
+                break;
+                case 'municipality':
+                    return $this->update->municipality($request);
+                break;
+            }
+        });
+
+        return back()->with([
+            'data' => $result['data'],
+            'message' => $result['message'],
+            'info' => $result['info'],
+            'status' => $result['status'],
+        ]);
+    }
+
     public function show($code){
         switch($code){
             case 'agencies':
-                return inertia('Modules/References/Agencies/Index');
+                return inertia('Modules/References/Agencies/Index',[
+                    'regions' => $this->dropdown->regions()
+                ]);
             break;
             case 'privileges':
                 return inertia('Modules/References/Privileges/Index');
@@ -81,25 +154,5 @@ class ReferenceController extends Controller
                 return inertia('Modules/References/Dropdowns/Categories/Index');
             break;
         }
-    }
-
-    public function update(Request $request){
-        $result = $this->handleTransaction(function () use ($request) {
-            switch($request->option){
-                case 'barangay':
-                    return $this->update->barangay($request);
-                break;
-                case 'municipality':
-                    return $this->update->municipality($request);
-                break;
-            }
-        });
-
-        return back()->with([
-            'data' => $result['data'],
-            'message' => $result['message'],
-            'info' => $result['info'],
-            'status' => $result['status'],
-        ]);
     }
 }
