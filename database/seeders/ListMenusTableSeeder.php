@@ -301,7 +301,7 @@ class ListMenusTableSeeder extends Seeder
             20 => 
             array (
                 'id' => 21,
-                'name' => 'Catergory',
+                'name' => 'Category',
                 'icon' => NULL,
                 'route' => '/references/categories',
                 'path' => '/references/categories',

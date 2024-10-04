@@ -13,6 +13,7 @@ Route::middleware(['2fa','auth','verified','is_active','menu'])->group(function 
 
     Route::resource('/executive', App\Http\Controllers\ExecutiveController::class);
     Route::resource('/references', App\Http\Controllers\ReferenceController::class);
+    Route::resource('/management', App\Http\Controllers\ManagementController::class);
 });
 
 require __DIR__.'/auth.php';

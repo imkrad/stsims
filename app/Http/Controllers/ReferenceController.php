@@ -23,6 +23,9 @@ class ReferenceController extends Controller
 
     public function index(Request $request){
         switch($request->option){
+            case 'programs':
+                return $this->view->programs($request);
+            break;
             case 'statuses':
                 return $this->view->statuses($request);
             break;
@@ -121,7 +124,9 @@ class ReferenceController extends Controller
                 return inertia('Modules/References/Privileges/Index');
             break;
             case 'programs':
-                return inertia('Modules/References/Programs/Index');
+                return inertia('Modules/References/Programs/Index',[
+                    'programs' => $this->dropdown->programs()
+                ]);
             break;
             case 'statuses':
                 return inertia('Modules/References/Statuses/Index');

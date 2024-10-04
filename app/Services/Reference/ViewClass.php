@@ -2,6 +2,7 @@
 
 namespace App\Services\Reference;
 
+use App\Models\ListProgram;
 use App\Models\ListStatus;
 use App\Models\ListAgency;
 use App\Models\ListPrivilege;
@@ -14,6 +15,22 @@ use App\Http\Resources\DefaultResource;
 
 class ViewClass
 {
+    public function programs($request){
+        $data = DefaultResource::collection(
+            ListProgram::with('program')->when($request->keyword, function ($query, $keyword) {
+                $query->where('name', 'LIKE', "%{$keyword}%");
+            })->when($request->program, function ($query, $program) {
+                $query->where('program_id',$program);
+            })->when($request->sub, function ($query, $sub) {
+                $sub = ($sub) ? 1 : 0;
+                $query->where('is_sub',$sub);
+            })
+            ->orderBy('created_at','ASC')
+            ->paginate($request->count)
+        );
+        return $data;
+    }
+
     public function statuses($request){
         $data = DefaultResource::collection(
             ListStatus::when($request->keyword, function ($query, $keyword) {

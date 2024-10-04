@@ -22,7 +22,7 @@ class HandleInertiaRequests extends Middleware
     {
         $currentRole = (\Auth::check()) ? \Auth::user()->role : null;
 
-        $lists = ListMenu::where('is_mother',1)->where('module','Executive')->orderBy('order','ASC')->get();
+        $lists = ListMenu::where('is_mother',1)->where('module','Executive')->where('is_active',1)->orderBy('order','ASC')->get();
         foreach($lists as $list){
             $submenus = [];
             if($list['has_child']){
@@ -37,7 +37,7 @@ class HandleInertiaRequests extends Middleware
             ];
         }
 
-        $lists = ListMenu::where('is_mother',1)->where('module','Reference')->where('group','Menu')->orderBy('order','ASC')->get();
+        $lists = ListMenu::where('is_mother',1)->where('module','Reference')->where('is_active',1)->where('group','Menu')->orderBy('order','ASC')->get();
         foreach($lists as $list){
             $submenus = [];
             if($list['has_child']){
@@ -52,7 +52,7 @@ class HandleInertiaRequests extends Middleware
             ];
         }
 
-        $lists = ListMenu::where('is_mother',1)->where('module','Reference')->where('group','List')->orderBy('order','ASC')->get();
+        $lists = ListMenu::where('is_mother',1)->where('module','Reference')->where('is_active',1)->where('group','List')->orderBy('order','ASC')->get();
         foreach($lists as $list){
             $submenus = [];
             if($list['has_child']){
@@ -62,6 +62,36 @@ class HandleInertiaRequests extends Middleware
                 }
             }
             $reference2[] = [
+                'main' => $list,
+                'submenus' => $submenus
+            ];
+        }
+
+        $lists = ListMenu::where('is_mother',1)->where('module','Reference')->where('group','Important')->where('is_active',1)->orderBy('order','ASC')->get();
+        foreach($lists as $list){
+            $submenus = [];
+            if($list['has_child']){
+                $subs = ListMenu::where('is_active',1)->where('group',$list['name'])->get();
+                foreach($subs as $menu){
+                    $submenus[] = $menu;
+                }
+            }
+            $reference3[] = [
+                'main' => $list,
+                'submenus' => $submenus
+            ];
+        }
+
+        $lists = ListMenu::where('is_mother',1)->where('module','Management')->where('group','Menu')->where('is_active',1)->orderBy('order','ASC')->get();
+        foreach($lists as $list){
+            $submenus = [];
+            if($list['has_child']){
+                $subs = ListMenu::where('is_active',1)->where('group',$list['name'])->get();
+                foreach($subs as $menu){
+                    $submenus[] = $menu;
+                }
+            }
+            $management[] = [
                 'main' => $list,
                 'submenus' => $submenus
             ];
@@ -80,8 +110,10 @@ class HandleInertiaRequests extends Middleware
             ],
             'menus' => [
                 'executive' => $executive,
+                'management' => $management,
                 'reference1' => $reference1,
-                'reference2' => $reference2
+                'reference2' => $reference2,
+                'reference3' => $reference3
             ]
         ];
     }
