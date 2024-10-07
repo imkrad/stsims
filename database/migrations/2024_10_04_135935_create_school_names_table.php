@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('school_names', function (Blueprint $table) {
-            $table->id();
+            $table->engine = 'InnoDB';
+            $table->tinyIncrements('id');
+            $table->string('name');
+            $table->integer('campus_id')->unsigned()->index();
+            $table->foreign('campus_id')->references('id')->on('school_campuses')->onDelete('cascade');
             $table->timestamps();
         });
     }

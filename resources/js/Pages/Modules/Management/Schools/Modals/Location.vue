@@ -20,6 +20,10 @@
                             <InputLabel value="Barangay" :message="form.errors.municipality_code"/>
                             <Multiselect :options="barangays" object v-model="form.barangay" label="name" :searchable="true" placeholder="Select Barangay" />
                         </BCol>
+                        <BCol lg="12" class="mt-1">
+                            <InputLabel value="Address"/>
+                            <TextInput v-model="form.address" type="text" class="form-control" placeholder="Please enter st.,road" @input="handleInput('address')" :light="true" />
+                        </BCol>
                     </BRow>  
                 </BCol>
             </BRow>
@@ -42,6 +46,7 @@ export default {
         return {
             currentUrl: window.location.origin,
             form: useForm({
+                address: null,
                 region: null,
                 province: null,
                 municipality: null,
@@ -81,7 +86,7 @@ export default {
     },
     computed: {
         isFormValid() {
-            return this.form.region && this.form.province && this.form.municipality && this.form.barangay;
+            return this.form.address && this.form.region && this.form.province && this.form.municipality && this.form.barangay;
         }
     },
     methods: { 
@@ -97,12 +102,35 @@ export default {
             this.editable = true;
             this.showModal = true;
         },
-        submit(){
-            const address = `${this.form.barangay.name}, ${this.form.municipality.name}, ${this.form.province.name}, ${this.form.region.name}`;
+        edit(data){
+            this.form.address = data.address.address;
+            this.form.region = {value: data.address.region.code, name: data.address.region.region};
+            this.form.province = {value: data.address.province.code, name: data.address.province.name};
+            this.form.municipality = {value: data.address.municipality.code, name: data.address.municipality.name};
+            this.form.barangay = {value: data.address.barangay.code, name: data.address.barangay.name};
+            const address = `${this.form.address}, ${this.form.barangay.name}, ${this.form.municipality.name}, ${this.form.province.name}, ${this.form.region.name}`;
             this.$emit('submit', {
                 address: address,
                 index: this.index,
                 form: {
+                    info: this.form.address,
+                    region: this.form.region,
+                    province: this.form.province,
+                    municipality: this.form.municipality,
+                    barangay: this.form.barangay
+                }
+            });
+        },
+        openEdit(){
+            this.showModal = true;
+        },  
+        submit(){
+            const address = `${this.form.address}, ${this.form.barangay.name}, ${this.form.municipality.name}, ${this.form.province.name}, ${this.form.region.name}`;
+            this.$emit('submit', {
+                address: address,
+                index: this.index,
+                form: {
+                    info: this.form.address,
                     region: this.form.region,
                     province: this.form.province,
                     municipality: this.form.municipality,

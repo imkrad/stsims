@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('shortcut');
             $table->string('combiner')->nullable();
             $table->string('avatar',200)->default('school.jpg');
-            $table->tinyInteger('class_id')->unsigned()->index();
-            $table->foreign('class_id')->references('id')->on('list_dropdowns')->onDelete('cascade');
             $table->boolean('is_upsystem')->default(0);
             $table->boolean('is_active')->default(1);
+            $table->tinyInteger('class_id')->unsigned()->index();
+            $table->foreign('class_id')->references('id')->on('list_dropdowns')->onDelete('cascade');
             $table->timestamps();
         });
     }

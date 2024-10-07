@@ -1,5 +1,5 @@
 <template>
-    <PageHeader title="List of Schools" pageTitle="List" />
+    <PageHeader title="List of Campuses" pageTitle="List" />
     <div class="chat-wrapper d-lg-flex gap-1 mx-n4 mt-n4 p-1">
         <div class="file-manager-content w-100 p-4 pb-0" style="height: calc(100vh - 180px); overflow: auto;" ref="box">
 
@@ -7,8 +7,10 @@
                 <b-col lg>
                     <div class="input-group mb-1">
                         <span class="input-group-text"> <i class="ri-search-line search-icon"></i></span>
-                        <input type="text" v-model="filter.keyword" placeholder="Search School" class="form-control" style="width: 100px;">
-                        <Multiselect class="white" style="width: 10%;" :options="dropdowns.classes" v-model="filter.class" label="name" :searchable="true" placeholder="Select Class" />
+                        <input type="text" v-model="filter.keyword" placeholder="Search Campus" class="form-control" style="width: 100px;">
+                        <Multiselect class="white" style="width: 10%;" :options="dropdowns.terms" v-model="filter.term" label="name" :searchable="true" placeholder="Select Term" />
+                        <Multiselect class="white" style="width: 10%;" :options="dropdowns.gradings" v-model="filter.grading" label="name" :searchable="true" placeholder="Select Grading" />
+                        <Multiselect class="white" style="width: 10%;" :options="dropdowns.agencies" v-model="filter.agency" label="name" :searchable="true" placeholder="Select Agency" />
                         <span @click="refresh()" class="input-group-text" v-b-tooltip.hover title="Refresh" style="cursor: pointer;"> 
                             <i class="bx bx-refresh search-icon"></i>
                         </span>
@@ -23,12 +25,13 @@
                     <thead class="table-light">
                         <tr class="fs-11">
                             <th style="width: 3%;"></th>
-                            <th style="width: 40%;">Name</th>
+                            <th style="width: 35%;">Name</th>
                             <th style="width: 10%;" class="text-center">Abbreviation</th>
                             <th style="width: 10%;" class="text-center">Class</th>
-                            <th style="width: 10%;" class="text-center">Combiner</th>
-                            <th style="width: 10%;" class="text-center">Campuses</th>
-                            <th style="width: 10%;" class="text-center">Status</th>
+                            <th style="width: 10%;" class="text-center">Grading</th>
+                            <th style="width: 10%;" class="text-center">Term</th>
+                            <th style="width: 10%;" class="text-center">Agency</th>
+                            <th style="width: 5%;" class="text-center">Status</th>
                             <th style="width: 7%;"></th>
                         </tr>
                     </thead>
@@ -42,18 +45,22 @@
                                 </div>
                             </td>
                             <td>
-                                <h5 class="fs-13 mb-0 text-dark">{{list.name}}</h5>
+                                <h5 class="fs-13 mb-0 text-dark">{{list.school.name}} {{(list.is_main) ? '' : '- '+list.campus}}</h5>
+                                <p class="fs-12 text-muted mb-0">{{(list.address.address === '-') ? '' : list.address.address+','}} {{list.address.barangay.name}}, {{list.address.municipality.name}}, {{list.address.province.name}}, , {{list.address.region.region}}</p>
                             </td>
-                            <td class="text-center">{{list.shortcut}}</td>
-                            <td class="text-center">{{list.class.name}}</td>
-                            <td class="text-center">{{list.combiner}}</td>
-                            <td class="text-center">{{list.campuses_count}}</td>
+                            <td class="text-center">{{list.school.shortcut}}</td>
+                            <td class="text-center">
+                                {{list.school.class.name}} {{ (list.is_main) ? (list.school.class.name === 'SUC') ? ' - Main' : '' : ' - Satellite' }}
+                            </td>
+                            <td class="text-center">{{list.grading.name}}</td>
+                            <td class="text-center">{{list.term.name}}</td>
+                            <td class="text-center">{{list.agency.acronym}}</td>
                             <td class="text-center">
                                 <span v-if="list.is_active" class="badge bg-success">Active</span>
                                 <span v-else class="badge bg-danger">Inactive</span>
                             </td>
-                            <td class="text-center">
-                                <b-button @click="openView(list.id)" variant="soft-info" v-b-tooltip.hover title="View" size="sm" class="me-1">
+                            <td class="text-end">
+                                <b-button @click="openEdit(list,index)" variant="soft-info" v-b-tooltip.hover title="View" size="sm" class="me-1">
                                     <i class="ri-eye-fill align-bottom"></i>
                                 </b-button>
                                 <b-button @click="openEdit(list,index)" variant="soft-warning" v-b-tooltip.hover title="Edit" size="sm">
@@ -84,18 +91,26 @@ export default {
             links: {},
             filter: { 
                 keyword: null,
-                class: null
+                term: null,
+                grading: null,
+                agency: null
             },
-            index: null,
+            index: null
         }
     },
     watch: {
         "filter.keyword"(newVal){
             this.checkSearchStr(newVal);
         },
-        "filter.class"(newVal){
+        "filter.term"(newVal){
             this.fetch();
-        }
+        },
+        "filter.grading"(newVal){
+            this.fetch();
+        },
+        "filter.agency"(newVal){
+            this.fetch();
+        },
     },
     created(){
         this.fetch();
@@ -109,9 +124,11 @@ export default {
             axios.get(page_url,{
                 params : {
                     keyword: this.filter.keyword,
-                    class: this.filter.class,
+                    term: this.filter.term,
+                    grading: this.filter.grading,
+                    agency: this.filter.agency,
                     count: ((window.innerHeight-350)/59),
-                    option: 'schools'
+                    option: 'campuses'
                 }
             })
             .then(response => {
@@ -125,9 +142,6 @@ export default {
         },
         openCreate(){
             this.$inertia.visit('/management/school-create');
-        },
-        openView(id){
-            this.$inertia.visit('/management/school-view?id='+id);
         },
         openUpdate(data,index){
             this.index = index;

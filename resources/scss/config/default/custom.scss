@@ -716,3 +716,10 @@ File: Custom Css File
 .form-floating > .form-label {
   font-size: 12px;
 }
+
+.thead-fixed {
+  position: sticky;
+  top: 0;
+  background-color: #fff; /* Set the background color for the fixed header */
+  z-index: 1; /* Ensure the fixed header is above the scrolling content */
+}
