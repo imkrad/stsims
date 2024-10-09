@@ -38,6 +38,9 @@
                                     </BCol>
                                     <BCol md="auto">
                                         <div class="hstack gap-1 flex-wrap">
+                                            <button @click="openName()" type="button" v-b-tooltip.hover title="Add name" class="btn py-0 fs-16 text-body me-n3">
+                                                <i class="ri-add-circle-fill"></i>
+                                            </button>
                                             <button @click="back()" type="button" class="btn py-0 fs-16 text-body">
                                                 <i class="ri-share-line"></i>
                                             </button>
@@ -59,7 +62,7 @@
                                     <Semester :semesters="campus.semesters" :terms="dropdowns.terms" :term="campus.term.name" :campus="campus.id"/>
                                 </BTab>
                                 <BTab title="Grading">
-                                    
+                                    <Grading :gradings="campus.gradings" :campus="campus.id"/>
                                 </BTab>
                             </BTabs>
                         </div>
@@ -90,11 +93,12 @@ import Name from './Modals/Name.vue';
 import simplebar from "simplebar-vue";
 import Semester from './Components/Semester/Index.vue';
 import Course from './Components/Course/Index.vue';
+import Grading from './Components/Grading/Index.vue';
 import Multiselect from "@vueform/multiselect";
 import PageHeader from '@/Shared/Components/PageHeader.vue';
 import Pagination from "@/Shared/Components/Pagination.vue";
 export default {
-    components: { PageHeader, Pagination, Multiselect, simplebar, Name, Course, Semester},
+    components: { PageHeader, Pagination, Multiselect, simplebar, Name, Course, Semester, Grading},
     props:['campus','dropdowns'],
     data(){
         return {
@@ -117,7 +121,7 @@ export default {
             this.$refs.campus.edit(data);
         },
         openName(){
-            this.$refs.name.show();
+            this.$refs.name.show(this.campus.id);
         },
         back(){
             this.$inertia.visit('/management/campuses');

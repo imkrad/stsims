@@ -41,7 +41,7 @@ class ManagementRequest extends FormRequest
                 return [
                     'type' => 'required|string',
                     'years' => 'required|string',
-                    'course_id' => 'required|integer|unique:school_campus_courses,course_id,NULL,'.$this->course_id.',campus_id,' . $this->campus_id,
+                    'course_id' => 'required|integer|unique:school_campus_courses,course_id,NULL,'.$this->course_id.',campus_id,' . $this->campus_id.',type,'.$this->type,
                     'campus_id' => 'required|integer'
                 ];
             break;
@@ -56,10 +56,19 @@ class ManagementRequest extends FormRequest
             case 'campus-semester':
                 return [
                     'academic_year' => 'required',
-                    'semester_id' => 'required|unique:school_semesters,semester_id,NULL,id,campus_id,'.$this->campus_id.',academic_year,'.$this->academic_year,
+                    'semester_id' => 'required|unique:school_campus_semesters,semester_id,NULL,id,campus_id,'.$this->campus_id.',academic_year,'.$this->academic_year,
                     'start_at' => 'required',
                     'end_at' => 'required',
                     'campus_id' => 'required'
+                ];
+            break;
+            case 'campus-grading':
+                return [
+                    'grade' => 'required|integer',
+                    'upper_limit' => 'required|integer',
+                    'lower_limit' => 'required|integer',
+                    'is_failed' => 'required',
+                    'is_incomplete' => 'required',
                 ];
             break;
             default: 

@@ -15,7 +15,13 @@ class ManagementController extends Controller
 {
     use HandlesTransaction;
 
-    public function __construct(SchoolClass $school, CourseClass $course, CertificationClass $certification,CampusClass $campus,DropdownClass $dropdown){
+    public function __construct(
+        SchoolClass $school, 
+        CourseClass $course, 
+        CertificationClass $certification,
+        CampusClass $campus,
+        DropdownClass $dropdown
+    ){
         $this->school = $school;
         $this->course = $course;
         $this->campus = $campus;
@@ -57,7 +63,10 @@ class ManagementController extends Controller
                 case 'campus-semester':
                     return $this->campus->semester($request);
                 break;
-                case 'name':
+                case 'campus-grading':
+                    return $this->campus->grading($request);
+                break;
+                case 'campus-name':
                     return $this->campus->name($request);
                 break;
             }
@@ -76,6 +85,12 @@ class ManagementController extends Controller
             switch($request->option){
                 case 'campus':
                     return $this->campus->update($request);
+                break;
+                case 'campus-course':
+                    return $this->campus->courseUpdate($request);
+                break;
+                case 'campus-grading':
+                    return $this->campus->gradingUpdate($request);
                 break;
             }
         });

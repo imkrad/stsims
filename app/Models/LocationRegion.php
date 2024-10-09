@@ -12,11 +12,6 @@ class LocationRegion extends Model
     public $timestamps = false;
     protected $primaryKey = 'code';
     protected $keyType = 'string';
-
-    public function role()
-    {
-        return $this->morphOne('App\Models\UserRole','roleable');
-    }
     
     public function provinces()
     {

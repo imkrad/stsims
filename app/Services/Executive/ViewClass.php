@@ -19,7 +19,7 @@ class ViewClass
     public function users($request){
         $data = UserResource::collection(
             User::query()
-            ->with('profile','userrole.type','userrole.laboratory')
+            ->with('profile','myrole.role','myrole.agency')
             ->when($request->keyword, function ($query, $keyword) {
                 $query->whereHas('profile',function ($query) use ($keyword) {
                     $query->where(\DB::raw('concat(firstname," ",lastname)'), 'LIKE', "%{$keyword}%")
@@ -28,14 +28,14 @@ class ViewClass
                     $query->where('username', 'LIKE', "%{$keyword}%")->whereNotIn('role',['Scholar','Administrator']);
                 });
             })
-            ->when($request->laboratory, function ($query, $laboratory) {
-                $query->whereHas('userrole',function ($query) use ($laboratory) {
-                    $query->where('laboratory_id',$laboratory);
+            ->when($request->agency, function ($query, $agency) {
+                $query->whereHas('myrole',function ($query) use ($agency) {
+                    $query->where('agency_id',$agency);
                 });
             })
-            ->when($request->type, function ($query, $type) {
-                $query->whereHas('userrole',function ($query) use ($type) {
-                    $query->where('laboratory_type',$type);
+            ->when($request->role, function ($query, $role) {
+                $query->whereHas('myrole',function ($query) use ($role) {
+                    $query->where('role_id',$role);
                 });
             })
             ->where('role','Staff')

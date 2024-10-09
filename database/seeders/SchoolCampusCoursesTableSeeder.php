@@ -15,7 +15,7 @@ class SchoolCampusCoursesTableSeeder extends Seeder
     {
         
 
-        \DB::table('school_campus_courses')->truncate();
+        \DB::table('school_campus_courses')->delete();
         
         \DB::table('school_campus_courses')->insert(array (
             0 => 

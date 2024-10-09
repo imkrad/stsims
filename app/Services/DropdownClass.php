@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\Models\SchoolCampus;
+use App\Models\ListRole;
 use App\Models\ListCourse;
 use App\Models\ListAgency;
 use App\Models\ListDropdown;
@@ -12,10 +14,21 @@ use App\Models\LocationBarangay;
 
 class DropdownClass
 {   
+    public function roles(){
+        $data = ListRole::all()->map(function ($item) {
+            return [
+                'value' => $item->id,
+                'name' => $item->name
+            ];
+        });
+        return $data;
+    }
+
     public function agencies(){
         $data = ListAgency::all()->map(function ($item) {
             return [
                 'value' => $item->id,
+                'region' => $item->region_code,
                 'name' => $item->acronym
             ];
         });
@@ -130,6 +143,20 @@ class DropdownClass
             return [
                 'value' => $item->code,
                 'name' => $item->name
+            ];
+        });
+        return $data;
+    }
+
+    public function schools($code){
+        $data = SchoolCampus::withWhereHas('school', function ($query) use ($code){
+            $query->where('name','LIKE',"%{$code}%")->orWhere('shortcut','LIKE',"%{$code}%");
+        })
+        ->get()->map(function ($item) {
+            $name = ($item->campus === 'Main') ? '' : ' - '.$item->campus;
+            return [
+                'value' => $item->id,
+                'name' => $item->school->name.$name
             ];
         });
         return $data;

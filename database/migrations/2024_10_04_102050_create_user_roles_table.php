@@ -15,6 +15,8 @@ return new class extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->morphs('roleable');
+            $table->tinyInteger('agency_id')->unsigned()->index();
+            $table->foreign('agency_id')->references('id')->on('list_agencies')->onDelete('cascade');
             $table->tinyInteger('role_id')->unsigned()->index();
             $table->foreign('role_id')->references('id')->on('list_roles')->onDelete('cascade');
             $table->integer('user_id')->unsigned()->index();

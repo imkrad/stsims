@@ -13,6 +13,11 @@ class ListAgency extends Model
         'name', 'code', 'acronym', 'avatar', 'is_active', 'region_code'
     ];
 
+    public function role()
+    {
+        return $this->morphOne('App\Models\UserRole','roleable');
+    }
+
     public function region()
     {
         return $this->belongsTo('App\Models\LocationRegion', 'region_code', 'code');

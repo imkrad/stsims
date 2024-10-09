@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Listeners\LoginFailed;
 use App\Listeners\LoginSuccessful;
+use App\Observers\SemesterObserver;
+use App\Models\SchoolCampusSemester;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Event;
 
@@ -28,5 +30,7 @@ class AppServiceProvider extends ServiceProvider
             LoginSuccessful::class,
             LoginFailed::class
         );
+
+        SchoolCampusSemester::observe(SemesterObserver::class);
     }
 }

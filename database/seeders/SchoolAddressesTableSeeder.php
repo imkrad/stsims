@@ -390,6 +390,78 @@ class SchoolAddressesTableSeeder extends Seeder
                 'created_at' => '2024-10-07 12:04:01',
                 'updated_at' => '2024-10-07 12:04:01',
             ),
+            31 => 
+            array (
+                'id' => 32,
+                'address' => 'Bypass Road Polanco-Dapitan',
+                'barangay_code' => '097202002',
+                'municipality_code' => '097202000',
+                'province_code' => '097200000',
+                'region_code' => '090000000',
+                'campus_id' => 32,
+                'created_at' => '2024-10-09 13:39:15',
+                'updated_at' => '2024-10-09 13:39:15',
+            ),
+            32 => 
+            array (
+                'id' => 33,
+                'address' => 'Don Toribio St.',
+                'barangay_code' => '097332087',
+                'municipality_code' => '097332000',
+                'province_code' => '097300000',
+                'region_code' => '090000000',
+                'campus_id' => 33,
+                'created_at' => '2024-10-09 13:42:10',
+                'updated_at' => '2024-10-09 13:42:10',
+            ),
+            33 => 
+            array (
+                'id' => 34,
+                'address' => 'Lustre Drive',
+                'barangay_code' => '097332075',
+                'municipality_code' => '097332000',
+                'province_code' => '097300000',
+                'region_code' => '090000000',
+                'campus_id' => 34,
+                'created_at' => '2024-10-09 13:46:19',
+                'updated_at' => '2024-10-09 13:46:19',
+            ),
+            34 => 
+            array (
+                'id' => 35,
+                'address' => 'Capitol Ave.',
+                'barangay_code' => '097202009',
+                'municipality_code' => '097202000',
+                'province_code' => '097200000',
+                'region_code' => '090000000',
+                'campus_id' => 35,
+                'created_at' => '2024-10-09 13:49:48',
+                'updated_at' => '2024-10-09 13:49:48',
+            ),
+            35 => 
+            array (
+                'id' => 36,
+                'address' => 'Main road',
+                'barangay_code' => '099701042',
+                'municipality_code' => '099701000',
+                'province_code' => '150700000',
+                'region_code' => '150000000',
+                'campus_id' => 36,
+                'created_at' => '2024-10-09 13:53:59',
+                'updated_at' => '2024-10-09 13:53:59',
+            ),
+            36 => 
+            array (
+                'id' => 37,
+                'address' => 'Sanson St.',
+                'barangay_code' => '097322041',
+                'municipality_code' => '097322000',
+                'province_code' => '097300000',
+                'region_code' => '090000000',
+                'campus_id' => 37,
+                'created_at' => '2024-10-09 13:57:04',
+                'updated_at' => '2024-10-09 13:57:04',
+            ),
         ));
 
         

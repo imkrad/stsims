@@ -8,16 +8,22 @@ use App\Traits\HandlesTransaction;
 use App\Services\Executive\ViewClass;
 use App\Services\Executive\SaveClass;
 use App\Services\Executive\UpdateClass;
-use App\Services\Laboratory\DropdownClass;
+use App\Services\DropdownClass;
 
 class ExecutiveController extends Controller
 {
     use HandlesTransaction;
 
-    public function __construct(ViewClass $view, SaveClass $save, UpdateClass $update){
+    public function __construct(
+        ViewClass $view, 
+        SaveClass $save, 
+        UpdateClass $update, 
+        DropdownClass $dropdown
+    ){
         $this->view = $view;
         $this->save = $save;
         $this->update = $update;
+        $this->dropdown = $dropdown;
     }
 
     public function index(Request $request){
@@ -46,7 +52,10 @@ class ExecutiveController extends Controller
         switch($code){
             case 'users':
                 return inertia('Modules/Executive/Users/Index',[
-                    'dropdowns' => []
+                    'dropdowns' => [
+                        'roles' => $this->dropdown->roles(),
+                        'agencies' => $this->dropdown->agencies()
+                    ]
                 ]);
             break;
             case 'roles':

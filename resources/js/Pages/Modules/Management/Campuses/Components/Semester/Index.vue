@@ -35,7 +35,7 @@
                         <td class="text-center">{{ list.start_at }}</td>
                         <td class="text-center">{{ list.end_at }}</td>
                         <td class="text-center">{{ list.year }}</td>
-                        <td class="text-center">{{ list.semester }}</td>
+                        <td class="text-center">{{ list.semester.name }}</td>
                         <td class="text-center">
                             <span v-if="list.is_active" class="badge bg-success">Active</span>
                             <span v-else class="badge bg-danger">Inactive</span>

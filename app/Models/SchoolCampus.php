@@ -23,6 +23,11 @@ class SchoolCampus extends Model
         'agency_id'
     ];
 
+    public function role()
+    {
+        return $this->morphOne('App\Models\UserRole','roleable');
+    }
+    
     public function grading()
     {
         return $this->belongsTo('App\Models\ListDropdown', 'grading_id', 'id');
@@ -50,12 +55,22 @@ class SchoolCampus extends Model
 
     public function names()
     {
-        return $this->hasMany('App\Models\SchoolName', 'campus_id');
+        return $this->hasMany('App\Models\SchoolCampusName', 'campus_id');
     } 
 
     public function courses()
     {
         return $this->hasMany('App\Models\SchoolCampusCourse', 'campus_id');
+    } 
+
+    public function gradings()
+    {
+        return $this->hasMany('App\Models\SchoolCampusGrading', 'campus_id');
+    } 
+
+    public function semesters()
+    {
+        return $this->hasMany('App\Models\SchoolCampusSemester', 'campus_id');
     } 
 
     protected static $recordEvents = ['updated','created'];

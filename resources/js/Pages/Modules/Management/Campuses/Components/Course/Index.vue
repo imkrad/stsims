@@ -45,7 +45,7 @@
                             <b-button @click="openCertification(list.certifications,list.id,list.course.shortcut)" class="me-1" variant="soft-primary" v-b-tooltip.hover title="Certificate" size="sm">
                                 <i class="ri-file-paper-2-fill align-bottom"></i>
                             </b-button>
-                            <b-button @click="openEdit(list,index)" variant="soft-warning" v-b-tooltip.hover title="Edit" size="sm">
+                            <b-button @click="openEdit(list)" variant="soft-warning" v-b-tooltip.hover title="Edit" size="sm">
                                 <i class="ri-pencil-fill align-bottom"></i>
                             </b-button>
                         </td>
@@ -68,12 +68,16 @@ export default {
         return {
             filter: {
                 keyword: null
-            }
+            },
+            index: null,
         }
     },
     methods: {
         openCreate(){
             this.$refs.create.show();
+        },
+        openEdit(data){
+            this.$refs.create.edit(data);
         },
         openCertification(data,id,course){
             if(data.length > 0){

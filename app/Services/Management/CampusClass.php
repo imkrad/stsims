@@ -2,11 +2,13 @@
 
 namespace App\Services\Management;
 
+use Carbon\Carbon;
 use App\Models\SchoolCampus;
 use App\Models\SchoolAddress;
 use App\Models\SchoolCampusName;
 use App\Models\SchoolCampusCourse;
 use App\Models\SchoolCampusSemester;
+use App\Models\SchoolCampusGrading;
 use App\Models\SchoolCampusCourseCertification;
 use App\Http\Resources\DefaultResource;
 
@@ -39,19 +41,6 @@ class CampusClass
             ->paginate($request->count)
         );
         return $data;
-    }
-
-    public function name($request){
-        $data = SchoolCampusName::create([
-            'name' => $request->name,
-            'campus_id' => $request->campus_id
-        ]);
-
-        return [
-            'data' => $data,
-            'message' => 'Name created successfully.', 
-            'info' => 'The previous name has been added.',
-        ];
     }
 
     public function save($request){
@@ -105,7 +94,8 @@ class CampusClass
     }
 
     public function view($request){
-        $data = SchoolCampus::with('school.class','grading','term','agency','names')
+        $data = SchoolCampus::with('school.class','grading','term','agency')
+        ->with('names','gradings','semesters.semester')
         ->with(['courses.course','courses.certifications' => function ($query) {
             $query->where('is_active', 1);
         },])
@@ -115,18 +105,13 @@ class CampusClass
         return $data;
     }
 
-    public function semester(){
-        $start = Carbon::parse($request->start_at)->format('Y-m-d');
-        $end = Carbon::parse($request->end_at)->format('Y-m-d');
-        $data = SchoolCampusSemester::create(array_merge($request->all(),['is_active' => true,'start_at' => $start, 'end_at' => $end]));
-        if($data){
-            $ids = SchoolCampusSemester::where('campus_id',$request->campus_id)->where('is_active',1)->where('id','!=',$data->id)->pluck('id');
-            foreach($ids as $id){
-                $scholar = ScholarEnrollment::where('is_enrolled',0)->where('semester_id',$id)->update(['is_missed' => 1]);
-            }
-            SchoolCampusSemester::where('campus_id',$request->campus_id)->where('id','!=',$data->id)->update(['is_active' => 0]);
-            NewSemester::dispatch($data->id)->delay(now()->addSeconds(10));
-        }
+    public function semester($request){
+        $data = SchoolCampusSemester::create(array_merge($request->all(),[
+            'is_active' => true,
+            'start_at' => Carbon::parse($request->start_at)->format('Y-m-d'), 
+            'end_at' => Carbon::parse($request->end_at)->format('Y-m-d')
+        ]));
+    
         return [
             'data' => $data,
             'message' => 'Semester added successfully.', 
@@ -139,7 +124,45 @@ class CampusClass
         return [
             'data' => $data,
             'message' => 'Course added successfully.', 
-            'info' => 'The new cousre has been added.',
+            'info' => 'The new course has been added.',
+        ];
+    }
+
+    public function courseUpdate($request){
+        $data = SchoolCampusCourse::findOrFail($request->id);
+        $data->type = $request->type;
+        $data->years = $request->years;
+        $data->save();
+
+        return [
+            'data' => $data,
+            'message' => 'Course updated successfully.', 
+            'info' => 'The course has been updated.',
+        ];
+    }
+
+    public function grading($request){
+        $data = SchoolCampusGrading::create($request->all());
+        return [
+            'data' => $data,
+            'message' => 'Grade added successfully.', 
+            'info' => 'The new grade has been added.',
+        ];
+    }
+
+    public function gradingUpdate($request){
+        $data = SchoolCampusGrading::findOrFail($request->id);
+        $data->grade = $request->grade;
+        $data->upper_limit = $request->upper_limit;
+        $data->lower_limit = $request->lower_limit;
+        $data->is_failed = $request->is_failed;
+        $data->is_incomplete = $request->is_incomplete;
+        $data->save();
+        
+        return [
+            'data' => $data,
+            'message' => 'Grade updated successfully.', 
+            'info' => 'The grade has been updated.',
         ];
     }
 
@@ -156,7 +179,16 @@ class CampusClass
         ];
     }
 
-    public function grading(){
-        
+    public function name($request){
+        $data = SchoolCampusName::create([
+            'name' => $request->name,
+            'campus_id' => $request->campus_id
+        ]);
+
+        return [
+            'data' => $data,
+            'message' => 'Name created successfully.', 
+            'info' => 'The previous name has been added.',
+        ];
     }
 }

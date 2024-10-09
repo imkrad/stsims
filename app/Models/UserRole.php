@@ -9,7 +9,7 @@ class UserRole extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id','role_id'];
+    protected $fillable = ['user_id','role_id','agency_id'];
 
     public function roleable()
     {
@@ -24,5 +24,10 @@ class UserRole extends Model
     public function role()
     {
         return $this->belongsTo('App\Models\ListRole', 'role_id', 'id');
+    }
+
+    public function agency()
+    {
+        return $this->belongsTo('App\Models\ListAgency', 'agency_id', 'id');
     }
 }
