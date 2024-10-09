@@ -2,9 +2,12 @@
 
 namespace App\Services\Management;
 
-use App\Models\SchoolName;
 use App\Models\SchoolCampus;
 use App\Models\SchoolAddress;
+use App\Models\SchoolCampusName;
+use App\Models\SchoolCampusCourse;
+use App\Models\SchoolCampusSemester;
+use App\Models\SchoolCampusCourseCertification;
 use App\Http\Resources\DefaultResource;
 
 class CampusClass
@@ -39,7 +42,7 @@ class CampusClass
     }
 
     public function name($request){
-        $data = SchoolName::create([
+        $data = SchoolCampusName::create([
             'name' => $request->name,
             'campus_id' => $request->campus_id
         ]);
@@ -91,11 +94,69 @@ class CampusClass
             ($request->barangay) ? $data->barangay_code = $request->barangay['value'] : '';
             $data->save();
         }
-
+        $data =  SchoolCampus::with('school.class','grading','term','agency')
+        ->with('address.region','address.province','address.municipality','address.barangay')
+        ->where('id',$request->id)->first();
         return [
             'data' => new DefaultResource($data),
             'message' => 'Campus updated successfully.', 
             'info' => "The campus details has been changed."
         ];
+    }
+
+    public function view($request){
+        $data = SchoolCampus::with('school.class','grading','term','agency','names')
+        ->with(['courses.course','courses.certifications' => function ($query) {
+            $query->where('is_active', 1);
+        },])
+        ->with('address.region','address.province','address.municipality','address.barangay')
+        ->where('id',$request->id)
+        ->first();
+        return $data;
+    }
+
+    public function semester(){
+        $start = Carbon::parse($request->start_at)->format('Y-m-d');
+        $end = Carbon::parse($request->end_at)->format('Y-m-d');
+        $data = SchoolCampusSemester::create(array_merge($request->all(),['is_active' => true,'start_at' => $start, 'end_at' => $end]));
+        if($data){
+            $ids = SchoolCampusSemester::where('campus_id',$request->campus_id)->where('is_active',1)->where('id','!=',$data->id)->pluck('id');
+            foreach($ids as $id){
+                $scholar = ScholarEnrollment::where('is_enrolled',0)->where('semester_id',$id)->update(['is_missed' => 1]);
+            }
+            SchoolCampusSemester::where('campus_id',$request->campus_id)->where('id','!=',$data->id)->update(['is_active' => 0]);
+            NewSemester::dispatch($data->id)->delay(now()->addSeconds(10));
+        }
+        return [
+            'data' => $data,
+            'message' => 'Semester added successfully.', 
+            'info' => 'The new semester has been added.',
+        ];
+    }
+
+    public function course($request){
+        $data = SchoolCampusCourse::create($request->all());
+        return [
+            'data' => $data,
+            'message' => 'Course added successfully.', 
+            'info' => 'The new cousre has been added.',
+        ];
+    }
+
+    public function certification($request){
+        $data = SchoolCampusCourseCertification::create($request->all());
+        if($data){
+            $certification = SchoolCampusCourseCertification::where('course_id',$request->course_id)->update(['is_active' => 0]);
+            $course = SchoolCampusCourse::where('id',$request->course_id)->update(['is_active' => 1]);
+        }
+        return [
+            'data' => $data,
+            'message' => 'Certification added successfully.', 
+            'info' => 'The new certification has been added.',
+        ];
+    }
+
+    public function grading(){
+        
     }
 }

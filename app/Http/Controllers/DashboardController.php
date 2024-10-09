@@ -35,6 +35,9 @@ class DashboardController extends Controller
             case 'barangays':
                 return $this->dropdown->barangays($request->code);
             break;
+            case 'courses':
+                return $this->dropdown->courses($request->code);
+            break;
         }
     }
 }

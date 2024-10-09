@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\LogOptions;
 
-
 class SchoolAddress extends Model
 {
     use HasFactory, LogsActivity;

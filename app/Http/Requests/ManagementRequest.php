@@ -37,6 +37,31 @@ class ManagementRequest extends FormRequest
                     'agency_id' => 'required|integer'
                 ];
             break;
+            case 'campus-course':
+                return [
+                    'type' => 'required|string',
+                    'years' => 'required|string',
+                    'course_id' => 'required|integer|unique:school_campus_courses,course_id,NULL,'.$this->course_id.',campus_id,' . $this->campus_id,
+                    'campus_id' => 'required|integer'
+                ];
+            break;
+            case 'campus-course-certification':
+                return [
+                    'start_at' => 'required',
+                    'end_at' => 'required',
+                    'certification_id' => 'required|integer',
+                    'course_id' => 'required|integer'
+                ];
+            break;
+            case 'campus-semester':
+                return [
+                    'academic_year' => 'required',
+                    'semester_id' => 'required|unique:school_semesters,semester_id,NULL,id,campus_id,'.$this->campus_id.',academic_year,'.$this->academic_year,
+                    'start_at' => 'required',
+                    'end_at' => 'required',
+                    'campus_id' => 'required'
+                ];
+            break;
             default: 
                 return [];
         }

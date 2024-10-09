@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\LogOptions;
 
-
 class SchoolCampus extends Model
 {
     use HasFactory, LogsActivity;
@@ -52,6 +51,11 @@ class SchoolCampus extends Model
     public function names()
     {
         return $this->hasMany('App\Models\SchoolName', 'campus_id');
+    } 
+
+    public function courses()
+    {
+        return $this->hasMany('App\Models\SchoolCampusCourse', 'campus_id');
     } 
 
     protected static $recordEvents = ['updated','created'];

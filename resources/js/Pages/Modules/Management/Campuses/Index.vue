@@ -60,7 +60,7 @@
                                 <span v-else class="badge bg-danger">Inactive</span>
                             </td>
                             <td class="text-end">
-                                <b-button @click="openEdit(list,index)" variant="soft-info" v-b-tooltip.hover title="View" size="sm" class="me-1">
+                                <b-button @click="openView(list.id)" variant="soft-info" v-b-tooltip.hover title="View" size="sm" class="me-1">
                                     <i class="ri-eye-fill align-bottom"></i>
                                 </b-button>
                                 <b-button @click="openEdit(list,index)" variant="soft-warning" v-b-tooltip.hover title="Edit" size="sm">
@@ -74,14 +74,16 @@
             </div>
         </div>
     </div>
+    <Campus :dropdowns="dropdowns" ref="campus"/>
 </template>
 <script>
 import _ from 'lodash';
+import Campus from './Modals/Campus.vue';
 import Multiselect from "@vueform/multiselect";
 import PageHeader from '@/Shared/Components/PageHeader.vue';
 import Pagination from "@/Shared/Components/Pagination.vue";
 export default {
-    components: { PageHeader, Pagination, Multiselect },
+    components: { PageHeader, Pagination, Multiselect, Campus },
     props:['dropdowns'],
     data(){
         return {
@@ -111,6 +113,14 @@ export default {
         "filter.agency"(newVal){
             this.fetch();
         },
+        '$page.props.flash' : {
+            deep: true,
+            handler(val = null) {
+                if(val.data){
+                    this.lists[this.index] = val.data.data;
+                }
+            }
+        }
     },
     created(){
         this.fetch();
@@ -142,6 +152,13 @@ export default {
         },
         openCreate(){
             this.$inertia.visit('/management/school-create');
+        },
+        openView(id){
+            this.$inertia.visit('/management/campus-view?id='+id);
+        },
+        openEdit(data,index){
+            this.index = index;
+            this.$refs.campus.edit(data);
         },
         openUpdate(data,index){
             this.index = index;

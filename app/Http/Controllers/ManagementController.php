@@ -48,6 +48,15 @@ class ManagementController extends Controller
                 case 'campus':
                     return $this->campus->save($request);
                 break;
+                case 'campus-course':
+                    return $this->campus->course($request);
+                break;
+                case 'campus-course-certification':
+                    return $this->campus->certification($request);
+                break;
+                case 'campus-semester':
+                    return $this->campus->semester($request);
+                break;
                 case 'name':
                     return $this->campus->name($request);
                 break;
@@ -88,16 +97,6 @@ class ManagementController extends Controller
                     ]
                 ]);
             break;
-            case 'campuses':
-                return inertia('Modules/Management/Campuses/Index',[
-                    'dropdowns' => [
-                        'gradings' => $this->dropdown->gradings(),
-                        'terms' => $this->dropdown->terms(),
-                        'regions' => $this->dropdown->regions(),
-                        'agencies' => $this->dropdown->agencies()
-                    ]
-                ]);
-            break;
             case 'school-view':
                 return inertia('Modules/Management/Schools/View',[
                     'school' => $this->school->view($request),
@@ -118,6 +117,25 @@ class ManagementController extends Controller
                         'terms' => $this->dropdown->terms(),
                         'regions' => $this->dropdown->regions(),
                         'agencies' => $this->dropdown->agencies()
+                    ]
+                ]);
+            break;
+            case 'campuses':
+                return inertia('Modules/Management/Campuses/Index',[
+                    'dropdowns' => [
+                        'gradings' => $this->dropdown->gradings(),
+                        'terms' => $this->dropdown->terms(),
+                        'regions' => $this->dropdown->regions(),
+                        'agencies' => $this->dropdown->agencies()
+                    ]
+                ]);
+            break;
+            case 'campus-view':
+                return inertia('Modules/Management/Campuses/View',[
+                    'campus' => $this->campus->view($request),
+                    'dropdowns' => [
+                        'certifications' => $this->dropdown->certifications(),
+                        'terms' => $this->dropdown->term_types(),
                     ]
                 ]);
             break;

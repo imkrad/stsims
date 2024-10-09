@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\ListCourse;
 use App\Models\ListAgency;
 use App\Models\ListDropdown;
 use App\Models\LocationRegion;
@@ -16,6 +17,27 @@ class DropdownClass
             return [
                 'value' => $item->id,
                 'name' => $item->acronym
+            ];
+        });
+        return $data;
+    }
+
+    public function term_types(){
+        $data = ListDropdown::where('type','Term')->get()->map(function ($item) {
+            return [
+                'value' => $item->id,
+                'classification' => $item->classification,
+                'name' => $item->name
+            ];
+        });
+        return $data;
+    }
+
+    public function certifications(){
+        $data = ListDropdown::where('classification','Certification')->get()->map(function ($item) {
+            return [
+                'value' => $item->id,
+                'name' => $item->name
             ];
         });
         return $data;
@@ -76,6 +98,18 @@ class DropdownClass
             return [
                 'value' => $item->code,
                 'name' => $item->name
+            ];
+        });
+        return $data;
+    }
+
+    public function courses($code){
+        $data = ListCourse::where('name','LIKE',"%{$code}%")
+        ->orWhere('shortcut','LIKE',"%{$code}%")
+        ->where('is_active',1)->get()->map(function ($item) {
+            return [
+                'value' => $item->id,
+                'name' => $item->shortcut
             ];
         });
         return $data;

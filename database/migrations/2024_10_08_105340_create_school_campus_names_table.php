@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('school_names', function (Blueprint $table) {
+        Schema::create('school_campus_names', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->tinyIncrements('id');
             $table->string('name');
-            $table->integer('school_id')->unsigned()->index();
-            $table->foreign('school_id')->references('id')->on('schools')->onDelete('cascade');
+            $table->integer('campus_id')->unsigned()->index();
+            $table->foreign('campus_id')->references('id')->on('school_campuses')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('school_names');
+        Schema::dropIfExists('school_campus_names');
     }
 };

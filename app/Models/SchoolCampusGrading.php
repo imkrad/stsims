@@ -7,22 +7,24 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\LogOptions;
 
-class SchoolName extends Model
+class SchoolCampusGrading extends Model
 {
     use HasFactory, LogsActivity;
 
-    protected $fillable = ['name'];
+    protected $fillable = [
+        'grade','lower_limit','upper_limit','is_incomplete','is_failed','is_active','campus_id'
+    ];
 
-    public function school()
+    public function campus()
     {
-        return $this->belongsTo('App\Models\School', 'school_id', 'id');
+        return $this->belongsTo('App\Models\SchoolCampus', 'campus_id', 'id');
     }
 
     protected static $recordEvents = ['updated','created'];
     public function getActivitylogOptions(): LogOptions {
         return LogOptions::defaults()
-        ->logOnly(['name'])
-        ->useLogName('School Name')
+        ->logOnly(['grade','lower_limit','upper_limit','is_incomplete','is_failed','is_active','campus_id'])
+        ->useLogName('Campus Grading')
         ->logOnlyDirty()
         ->dontSubmitEmptyLogs();
     }
