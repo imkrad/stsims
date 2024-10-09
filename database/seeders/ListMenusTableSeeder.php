@@ -15,7 +15,7 @@ class ListMenusTableSeeder extends Seeder
     {
         
 
-        \DB::table('list_menus')->delete();
+        \DB::table('list_menus')->truncate();
         
         \DB::table('list_menus')->insert(array (
             0 => 
@@ -123,7 +123,7 @@ class ListMenusTableSeeder extends Seeder
                 'icon' => 'ri-apps-line',
                 'route' => '/references',
                 'path' => 'Modules/References/Dashboard',
-                'group' => 'Menu',
+                'group' => 'Important',
                 'module' => 'Reference',
                 'order' => 1,
                 'has_child' => 0,
@@ -310,6 +310,104 @@ class ListMenusTableSeeder extends Seeder
                 'order' => 3,
                 'has_child' => 0,
                 'is_mother' => 0,
+                'is_active' => 1,
+            ),
+            21 => 
+            array (
+                'id' => 22,
+                'name' => 'Schools',
+                'icon' => 'ri-building-2-fill',
+                'route' => '/references/schools',
+                'path' => 'Modules/References/Schools',
+                'group' => 'Important',
+                'module' => 'Reference',
+                'order' => 1,
+                'has_child' => 0,
+                'is_mother' => 1,
+                'is_active' => 0,
+            ),
+            22 => 
+            array (
+                'id' => 23,
+                'name' => 'Courses',
+                'icon' => 'ri-list-unordered',
+                'route' => '/references/courses',
+                'path' => 'Modules/References/Courses',
+                'group' => 'Important',
+                'module' => 'Reference',
+                'order' => 1,
+                'has_child' => 0,
+                'is_mother' => 1,
+                'is_active' => 0,
+            ),
+            23 => 
+            array (
+                'id' => 24,
+                'name' => 'Dashboard',
+                'icon' => 'ri-apps-line',
+                'route' => '/management',
+                'path' => 'Modules/Management/Dashboard',
+                'group' => 'Menu',
+                'module' => 'Management',
+                'order' => 1,
+                'has_child' => 0,
+                'is_mother' => 1,
+                'is_active' => 1,
+            ),
+            24 => 
+            array (
+                'id' => 25,
+                'name' => 'Schools',
+                'icon' => 'ri-building-2-fill',
+                'route' => '/management/schools',
+                'path' => 'Modules/Management/Schools',
+                'group' => 'Menu',
+                'module' => 'Management',
+                'order' => 2,
+                'has_child' => 0,
+                'is_mother' => 1,
+                'is_active' => 1,
+            ),
+            25 => 
+            array (
+                'id' => 26,
+                'name' => 'Courses',
+                'icon' => 'ri-list-unordered',
+                'route' => '/management/courses',
+                'path' => 'Modules/Management/Courses',
+                'group' => 'Menu',
+                'module' => 'Management',
+                'order' => 3,
+                'has_child' => 0,
+                'is_mother' => 1,
+                'is_active' => 1,
+            ),
+            26 => 
+            array (
+                'id' => 27,
+                'name' => 'Certifications',
+                'icon' => ' ri-file-text-fill',
+                'route' => '/management/certifications',
+                'path' => 'Modules/Management/Cetifications',
+                'group' => 'Menu',
+                'module' => 'Management',
+                'order' => 4,
+                'has_child' => 0,
+                'is_mother' => 1,
+                'is_active' => 1,
+            ),
+            27 => 
+            array (
+                'id' => 28,
+                'name' => 'Campuses',
+                'icon' => 'ri-hotel-fill',
+                'route' => '/management/campuses',
+                'path' => 'Modules/Management/Campuses',
+                'group' => 'Menu',
+                'module' => 'Management',
+                'order' => 2,
+                'has_child' => 0,
+                'is_mother' => 1,
                 'is_active' => 1,
             ),
         ));
