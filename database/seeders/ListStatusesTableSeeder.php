@@ -87,10 +87,10 @@ class ListStatusesTableSeeder extends Seeder
             6 => 
             array (
                 'id' => 7,
-                'name' => 'Good Standing',
-                'type' => 'Ongoing',
-                'color' => 'bg-success',
-                'others' => 'GS',
+                'name' => 'Ongoing',
+                'type' => 'Progress',
+                'color' => 'bg-primary',
+                'others' => 'text-primary',
                 'is_active' => 1,
                 'created_at' => '2024-10-03 16:10:26',
                 'updated_at' => '2024-10-03 16:10:26',
@@ -98,10 +98,10 @@ class ListStatusesTableSeeder extends Seeder
             7 => 
             array (
                 'id' => 8,
-                'name' => 'Continue Under Probation',
+                'name' => 'Good Standing',
                 'type' => 'Ongoing',
-                'color' => 'bg-info',
-                'others' => 'CUP',
+                'color' => 'bg-success',
+                'others' => 'GS',
                 'is_active' => 1,
                 'created_at' => '2024-10-03 16:12:03',
                 'updated_at' => '2024-10-03 16:12:03',
@@ -109,10 +109,10 @@ class ListStatusesTableSeeder extends Seeder
             8 => 
             array (
                 'id' => 9,
-                'name' => 'Continue with Partial Allowance',
+                'name' => 'Continue Under Probation',
                 'type' => 'Ongoing',
-                'color' => 'bg-warning',
-                'others' => 'CPA',
+                'color' => 'bg-info',
+                'others' => 'CUP',
                 'is_active' => 1,
                 'created_at' => '2024-10-03 16:12:44',
                 'updated_at' => '2024-10-03 16:12:44',
@@ -120,10 +120,10 @@ class ListStatusesTableSeeder extends Seeder
             9 => 
             array (
                 'id' => 10,
-                'name' => 'Leave of Absence',
+                'name' => 'Continue with Partial Allowance',
                 'type' => 'Ongoing',
-                'color' => 'bg-danger',
-                'others' => 'LOA',
+                'color' => 'bg-warning',
+                'others' => 'CPA',
                 'is_active' => 1,
                 'created_at' => '2024-10-03 16:13:25',
                 'updated_at' => '2024-10-03 16:13:25',
@@ -131,6 +131,17 @@ class ListStatusesTableSeeder extends Seeder
             10 => 
             array (
                 'id' => 11,
+                'name' => 'Leave of Absence',
+                'type' => 'Ongoing',
+                'color' => 'bg-danger',
+                'others' => 'LOA',
+                'is_active' => 1,
+                'created_at' => '2024-10-03 16:13:48',
+                'updated_at' => '2024-10-03 16:13:48',
+            ),
+            11 => 
+            array (
+                'id' => 12,
                 'name' => 'No Report',
                 'type' => 'Ongoing',
                 'color' => 'bg-dark',

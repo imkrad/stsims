@@ -28,6 +28,7 @@
                             <th style="width: 25%;">Name</th>
                             <th style="width: 15%;" class="text-center">Others</th>
                             <th style="width: 20%;" class="text-center">Is sub</th>
+                            <th style="width: 15%;" class="text-center">Scholarship</th>
                             <th style="width: 15%;" class="text-center">Type</th>
                             <th style="width: 15%;" class="text-center">Status</th>
                             <th style="width: 7%;"></th>
@@ -43,6 +44,7 @@
                                 <span v-else class="badge bg-primary-subtle text-primary">Main</span>
                             </td>
                             <td class="text-center">{{list.program.name}}</td>
+                            <td class="text-center">{{list.type.name}}</td>
                             <td class="text-center">
                                 <span v-if="list.is_active" class="badge bg-success">Active</span>
                                 <span v-else class="badge bg-danger">Inactive</span>
@@ -57,7 +59,7 @@
                     </table>
                 <Pagination class="ms-2 me-2" v-if="meta" @fetch="fetch" :lists="lists.length" :links="links" :pagination="meta" />
             </div>
-            <Create @success="fetch()" :programs="programs" ref="create"/>
+            <Create @success="fetch()" :types="types" :programs="programs" ref="create"/>
         </div>
     </div>
 </template>
@@ -69,7 +71,7 @@ import PageHeader from '@/Shared/Components/PageHeader.vue';
 import Pagination from "@/Shared/Components/Pagination.vue";
 export default {
     components: { PageHeader, Pagination, Create, Multiselect},
-    props: ['programs'],
+    props: ['programs','types'],
     data(){
         return {
             currentUrl: window.location.origin,
@@ -109,7 +111,7 @@ export default {
         '$page.props.flash' : {
             deep: true,
             handler(val = null) {
-                if(val.status){
+                if(val.data){
                     this.lists[this.index] = val.data.data;
                 }
             }

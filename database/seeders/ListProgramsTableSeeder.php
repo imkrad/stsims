@@ -26,8 +26,9 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 0,
                 'is_active' => 1,
                 'program_id' => 45,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:03:07',
-                'updated_at' => '2024-10-04 09:03:07',
+                'updated_at' => '2024-10-10 14:45:35',
             ),
             1 => 
             array (
@@ -37,8 +38,9 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 0,
                 'is_active' => 1,
                 'program_id' => 46,
+                'type_id' => 49,
                 'created_at' => '2024-10-04 09:04:33',
-                'updated_at' => '2024-10-04 09:04:33',
+                'updated_at' => '2024-10-10 14:50:57',
             ),
             2 => 
             array (
@@ -48,8 +50,9 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 0,
                 'is_active' => 1,
                 'program_id' => 47,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:04:43',
-                'updated_at' => '2024-10-04 09:04:43',
+                'updated_at' => '2024-10-10 14:46:54',
             ),
             3 => 
             array (
@@ -59,8 +62,9 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 45,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:12:56',
-                'updated_at' => '2024-10-04 09:12:56',
+                'updated_at' => '2024-10-10 14:47:38',
             ),
             4 => 
             array (
@@ -70,8 +74,9 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 45,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:13:11',
-                'updated_at' => '2024-10-04 09:13:11',
+                'updated_at' => '2024-10-10 14:47:59',
             ),
             5 => 
             array (
@@ -81,8 +86,9 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 45,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:13:17',
-                'updated_at' => '2024-10-04 09:13:17',
+                'updated_at' => '2024-10-10 14:48:10',
             ),
             6 => 
             array (
@@ -92,8 +98,9 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 45,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:14:03',
-                'updated_at' => '2024-10-04 09:14:03',
+                'updated_at' => '2024-10-10 14:48:51',
             ),
             7 => 
             array (
@@ -103,8 +110,9 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 45,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:14:11',
-                'updated_at' => '2024-10-04 09:14:11',
+                'updated_at' => '2024-10-10 14:49:48',
             ),
             8 => 
             array (
@@ -114,8 +122,9 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 45,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:14:22',
-                'updated_at' => '2024-10-04 09:14:22',
+                'updated_at' => '2024-10-10 14:50:28',
             ),
             9 => 
             array (
@@ -125,8 +134,9 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 45,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:14:28',
-                'updated_at' => '2024-10-04 09:14:28',
+                'updated_at' => '2024-10-10 14:50:33',
             ),
             10 => 
             array (
@@ -136,8 +146,9 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 45,
+                'type_id' => 49,
                 'created_at' => '2024-10-04 09:14:43',
-                'updated_at' => '2024-10-04 09:14:43',
+                'updated_at' => '2024-10-10 14:43:41',
             ),
             11 => 
             array (
@@ -147,8 +158,9 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 45,
+                'type_id' => 49,
                 'created_at' => '2024-10-04 09:14:53',
-                'updated_at' => '2024-10-04 09:14:53',
+                'updated_at' => '2024-10-10 14:43:54',
             ),
             12 => 
             array (
@@ -158,8 +170,9 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 45,
+                'type_id' => 49,
                 'created_at' => '2024-10-04 09:15:07',
-                'updated_at' => '2024-10-04 09:15:07',
+                'updated_at' => '2024-10-10 14:43:59',
             ),
             13 => 
             array (
@@ -169,6 +182,7 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 45,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:15:21',
                 'updated_at' => '2024-10-04 09:15:21',
             ),
@@ -180,6 +194,7 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 45,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:15:33',
                 'updated_at' => '2024-10-04 09:15:33',
             ),
@@ -191,6 +206,7 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 45,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:15:42',
                 'updated_at' => '2024-10-04 09:15:42',
             ),
@@ -202,6 +218,7 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 45,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:15:51',
                 'updated_at' => '2024-10-04 09:15:51',
             ),
@@ -213,6 +230,7 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 45,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:16:09',
                 'updated_at' => '2024-10-04 09:16:09',
             ),
@@ -224,6 +242,7 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 45,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:16:20',
                 'updated_at' => '2024-10-04 09:16:20',
             ),
@@ -235,6 +254,7 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 45,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:16:31',
                 'updated_at' => '2024-10-04 09:16:31',
             ),
@@ -246,6 +266,7 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 45,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:16:39',
                 'updated_at' => '2024-10-04 09:16:39',
             ),
@@ -257,6 +278,7 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 45,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:16:51',
                 'updated_at' => '2024-10-04 09:16:51',
             ),
@@ -268,6 +290,7 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 45,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:17:00',
                 'updated_at' => '2024-10-04 09:17:00',
             ),
@@ -279,6 +302,7 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 47,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:17:20',
                 'updated_at' => '2024-10-04 09:17:20',
             ),
@@ -290,6 +314,7 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 47,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:17:39',
                 'updated_at' => '2024-10-04 09:17:39',
             ),
@@ -301,8 +326,9 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 47,
+                'type_id' => 49,
                 'created_at' => '2024-10-04 09:17:52',
-                'updated_at' => '2024-10-04 09:17:52',
+                'updated_at' => '2024-10-10 14:44:15',
             ),
             26 => 
             array (
@@ -312,8 +338,9 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 47,
+                'type_id' => 49,
                 'created_at' => '2024-10-04 09:18:02',
-                'updated_at' => '2024-10-04 09:18:02',
+                'updated_at' => '2024-10-10 14:44:20',
             ),
             27 => 
             array (
@@ -323,8 +350,9 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 47,
+                'type_id' => 49,
                 'created_at' => '2024-10-04 09:18:17',
-                'updated_at' => '2024-10-04 09:18:17',
+                'updated_at' => '2024-10-10 14:44:26',
             ),
             28 => 
             array (
@@ -334,6 +362,7 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 47,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:18:43',
                 'updated_at' => '2024-10-04 09:18:43',
             ),
@@ -345,6 +374,7 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 47,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:18:55',
                 'updated_at' => '2024-10-04 09:18:55',
             ),
@@ -356,6 +386,7 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 47,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:19:07',
                 'updated_at' => '2024-10-04 09:19:07',
             ),
@@ -367,6 +398,7 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 47,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:19:19',
                 'updated_at' => '2024-10-04 09:19:19',
             ),
@@ -378,6 +410,7 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 47,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:19:28',
                 'updated_at' => '2024-10-04 09:19:28',
             ),
@@ -389,6 +422,7 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 47,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:19:35',
                 'updated_at' => '2024-10-04 09:19:35',
             ),
@@ -400,6 +434,7 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 47,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:19:54',
                 'updated_at' => '2024-10-04 09:19:54',
             ),
@@ -411,6 +446,7 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 47,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:20:12',
                 'updated_at' => '2024-10-04 09:20:12',
             ),
@@ -422,6 +458,7 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 47,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:20:25',
                 'updated_at' => '2024-10-04 09:20:25',
             ),
@@ -433,6 +470,7 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 47,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:20:47',
                 'updated_at' => '2024-10-04 09:20:47',
             ),
@@ -444,6 +482,7 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 47,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:21:04',
                 'updated_at' => '2024-10-04 09:21:04',
             ),
@@ -455,6 +494,7 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 47,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:21:14',
                 'updated_at' => '2024-10-04 09:21:14',
             ),
@@ -466,6 +506,7 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 47,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:21:24',
                 'updated_at' => '2024-10-04 09:21:24',
             ),
@@ -477,8 +518,9 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 47,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:21:33',
-                'updated_at' => '2024-10-04 09:21:33',
+                'updated_at' => '2024-10-10 14:44:48',
             ),
             42 => 
             array (
@@ -488,8 +530,9 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 47,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:21:47',
-                'updated_at' => '2024-10-04 09:21:47',
+                'updated_at' => '2024-10-10 14:44:45',
             ),
             43 => 
             array (
@@ -499,8 +542,9 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 47,
+                'type_id' => 48,
                 'created_at' => '2024-10-04 09:21:57',
-                'updated_at' => '2024-10-04 09:21:57',
+                'updated_at' => '2024-10-10 14:44:42',
             ),
             44 => 
             array (
@@ -510,8 +554,9 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 46,
+                'type_id' => 49,
                 'created_at' => '2024-10-04 09:22:04',
-                'updated_at' => '2024-10-04 09:22:04',
+                'updated_at' => '2024-10-10 14:51:01',
             ),
             45 => 
             array (
@@ -521,8 +566,9 @@ class ListProgramsTableSeeder extends Seeder
                 'is_sub' => 1,
                 'is_active' => 1,
                 'program_id' => 46,
+                'type_id' => 49,
                 'created_at' => '2024-10-04 09:22:11',
-                'updated_at' => '2024-10-04 09:22:11',
+                'updated_at' => '2024-10-10 14:51:05',
             ),
         ));
 

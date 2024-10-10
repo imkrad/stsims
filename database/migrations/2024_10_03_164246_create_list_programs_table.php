@@ -20,6 +20,8 @@ return new class extends Migration
             $table->boolean('is_active')->default(1);
             $table->tinyInteger('program_id')->unsigned()->index();
             $table->foreign('program_id')->references('id')->on('list_dropdowns')->onDelete('cascade');
+            $table->tinyInteger('type_id')->unsigned()->index();
+            $table->foreign('type_id')->references('id')->on('list_dropdowns')->onDelete('cascade');
             $table->timestamps();
         });
     }

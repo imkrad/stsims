@@ -64,6 +64,7 @@ class ReferenceRequest extends FormRequest
                     'name' => 'sometimes|required|max:200|unique:list_programs,name,NULL,'.$this->id.',program_id,'.$this->program_id,
                     'is_sub' => 'sometimes|required',
                     'program_id' => 'sometimes|required|integer',
+                    'type_id' => 'sometimes|required|integer',
                 ];
             break;
         }

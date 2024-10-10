@@ -3,6 +3,7 @@
 namespace App\Services\Reference;
 
 use App\Models\ListStatus;
+use App\Models\ListProgram;
 use App\Models\ListPrivilege;
 use App\Models\LocationRegion;
 use App\Models\LocationProvince;
@@ -24,6 +25,22 @@ class UpdateClass
             'data' => new DefaultResource($data),
             'message' => 'Status updated successfully.', 
             'info' => "The status details has been changed."
+        ];
+    }
+
+    public function program($request){
+        $data = ListProgram::with('program','type')->where('id',$request->id)->first();
+        $data->name = $request->name;
+        $data->others = $request->others;
+        $data->is_sub = $request->is_sub;
+        $data->program_id = $request->program_id;
+        $data->type_id = $request->type_id;
+        $data->save();
+        $data = ListProgram::with('program','type')->where('id',$request->id)->first();
+        return [
+            'data' => new DefaultResource($data),
+            'message' => 'Program updated successfully.', 
+            'info' => "The program details has been changed."
         ];
     }
 

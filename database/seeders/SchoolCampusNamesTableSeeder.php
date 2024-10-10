@@ -53,7 +53,7 @@ class SchoolCampusNamesTableSeeder extends Seeder
             4 => 
             array (
                 'id' => 5,
-                'name' => 'SAINT VINCENT\'S COLLEGE-DIPOLOG CITY',
+                'name' => 'SAINT VINCENT`S COLLEGE-DIPOLOG CITY',
                 'campus_id' => 35,
                 'created_at' => '2024-10-09 13:50:26',
                 'updated_at' => '2024-10-09 13:50:26',
@@ -101,7 +101,7 @@ class SchoolCampusNamesTableSeeder extends Seeder
             10 => 
             array (
                 'id' => 11,
-                'name' => 'DIPOLOG MEDICAL CENTER COLLEGE FOUNDATION, INC-DIPOLOG CITY',
+                'name' => 'DIPOLOG MEDICAL CENTER COLLEGE FOUNDATION, INC.-DIPOLOG CITY',
                 'campus_id' => 25,
                 'created_at' => '2024-10-09 14:02:03',
                 'updated_at' => '2024-10-09 14:02:03',

@@ -15,8 +15,12 @@
                                 <TextInput v-model="form.name" type="text" class="form-control" placeholder="Please enter name" @input="handleInput('name')" :light="true" />
                             </BCol>
                             <BCol lg="12" class="mt-0">
-                                <InputLabel value="Program" :message="form.errors.type"/>
+                                <InputLabel value="Program" :message="form.errors.program_id"/>
                                 <Multiselect :options="programs" v-model="form.program_id" label="name" placeholder="Select Program" />
+                            </BCol>
+                            <BCol lg="12" class="mt-0">
+                                <InputLabel value="Type" :message="form.errors.type_id"/>
+                                <Multiselect :options="types" v-model="form.type_id" label="name" placeholder="Select Type" />
                             </BCol>
                             <BCol lg="8"  style="margin-top: 13px; margin-bottom: -12px;" class="fs-12" :class="form.errors.is_sub ? 'text-danger' : ''">Is a sub program?</BCol>
                             <BCol lg="4"  style="margin-top: 13px; margin-bottom: -12px;">
@@ -54,7 +58,7 @@ import InputLabel from '@/Shared/Components/Forms/InputLabel.vue';
 import TextInput from '@/Shared/Components/Forms/TextInput.vue';
 export default {
     components: {InputLabel, TextInput, Multiselect },
-    props: ['programs'],
+    props: ['programs','types'],
     data(){
         return {
             currentUrl: window.location.origin,
@@ -64,6 +68,7 @@ export default {
                 others: 'n/a',
                 is_sub: null,
                 program_id: null,
+                type_id: null,
                 option: 'program'
             }),
             showModal: false,
@@ -82,6 +87,8 @@ export default {
             this.form.name = data.name;
             this.form.others = data.others;
             this.form.is_sub =(data.is_sub) ? true : false;
+            this.form.program_id = data.program_id;
+            this.form.type_id = data.type_id;
             this.editable = true;
             this.showModal = true;
         },

@@ -87,7 +87,7 @@ class ReferenceController extends Controller
         ]);
     }
 
-    public function update(ReferenceRequest $request){
+    public function update(Request $request){
         $result = $this->handleTransaction(function () use ($request) {
             switch($request->option){
                 case 'status':
@@ -101,6 +101,9 @@ class ReferenceController extends Controller
                 break;
                 case 'municipality':
                     return $this->update->municipality($request);
+                break;
+                case 'program':
+                    return $this->update->program($request);
                 break;
             }
         });
@@ -125,7 +128,8 @@ class ReferenceController extends Controller
             break;
             case 'programs':
                 return inertia('Modules/References/Programs/Index',[
-                    'programs' => $this->dropdown->programs()
+                    'programs' => $this->dropdown->programs(),
+                    'types' => $this->dropdown->types()
                 ]);
             break;
             case 'statuses':

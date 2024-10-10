@@ -17,7 +17,7 @@ class ViewClass
 {
     public function programs($request){
         $data = DefaultResource::collection(
-            ListProgram::with('program')->when($request->keyword, function ($query, $keyword) {
+            ListProgram::with('program','type')->when($request->keyword, function ($query, $keyword) {
                 $query->where('name', 'LIKE', "%{$keyword}%");
             })->when($request->program, function ($query, $program) {
                 $query->where('program_id',$program);

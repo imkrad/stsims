@@ -8,6 +8,7 @@ use App\Traits\HandlesTransaction;
 use App\Services\Management\CampusClass;
 use App\Services\Management\SchoolClass;
 use App\Services\Management\CourseClass;
+use App\Services\Management\ScholarClass;
 use App\Http\Requests\ManagementRequest;
 use App\Services\Management\CertificationClass;
 
@@ -16,12 +17,14 @@ class ManagementController extends Controller
     use HandlesTransaction;
 
     public function __construct(
+        ScholarClass $scholar, 
         SchoolClass $school, 
         CourseClass $course, 
         CertificationClass $certification,
         CampusClass $campus,
         DropdownClass $dropdown
     ){
+        $this->scholar = $scholar;
         $this->school = $school;
         $this->course = $course;
         $this->campus = $campus;
@@ -39,6 +42,9 @@ class ManagementController extends Controller
             break;
             case 'schools':
                 return $this->school->lists($request);
+            break;
+            case 'scholar-preview':
+                return $this->scholar->preview($request);
             break;
             default:
                 return inertia('Modules/Management/Dashboard/Index'); 
@@ -105,6 +111,13 @@ class ManagementController extends Controller
 
     public function show($code, Request $request){
         switch($code){
+            case 'scholars':
+                return inertia('Modules/Management/Scholars/Index',[
+                    'dropdowns' => [
+                        'statuses' => $this->dropdown->statuses(),
+                    ]
+                ]);
+            break;
             case 'schools':
                 return inertia('Modules/Management/Schools/Index',[
                     'dropdowns' => [

@@ -6,6 +6,7 @@ use App\Models\SchoolCampus;
 use App\Models\ListRole;
 use App\Models\ListCourse;
 use App\Models\ListAgency;
+use App\Models\ListStatus;
 use App\Models\ListDropdown;
 use App\Models\LocationRegion;
 use App\Models\LocationProvince;
@@ -14,6 +15,19 @@ use App\Models\LocationBarangay;
 
 class DropdownClass
 {   
+    public function statuses(){
+        $data = ListStatus::whereIn('type',['Progress','Ongoing'])->get()->map(function ($item) {
+            return [
+                'value' => $item->id,
+                'name' => $item->name,
+                'color' => $item->color,
+                'others' => $item->others,
+                'type' => $item->type,
+            ];
+        });
+        return $data;
+    }
+
     public function roles(){
         $data = ListRole::all()->map(function ($item) {
             return [
@@ -90,6 +104,17 @@ class DropdownClass
         $data = ListDropdown::where('classification','Scholarship')->where('type','Category')->get()->map(function ($item) {
             return [
                 'value' => $item->id,
+                'name' => $item->name
+            ];
+        });
+        return $data;
+    }
+
+    public function types(){
+        $data = ListDropdown::where('classification','Scholarship')->where('type','Type')->get()->map(function ($item) {
+            return [
+                'value' => $item->id,
+                'classification' => $item->classification,
                 'name' => $item->name
             ];
         });
