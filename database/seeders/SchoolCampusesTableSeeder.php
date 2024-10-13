@@ -536,6 +536,34 @@ class SchoolCampusesTableSeeder extends Seeder
                 'created_at' => '2024-10-09 13:57:04',
                 'updated_at' => '2024-10-09 13:57:04',
             ),
+            37 => 
+            array (
+                'id' => 38,
+                'campus' => 'Main',
+                'is_main' => 1,
+                'is_alone' => 0,
+                'is_active' => 1,
+                'term_id' => 5,
+                'grading_id' => 9,
+                'school_id' => 15,
+                'agency_id' => 10,
+                'created_at' => '2024-10-10 17:47:45',
+                'updated_at' => '2024-10-10 17:47:45',
+            ),
+            38 => 
+            array (
+                'id' => 39,
+                'campus' => 'Main',
+                'is_main' => 1,
+                'is_alone' => 0,
+                'is_active' => 1,
+                'term_id' => 5,
+                'grading_id' => 9,
+                'school_id' => 16,
+                'agency_id' => 10,
+                'created_at' => '2024-10-13 16:31:55',
+                'updated_at' => '2024-10-13 16:31:55',
+            ),
         ));
 
         

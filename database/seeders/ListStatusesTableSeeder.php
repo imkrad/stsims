@@ -90,7 +90,7 @@ class ListStatusesTableSeeder extends Seeder
                 'name' => 'Ongoing',
                 'type' => 'Progress',
                 'color' => 'bg-primary',
-                'others' => 'text-primary',
+                'others' => 'text-white',
                 'is_active' => 1,
                 'created_at' => '2024-10-03 16:10:26',
                 'updated_at' => '2024-10-03 16:10:26',

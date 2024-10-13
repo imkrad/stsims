@@ -15,7 +15,6 @@ return new class extends Migration
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
             $table->string('address')->nullable();
-            $table->boolean('is_filled')->default(0);
             $table->string('barangay_code')->nullable()->constrained();
             $table->foreign('barangay_code')->references('code')->on('location_barangays')->onDelete('cascade');
             $table->string('municipality_code')->nullable()->constrained();

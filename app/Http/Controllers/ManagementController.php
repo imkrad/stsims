@@ -34,6 +34,9 @@ class ManagementController extends Controller
 
     public function index(Request $request){
         switch($request->option){
+            case 'scholars':
+                return $this->scholar->lists($request);
+            break;
             case 'courses':
                 return $this->course->lists($request);
             break;
@@ -74,6 +77,9 @@ class ManagementController extends Controller
                 break;
                 case 'campus-name':
                     return $this->campus->name($request);
+                break;
+                case 'truncate':
+                    return $this->scholar->truncate();
                 break;
             }
         });

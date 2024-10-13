@@ -138,6 +138,22 @@ class SchoolCampusNamesTableSeeder extends Seeder
                 'created_at' => '2024-10-09 14:07:04',
                 'updated_at' => '2024-10-09 14:07:04',
             ),
+            15 => 
+            array (
+                'id' => 16,
+                'name' => 'SOUTHERN MINDANAO COLLEGES-PAGADIAN CITY',
+                'campus_id' => 38,
+                'created_at' => '2024-10-10 17:48:16',
+                'updated_at' => '2024-10-10 17:48:16',
+            ),
+            16 => 
+            array (
+                'id' => 17,
+                'name' => 'SAINT JOSEPH COLLEGE OF SINDANGAN',
+                'campus_id' => 39,
+                'created_at' => '2024-10-13 16:33:22',
+                'updated_at' => '2024-10-13 16:33:22',
+            ),
         ));
 
         

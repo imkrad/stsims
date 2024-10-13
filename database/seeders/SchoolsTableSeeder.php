@@ -200,6 +200,32 @@ class SchoolsTableSeeder extends Seeder
                 'created_at' => '2024-10-09 13:57:04',
                 'updated_at' => '2024-10-09 13:57:04',
             ),
+            14 => 
+            array (
+                'id' => 15,
+                'name' => 'Southern Mindanao Colleges',
+                'shortcut' => 'SMC',
+                'combiner' => NULL,
+                'avatar' => 'school.jpg',
+                'is_upsystem' => 0,
+                'is_active' => 1,
+                'class_id' => 4,
+                'created_at' => '2024-10-10 17:47:45',
+                'updated_at' => '2024-10-10 17:47:45',
+            ),
+            15 => 
+            array (
+                'id' => 16,
+                'name' => 'Saint Joseph College of Sindangan Incorporated',
+                'shortcut' => 'SJCSI',
+                'combiner' => '-',
+                'avatar' => 'school.jpg',
+                'is_upsystem' => 0,
+                'is_active' => 1,
+                'class_id' => 4,
+                'created_at' => '2024-10-13 16:31:55',
+                'updated_at' => '2024-10-13 16:31:55',
+            ),
         ));
 
         

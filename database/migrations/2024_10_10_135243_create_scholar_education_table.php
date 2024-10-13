@@ -15,7 +15,6 @@ return new class extends Migration
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
             $table->year('graduated_year')->nullable();
-            $table->boolean('is_filled')->default(0);
             $table->tinyInteger('level_id')->unsigned()->nullable();
             $table->foreign('level_id')->references('id')->on('list_dropdowns')->onDelete('cascade');
             $table->tinyInteger('award_id')->unsigned()->nullable();

@@ -91,7 +91,7 @@ export default {
 
                 this.isLoading = false;
                 this.showModal = false;
-                this.$emit('status',true);
+                this.$emit('update',true);
             })
             .catch(error => {
                 if (error.response.status == 422) {

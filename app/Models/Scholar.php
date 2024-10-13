@@ -33,6 +33,11 @@ class Scholar extends Model
         return $this->hasOne('App\Models\ScholarInformation', 'scholar_id');
     } 
 
+    public function reference()
+    {
+        return $this->hasOne('App\Models\ScholarReference', 'scholar_id');
+    } 
+
     public function program()
     {
         return $this->belongsTo('App\Models\ListProgram', 'program_id', 'id');

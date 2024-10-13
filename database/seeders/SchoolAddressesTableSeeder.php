@@ -462,6 +462,30 @@ class SchoolAddressesTableSeeder extends Seeder
                 'created_at' => '2024-10-09 13:57:04',
                 'updated_at' => '2024-10-09 13:57:04',
             ),
+            37 => 
+            array (
+                'id' => 38,
+                'address' => 'Jamisola St.',
+                'barangay_code' => '097322042',
+                'municipality_code' => '097322000',
+                'province_code' => '097300000',
+                'region_code' => '090000000',
+                'campus_id' => 38,
+                'created_at' => '2024-10-10 17:47:45',
+                'updated_at' => '2024-10-10 17:47:45',
+            ),
+            38 => 
+            array (
+                'id' => 39,
+                'address' => 'Jose Burgos St., National Highway',
+                'barangay_code' => '097218025',
+                'municipality_code' => '097218000',
+                'province_code' => '097200000',
+                'region_code' => '090000000',
+                'campus_id' => 39,
+                'created_at' => '2024-10-13 16:31:55',
+                'updated_at' => '2024-10-13 16:31:55',
+            ),
         ));
 
         

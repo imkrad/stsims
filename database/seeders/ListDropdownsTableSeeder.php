@@ -508,6 +508,26 @@ class ListDropdownsTableSeeder extends Seeder
                 'others' => 'n/a',
                 'is_active' => 1,
             ),
+            49 => 
+            array (
+                'id' => 50,
+                'name' => 'Transferee',
+                'classification' => 'Modify Type',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
+            50 => 
+            array (
+                'id' => 51,
+                'name' => 'Shiftee',
+                'classification' => 'Modify Type',
+                'type' => 'n/a',
+                'color' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+            ),
         ));
 
         
