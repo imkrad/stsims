@@ -5,11 +5,12 @@
             <Top :scholar="scholar.data"/>
             <div class="chat-wrapper d-lg-flex gap-1 mx-n4 mt-n4 p-1">
                 
-                <div class="file-manager-content w-100 p-4 pb-0" ref="box" style="margin-left: 20px;">
-                    <Main />
-                </div>
-                <div class="file-manager-sidebar" style="margin-right: 20px; overflow-y: auto; overflow-x: hidden;">
+                <div class="file-manager-sidebar" style="margin-left: 20px; overflow-y: auto; overflow-x: hidden;">
                     <Sidebar :scholar="scholar.data"/>
+                </div>
+                
+                <div class="file-manager-content w-100 p-4 pb-0" ref="box" style="margin-right: 20px;">
+                    <Main />
                 </div>
             </div>
         </div>

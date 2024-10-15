@@ -56,7 +56,7 @@
                         <div class="card-body" style="height: calc(100vh - 290px);">
                             <BTabs nav-class="nav-pills nav-custom nav-custom-light" pills>
                                 <BTab title="Courses">
-                                    <Course :certifications="dropdowns.certifications" :campus="campus.id" :courses="campus.courses"/>
+                                    <Course :certifications="dropdowns.certifications" :campus="campus.id" :code="campus.code" :courses="campus.courses"/>
                                 </BTab>
                                 <BTab title="Semesters">
                                     <Semester :semesters="campus.semesters" :terms="dropdowns.terms" :term="campus.term.name" :campus="campus.id"/>

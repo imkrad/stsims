@@ -9,6 +9,7 @@ use App\Services\Management\CampusClass;
 use App\Services\Management\SchoolClass;
 use App\Services\Management\CourseClass;
 use App\Services\Management\ScholarClass;
+use App\Services\Management\ProspectusClass;
 use App\Http\Requests\ManagementRequest;
 use App\Services\Management\CertificationClass;
 
@@ -18,6 +19,7 @@ class ManagementController extends Controller
 
     public function __construct(
         ScholarClass $scholar, 
+        ProspectusClass $prospectus, 
         SchoolClass $school, 
         CourseClass $course, 
         CertificationClass $certification,
@@ -26,6 +28,7 @@ class ManagementController extends Controller
     ){
         $this->scholar = $scholar;
         $this->school = $school;
+        $this->prospectus = $prospectus;
         $this->course = $course;
         $this->campus = $campus;
         $this->dropdown = $dropdown;
@@ -181,6 +184,15 @@ class ManagementController extends Controller
             break;
             case 'courses':
                 return inertia('Modules/Management/Courses/Index');
+            break;
+            case 'course-view':
+                return inertia('Modules/Management/Courses/View',[
+                    'course' => $this->course->view($request),
+                    'code' => $request->campus,
+                    'dropdowns' => [
+                        'terms' => $this->dropdown->term_types(),
+                    ]
+                ]);
             break;
         }
     }

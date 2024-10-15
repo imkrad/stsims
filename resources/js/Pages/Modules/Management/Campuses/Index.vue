@@ -61,7 +61,7 @@
                                 <span v-else class="badge bg-danger">Inactive</span>
                             </td>
                             <td class="text-end">
-                                <b-button @click="openView(list.id)" variant="soft-info" v-b-tooltip.hover title="View" size="sm" class="me-1">
+                                <b-button @click="openView(list.code)" variant="soft-info" v-b-tooltip.hover title="View" size="sm" class="me-1">
                                     <i class="ri-eye-fill align-bottom"></i>
                                 </b-button>
                                 <b-button @click="openEdit(list,index)" variant="soft-warning" v-b-tooltip.hover title="Edit" size="sm">
@@ -155,7 +155,7 @@ export default {
             this.$inertia.visit('/management/school-create');
         },
         openView(id){
-            this.$inertia.visit('/management/campus-view?id='+id);
+            this.$inertia.visit('/management/campus-view?code='+id);
         },
         openEdit(data,index){
             this.index = index;

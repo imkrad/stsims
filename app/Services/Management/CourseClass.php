@@ -2,8 +2,11 @@
 
 namespace App\Services\Management;
 
+use Hashids\Hashids;
 use App\Models\ListCourse;
+use App\Models\SchoolCampusCourse;
 use App\Http\Resources\DefaultResource;
+use App\Http\Resources\Management\CourseResource;
 
 class CourseClass
 {
@@ -19,6 +22,14 @@ class CourseClass
             ->orderBy('is_active','DESC')
             ->paginate($request->count)
         );
+        return $data;
+    }
+
+    public function view($request){
+        $hashids = new Hashids('krad',10);
+        $id = $hashids->decode($request->code);
+        $data = SchoolCampusCourse::with('course','campus.school','campus.term','prospectuses')
+        ->where('id',$id)->first();
         return $data;
     }
 

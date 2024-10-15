@@ -1,5 +1,5 @@
 <template>
-    <table class="table table-bordered">
+    <table class="table">
         <tbody>
             <tr>
                 <td style="border-right: none; border-top: none; border-left: none;">
@@ -23,7 +23,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <!-- <div class="col-md-12">
                             <div class="d-flex mt-3">
                                 <div class="flex-shrink-0 avatar-xs align-self-center me-3">
                                     <div class="avatar-title bg-light rounded-circle fs-16 text-primary">
@@ -35,7 +35,7 @@
                                     <h6 class="text-truncate mb-0 fs-12">{{ scholar.program.program.name + ' - ' + scholar.program.name }}</h6>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-md-12">
                             <div class="d-flex mt-3">
                                 <div class="flex-shrink-0 avatar-xs align-self-center me-3">

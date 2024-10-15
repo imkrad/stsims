@@ -20,11 +20,11 @@
                     <tr class="fs-11">
                         <th style="width: 4%;" class="text-center">#</th>
                         <th style="width: 33%;">Course</th>
-                        <th style="width: 10%;" class="text-center">Type</th>
-                        <th style="width: 10%;" class="text-center">Years</th>
-                        <th style="width: 10%;" class="text-center">Certification</th>
-                        <th style="width: 5%;" class="text-center">Status</th>
-                        <th style="width: 7%;"></th>
+                        <th style="width: 13%;" class="text-center">Type</th>
+                        <th style="width: 8%;" class="text-center">Years</th>
+                        <th style="width: 8%;" class="text-center">Certification</th>
+                        <th style="width: 8%;" class="text-center">Status</th>
+                        <th style="width: 5%;"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,17 +42,24 @@
                             <span v-else class="badge bg-danger">Inactive</span>
                         </td>
                         <td class="text-end">
-                            <b-button @click="openCertification(list.certifications,list.id,list.course.shortcut)" class="me-1" variant="soft-primary" v-b-tooltip.hover title="Certificate" size="sm">
-                                <i class="ri-file-paper-2-fill align-bottom"></i>
-                            </b-button>
-                            <b-button @click="openEdit(list)" variant="soft-warning" v-b-tooltip.hover title="Edit" size="sm">
-                                <i class="ri-pencil-fill align-bottom"></i>
-                            </b-button>
+                            <BDropdown toggle-class="btn btn-soft-secondary btn-sm dropdown arrow-none" menu-class="dropdown-menu-end" :offset="{ alignmentAxis: -130, crossAxis: 0, mainAxis: 10 }">
+                                <template #button-content><i class="ri-more-fill align-middle"></i></template>
+                                <BDropdownItem @click="openView(list.code)">
+                                    <i class="ri-eye-fill align-bottom me-2 text-muted"></i><span class="text-muted">View</span>
+                                </BDropdownItem>
+                                <BDropdownItem @click="openEdit(list)">
+                                    <i class="ri-pencil-fill align-bottom me-2 text-muted"></i><span class="text-muted">Edit</span>
+                                </BDropdownItem>
+                                <BDropdownItem @click="openCertification(list.certifications,list.id,list.course.shortcut)">
+                                    <i class="ri-file-paper-2-fill align-bottom me-2 text-muted"></i><span class="text-muted">Certificate</span>
+                                </BDropdownItem>
+                            </BDropdown>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </simplebar>
+        {{ campus }}
     </div>
     <Create :campus="campus" ref="create"/>
     <Certification :certifications="certifications" ref="certification"/>
@@ -62,7 +69,7 @@ import Create from './Create.vue';
 import Certification from './Certification.vue';
 import simplebar from "simplebar-vue";
 export default {
-    props:['campus','courses','certifications'],
+    props:['code','campus','courses','certifications'],
     components: { Create, Certification, simplebar },
     data(){
         return {
@@ -75,6 +82,9 @@ export default {
     methods: {
         openCreate(){
             this.$refs.create.show();
+        },
+        openView(id){
+            this.$inertia.visit('/management/course-view?code='+id+'&campus='+this.code);
         },
         openEdit(data){
             this.$refs.create.edit(data);

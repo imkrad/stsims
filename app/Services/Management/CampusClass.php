@@ -3,6 +3,7 @@
 namespace App\Services\Management;
 
 use Carbon\Carbon;
+use Hashids\Hashids;
 use App\Models\SchoolCampus;
 use App\Models\SchoolAddress;
 use App\Models\SchoolCampusName;
@@ -11,11 +12,12 @@ use App\Models\SchoolCampusSemester;
 use App\Models\SchoolCampusGrading;
 use App\Models\SchoolCampusCourseCertification;
 use App\Http\Resources\DefaultResource;
+use App\Http\Resources\Management\CampusResource;
 
 class CampusClass
 {
     public function lists($request){
-        $data = DefaultResource::collection(
+        $data = CampusResource::collection(
             SchoolCampus::with('school.class','grading','term','agency')
             ->with('address.region','address.province','address.municipality','address.barangay')
             ->when($request->keyword, function ($query, $keyword) {
@@ -94,14 +96,27 @@ class CampusClass
     }
 
     public function view($request){
+        $hashids = new Hashids('krad',10);
+        $id = $hashids->decode($request->code);
+        
         $data = SchoolCampus::with('school.class','grading','term','agency')
         ->with('names','gradings','semesters.semester')
         ->with(['courses.course','courses.certifications' => function ($query) {
             $query->where('is_active', 1);
         },])
         ->with('address.region','address.province','address.municipality','address.barangay')
-        ->where('id',$request->id)
+        ->where('id',$id)
         ->first();
+        if ($data && $data->courses) {
+            $data->courses->map(function ($course) use ($hashids) {
+                if ($course) {
+                    $course->code = $hashids->encode($course->id);
+                }
+                return $course;
+            });
+        }
+        $data->code = $request->code;
+        // dd($data);
         return $data;
     }
 
