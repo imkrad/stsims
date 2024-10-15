@@ -6,9 +6,8 @@ use Illuminate\Database\Seeder;
 
 class ListCoursesTableSeeder extends Seeder
 {
-
     /**
-     * Auto generated seed file
+     * Auto generated seeder file.
      *
      * @return void
      */
@@ -22,7 +21,8 @@ class ListCoursesTableSeeder extends Seeder
             0 => 
             array (
                 'id' => 1,
-                'shortcut' => 'AGRICULTURAL ENGINEERING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Agricultural Engineering Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -32,7 +32,8 @@ class ListCoursesTableSeeder extends Seeder
             1 => 
             array (
                 'id' => 2,
-                'shortcut' => 'AGRICULTURAL TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Agricultural Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -42,7 +43,8 @@ class ListCoursesTableSeeder extends Seeder
             2 => 
             array (
                 'id' => 3,
-                'shortcut' => 'AGRO-FORESTRY TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Agro-Forestry Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -52,7 +54,8 @@ class ListCoursesTableSeeder extends Seeder
             3 => 
             array (
                 'id' => 4,
-                'shortcut' => 'ASSO. COMPUTER TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Associate Computer Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -62,7 +65,8 @@ class ListCoursesTableSeeder extends Seeder
             4 => 
             array (
                 'id' => 5,
-                'shortcut' => 'ASSO. INFORMATION TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Associate Information Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -72,7 +76,8 @@ class ListCoursesTableSeeder extends Seeder
             5 => 
             array (
                 'id' => 6,
-                'shortcut' => 'ASSOCIATE COMPUTER',
+                'name' => NULL,
+                'shortcut' => 'Associate Computer',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -82,7 +87,8 @@ class ListCoursesTableSeeder extends Seeder
             6 => 
             array (
                 'id' => 7,
-                'shortcut' => 'ASSOCIATE COMPUTER SCIENCE',
+                'name' => NULL,
+                'shortcut' => 'Associate Computer Science',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -92,7 +98,8 @@ class ListCoursesTableSeeder extends Seeder
             7 => 
             array (
                 'id' => 8,
-                'shortcut' => 'ASSOCIATE GEODETIC ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'Associate Geodetic Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -102,7 +109,8 @@ class ListCoursesTableSeeder extends Seeder
             8 => 
             array (
                 'id' => 9,
-                'shortcut' => 'AUTOMECHANICAL TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Automechanical Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -112,7 +120,8 @@ class ListCoursesTableSeeder extends Seeder
             9 => 
             array (
                 'id' => 10,
-                'shortcut' => 'AUTOMOTIVE ENGINEERING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Automotive Engineering Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -122,7 +131,8 @@ class ListCoursesTableSeeder extends Seeder
             10 => 
             array (
                 'id' => 11,
-                'shortcut' => 'AUTOMOTIVE TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Automotive Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -132,7 +142,8 @@ class ListCoursesTableSeeder extends Seeder
             11 => 
             array (
                 'id' => 12,
-                'shortcut' => 'BACHELOR IN AGRICULTURAL TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Bachelor in Agricultural Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -142,7 +153,8 @@ class ListCoursesTableSeeder extends Seeder
             12 => 
             array (
                 'id' => 13,
-                'shortcut' => 'BACHELOR OF APPLIED STATISTICS',
+                'name' => NULL,
+                'shortcut' => 'Bachelor of Applied Statistics',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -152,7 +164,8 @@ class ListCoursesTableSeeder extends Seeder
             13 => 
             array (
                 'id' => 14,
-                'shortcut' => 'BACHELOR OF TECHNICAL TEACHER EDUCATION',
+                'name' => NULL,
+                'shortcut' => 'Bachelor of Technical Teacher Education',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -162,7 +175,8 @@ class ListCoursesTableSeeder extends Seeder
             14 => 
             array (
                 'id' => 15,
-                'shortcut' => 'BEED ELEMENTARY SCIENCE',
+                'name' => NULL,
+                'shortcut' => 'BEED Elementary Science',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -172,7 +186,8 @@ class ListCoursesTableSeeder extends Seeder
             15 => 
             array (
                 'id' => 16,
-                'shortcut' => 'BIOCHEMICAL TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Biochemical Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -182,7 +197,8 @@ class ListCoursesTableSeeder extends Seeder
             16 => 
             array (
                 'id' => 17,
-                'shortcut' => 'BRIDGING PROGRAM',
+                'name' => NULL,
+                'shortcut' => 'Bridging Program',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -192,6 +208,7 @@ class ListCoursesTableSeeder extends Seeder
             17 => 
             array (
                 'id' => 18,
+                'name' => NULL,
                 'shortcut' => 'BS',
                 'abbreviation' => NULL,
                 'others' => NULL,
@@ -202,7 +219,8 @@ class ListCoursesTableSeeder extends Seeder
             18 => 
             array (
                 'id' => 19,
-                'shortcut' => 'BS AGRICULTURAL AND BIOSYSTEMS ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Agricultural and Biosystems Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -212,7 +230,8 @@ class ListCoursesTableSeeder extends Seeder
             19 => 
             array (
                 'id' => 20,
-                'shortcut' => 'BS AGRICULTURAL BIOTECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Agricultural Biotechnology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -222,7 +241,8 @@ class ListCoursesTableSeeder extends Seeder
             20 => 
             array (
                 'id' => 21,
-                'shortcut' => 'BS AGRICULTURAL BUSINESS',
+                'name' => NULL,
+                'shortcut' => 'BS Agricultural Business',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -232,7 +252,8 @@ class ListCoursesTableSeeder extends Seeder
             21 => 
             array (
                 'id' => 22,
-                'shortcut' => 'BS AGRICULTURAL CHEMISTRY',
+                'name' => NULL,
+                'shortcut' => 'BS Agricultural Chemistry',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -242,7 +263,8 @@ class ListCoursesTableSeeder extends Seeder
             22 => 
             array (
                 'id' => 23,
-                'shortcut' => 'BS AGRICULTURAL ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Agricultural Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -252,7 +274,8 @@ class ListCoursesTableSeeder extends Seeder
             23 => 
             array (
                 'id' => 24,
-                'shortcut' => 'BS AGRICULTURE',
+                'name' => NULL,
+                'shortcut' => 'BS Agriculture',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -262,7 +285,8 @@ class ListCoursesTableSeeder extends Seeder
             24 => 
             array (
                 'id' => 25,
-                'shortcut' => 'BS AGRONOMY',
+                'name' => NULL,
+                'shortcut' => 'BS Agronomy',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -272,7 +296,8 @@ class ListCoursesTableSeeder extends Seeder
             25 => 
             array (
                 'id' => 26,
-                'shortcut' => 'BS APPLIED MATHEMATICS',
+                'name' => NULL,
+                'shortcut' => 'BS Applied Mathematics',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -282,7 +307,8 @@ class ListCoursesTableSeeder extends Seeder
             26 => 
             array (
                 'id' => 27,
-                'shortcut' => 'BS APPLIED MATHEMATICS WITH APPLIED COMPUTER SYSTEMS',
+                'name' => NULL,
+                'shortcut' => 'BS Applied Mathematics with Applied Computer Systems',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -292,7 +318,8 @@ class ListCoursesTableSeeder extends Seeder
             27 => 
             array (
                 'id' => 28,
-                'shortcut' => 'BS APPLIED PHYSICS',
+                'name' => NULL,
+                'shortcut' => 'BS Applied Physics',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -302,7 +329,8 @@ class ListCoursesTableSeeder extends Seeder
             28 => 
             array (
                 'id' => 29,
-                'shortcut' => 'BS APPLIED PHYSICS WITH APPLIED COMPUTER SYSTEMS',
+                'name' => NULL,
+                'shortcut' => 'BS Applied Physics with Applied Computer Systems',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -312,7 +340,8 @@ class ListCoursesTableSeeder extends Seeder
             29 => 
             array (
                 'id' => 30,
-                'shortcut' => 'BS APPLIED PHYSICS WITH MATERIALS SCIENCE AND ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Applied Physics with Materials Science and Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -322,7 +351,8 @@ class ListCoursesTableSeeder extends Seeder
             30 => 
             array (
                 'id' => 31,
-                'shortcut' => 'BS APPLIED STATISTICS',
+                'name' => NULL,
+                'shortcut' => 'BS Applied Statistics',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -332,7 +362,8 @@ class ListCoursesTableSeeder extends Seeder
             31 => 
             array (
                 'id' => 32,
-                'shortcut' => 'BS BASIC MEDICAL SCIENCES',
+                'name' => NULL,
+                'shortcut' => 'BS Basic Medical Sciences',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -342,7 +373,8 @@ class ListCoursesTableSeeder extends Seeder
             32 => 
             array (
                 'id' => 33,
-                'shortcut' => 'BS BIOCHEMISTRY',
+                'name' => NULL,
+                'shortcut' => 'BS Biochemistry',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -352,7 +384,8 @@ class ListCoursesTableSeeder extends Seeder
             33 => 
             array (
                 'id' => 34,
-                'shortcut' => 'BS BIOCHEMISTRY/ BS MECHANICAL ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Biochemistry/ BS Mechanical Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -362,7 +395,8 @@ class ListCoursesTableSeeder extends Seeder
             34 => 
             array (
                 'id' => 35,
-                'shortcut' => 'BS BIOLOGICAL SCIENCES',
+                'name' => NULL,
+                'shortcut' => 'BS Biological Sciences',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -372,7 +406,8 @@ class ListCoursesTableSeeder extends Seeder
             35 => 
             array (
                 'id' => 36,
-                'shortcut' => 'BS BIOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Biology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -382,7 +417,8 @@ class ListCoursesTableSeeder extends Seeder
             36 => 
             array (
                 'id' => 37,
-                'shortcut' => 'BS BIOLOGY FOR TEACHERS',
+                'name' => NULL,
+                'shortcut' => 'BS Biology for Teachers',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -392,7 +428,8 @@ class ListCoursesTableSeeder extends Seeder
             37 => 
             array (
                 'id' => 38,
-                'shortcut' => 'BS BIOTECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Biotechnology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -402,7 +439,8 @@ class ListCoursesTableSeeder extends Seeder
             38 => 
             array (
                 'id' => 39,
-                'shortcut' => 'BS BOTANY',
+                'name' => NULL,
+                'shortcut' => 'BS Botany',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -412,7 +450,8 @@ class ListCoursesTableSeeder extends Seeder
             39 => 
             array (
                 'id' => 40,
-                'shortcut' => 'BS CERAMICS ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Ceramics Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -422,7 +461,8 @@ class ListCoursesTableSeeder extends Seeder
             40 => 
             array (
                 'id' => 41,
-                'shortcut' => 'BS CHEMICAL ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Chemical Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -432,7 +472,8 @@ class ListCoursesTableSeeder extends Seeder
             41 => 
             array (
                 'id' => 42,
-                'shortcut' => 'BS CHEMISTRY',
+                'name' => NULL,
+                'shortcut' => 'BS Chemistry',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -442,7 +483,8 @@ class ListCoursesTableSeeder extends Seeder
             42 => 
             array (
                 'id' => 43,
-                'shortcut' => 'BS CHEMISTRY FOR TEACHERS',
+                'name' => NULL,
+                'shortcut' => 'BS Chemistry for Teachers',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -452,7 +494,8 @@ class ListCoursesTableSeeder extends Seeder
             43 => 
             array (
                 'id' => 44,
-                'shortcut' => 'BS CHEMISTRY WITH APPLIED COMPUTER SYSTEMS',
+                'name' => NULL,
+                'shortcut' => 'BS Chemistry with Applied Computer Systems',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -462,7 +505,8 @@ class ListCoursesTableSeeder extends Seeder
             44 => 
             array (
                 'id' => 45,
-                'shortcut' => 'BS CHEMISTRY WITH MATERIALS SCIENCE AND ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Chemistry with Materials Science and Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -472,7 +516,8 @@ class ListCoursesTableSeeder extends Seeder
             45 => 
             array (
                 'id' => 46,
-                'shortcut' => 'BS CHEMISTRY-PHYSICS',
+                'name' => NULL,
+                'shortcut' => 'BS Chemistry-Physics',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -482,7 +527,8 @@ class ListCoursesTableSeeder extends Seeder
             46 => 
             array (
                 'id' => 47,
-                'shortcut' => 'BS CIVIL ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Civil Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -492,7 +538,8 @@ class ListCoursesTableSeeder extends Seeder
             47 => 
             array (
                 'id' => 48,
-                'shortcut' => 'BS CLOTHING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Clothing Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -502,7 +549,8 @@ class ListCoursesTableSeeder extends Seeder
             48 => 
             array (
                 'id' => 49,
-                'shortcut' => 'BS COMMUNITY NUTRITION',
+                'name' => NULL,
+                'shortcut' => 'BS Community Nutrition',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -512,7 +560,8 @@ class ListCoursesTableSeeder extends Seeder
             49 => 
             array (
                 'id' => 50,
-                'shortcut' => 'BS COMPUTER ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Computer Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -522,7 +571,8 @@ class ListCoursesTableSeeder extends Seeder
             50 => 
             array (
                 'id' => 51,
-                'shortcut' => 'BS COMPUTER SCIENCE',
+                'name' => NULL,
+                'shortcut' => 'BS Computer Science',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -532,7 +582,8 @@ class ListCoursesTableSeeder extends Seeder
             51 => 
             array (
                 'id' => 52,
-                'shortcut' => 'BS COMPUTER SCIENCE-IT',
+                'name' => NULL,
+                'shortcut' => 'BS Computer Science-IT',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -542,7 +593,8 @@ class ListCoursesTableSeeder extends Seeder
             52 => 
             array (
                 'id' => 53,
-                'shortcut' => 'BS COMPUTER SCIENCE-MATHEMATICS',
+                'name' => NULL,
+                'shortcut' => 'BS Computer Science-Mathematics',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -552,7 +604,8 @@ class ListCoursesTableSeeder extends Seeder
             53 => 
             array (
                 'id' => 54,
-                'shortcut' => 'BS EDUCATION',
+                'name' => NULL,
+                'shortcut' => 'BS Education',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -562,7 +615,8 @@ class ListCoursesTableSeeder extends Seeder
             54 => 
             array (
                 'id' => 55,
-                'shortcut' => 'BS ELECTRICAL ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Electrical Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -572,7 +626,8 @@ class ListCoursesTableSeeder extends Seeder
             55 => 
             array (
                 'id' => 56,
-                'shortcut' => 'BS ELECTRONICS AND COMMUNICATIONS ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Electronics and Communications Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -582,7 +637,8 @@ class ListCoursesTableSeeder extends Seeder
             56 => 
             array (
                 'id' => 57,
-                'shortcut' => 'BS ELECTRONICS ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Electronics Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -592,7 +648,8 @@ class ListCoursesTableSeeder extends Seeder
             57 => 
             array (
                 'id' => 58,
-                'shortcut' => 'BS ELECTRONICS TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Electronics Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -602,7 +659,8 @@ class ListCoursesTableSeeder extends Seeder
             58 => 
             array (
                 'id' => 59,
-                'shortcut' => 'BS ENGINEERING TECHNOLOGY MANAGEMENT',
+                'name' => NULL,
+                'shortcut' => 'BS Engineering Technology Management',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -612,7 +670,8 @@ class ListCoursesTableSeeder extends Seeder
             59 => 
             array (
                 'id' => 60,
-                'shortcut' => 'BS ENVIRONMENTAL ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Environmental Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -622,7 +681,8 @@ class ListCoursesTableSeeder extends Seeder
             60 => 
             array (
                 'id' => 61,
-                'shortcut' => 'BS ENVIRONMENTAL SCIENCE',
+                'name' => NULL,
+                'shortcut' => 'BS Environmental Science',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -632,7 +692,8 @@ class ListCoursesTableSeeder extends Seeder
             61 => 
             array (
                 'id' => 62,
-                'shortcut' => 'BS FISHERIES',
+                'name' => NULL,
+                'shortcut' => 'BS Fisheries',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -642,7 +703,8 @@ class ListCoursesTableSeeder extends Seeder
             62 => 
             array (
                 'id' => 63,
-                'shortcut' => 'BS FOOD AND NUTRITION',
+                'name' => NULL,
+                'shortcut' => 'BS Food and Nutrition',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -652,7 +714,8 @@ class ListCoursesTableSeeder extends Seeder
             63 => 
             array (
                 'id' => 64,
-                'shortcut' => 'BS FOOD ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Food Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -662,7 +725,8 @@ class ListCoursesTableSeeder extends Seeder
             64 => 
             array (
                 'id' => 65,
-                'shortcut' => 'BS FOOD TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Food Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -672,7 +736,8 @@ class ListCoursesTableSeeder extends Seeder
             65 => 
             array (
                 'id' => 66,
-                'shortcut' => 'BS FOREST PRODUCT ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Forest Product Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -682,7 +747,8 @@ class ListCoursesTableSeeder extends Seeder
             66 => 
             array (
                 'id' => 67,
-                'shortcut' => 'BS FORESTRY',
+                'name' => NULL,
+                'shortcut' => 'BS Forestry',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -692,7 +758,8 @@ class ListCoursesTableSeeder extends Seeder
             67 => 
             array (
                 'id' => 68,
-                'shortcut' => 'BS GENERAL ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS General Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -702,7 +769,8 @@ class ListCoursesTableSeeder extends Seeder
             68 => 
             array (
                 'id' => 69,
-                'shortcut' => 'BS GEODETIC ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Geodetic Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -712,7 +780,8 @@ class ListCoursesTableSeeder extends Seeder
             69 => 
             array (
                 'id' => 70,
-                'shortcut' => 'BS GEOLOGICAL SCIENCE AND ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Geological Science and Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -722,7 +791,8 @@ class ListCoursesTableSeeder extends Seeder
             70 => 
             array (
                 'id' => 71,
-                'shortcut' => 'BS GEOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Geology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -732,7 +802,8 @@ class ListCoursesTableSeeder extends Seeder
             71 => 
             array (
                 'id' => 72,
-                'shortcut' => 'BS GEOTHERMAL ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Geothermal Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -742,7 +813,8 @@ class ListCoursesTableSeeder extends Seeder
             72 => 
             array (
                 'id' => 73,
-                'shortcut' => 'BS INDUSTRIAL ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Industrial Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -752,7 +824,8 @@ class ListCoursesTableSeeder extends Seeder
             73 => 
             array (
                 'id' => 74,
-                'shortcut' => 'BS INDUSTRIAL MANAGEMENT ENGINEERING-INFORMATION TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Industrial Management Engineering-Information Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -762,7 +835,8 @@ class ListCoursesTableSeeder extends Seeder
             74 => 
             array (
                 'id' => 75,
-                'shortcut' => 'BS INDUSTRIAL TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Industrial Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -772,7 +846,8 @@ class ListCoursesTableSeeder extends Seeder
             75 => 
             array (
                 'id' => 76,
-                'shortcut' => 'BS INFORMATION AND COMPUTER SCIENCE',
+                'name' => NULL,
+                'shortcut' => 'BS Information and Computer Science',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -782,7 +857,8 @@ class ListCoursesTableSeeder extends Seeder
             76 => 
             array (
                 'id' => 77,
-                'shortcut' => 'BS INFORMATION TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Information Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -792,7 +868,8 @@ class ListCoursesTableSeeder extends Seeder
             77 => 
             array (
                 'id' => 78,
-                'shortcut' => 'BS INSTRUMENTATION AND CONTROL ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Instrumentation and Control Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -802,7 +879,8 @@ class ListCoursesTableSeeder extends Seeder
             78 => 
             array (
                 'id' => 79,
-                'shortcut' => 'BS INSTRUMENTATION AND CONTROL TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Instrumentation and Control Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -812,7 +890,8 @@ class ListCoursesTableSeeder extends Seeder
             79 => 
             array (
                 'id' => 80,
-                'shortcut' => 'BS MANAGEMENT ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Management Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -822,7 +901,8 @@ class ListCoursesTableSeeder extends Seeder
             80 => 
             array (
                 'id' => 81,
-                'shortcut' => 'BS MANUFACTURING ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Manufacturing Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -832,7 +912,8 @@ class ListCoursesTableSeeder extends Seeder
             81 => 
             array (
                 'id' => 82,
-                'shortcut' => 'BS MANUFACTURING ENGINEERING AND MANAGEMENT WITH BIOMEDICAL ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Manufacturing Engineering and Management with Biomedical Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -842,7 +923,8 @@ class ListCoursesTableSeeder extends Seeder
             82 => 
             array (
                 'id' => 83,
-                'shortcut' => 'BS MANUFACTURING ENGINEERING MANAGEMENT-MECHATRONICS AND ROBOTICS',
+                'name' => NULL,
+                'shortcut' => 'BS Manufacturing Engineering Management-Mechatronics and Robotics',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -852,7 +934,8 @@ class ListCoursesTableSeeder extends Seeder
             83 => 
             array (
                 'id' => 84,
-                'shortcut' => 'BS MARINE BIOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Marine Biology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -862,7 +945,8 @@ class ListCoursesTableSeeder extends Seeder
             84 => 
             array (
                 'id' => 85,
-                'shortcut' => 'BS MARINE ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Marine Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -872,7 +956,8 @@ class ListCoursesTableSeeder extends Seeder
             85 => 
             array (
                 'id' => 86,
-                'shortcut' => 'BS MARINE SCIENCE',
+                'name' => NULL,
+                'shortcut' => 'BS Marine Science',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -882,7 +967,8 @@ class ListCoursesTableSeeder extends Seeder
             86 => 
             array (
                 'id' => 87,
-                'shortcut' => 'BS MATERIALS ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Materials Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -892,7 +978,8 @@ class ListCoursesTableSeeder extends Seeder
             87 => 
             array (
                 'id' => 88,
-                'shortcut' => 'BS MATHEMATICAL SCIENCE',
+                'name' => NULL,
+                'shortcut' => 'BS Mathematical Science',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -902,7 +989,8 @@ class ListCoursesTableSeeder extends Seeder
             88 => 
             array (
                 'id' => 89,
-                'shortcut' => 'BS MATHEMATICS',
+                'name' => NULL,
+                'shortcut' => 'BS Mathematics',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -912,7 +1000,8 @@ class ListCoursesTableSeeder extends Seeder
             89 => 
             array (
                 'id' => 90,
-                'shortcut' => 'BS MATHEMATICS AND SCIENCE TEACHING',
+                'name' => NULL,
+                'shortcut' => 'BS Mathematics and Science Teaching',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -922,7 +1011,8 @@ class ListCoursesTableSeeder extends Seeder
             90 => 
             array (
                 'id' => 91,
-                'shortcut' => 'BS MATHEMATICS FOR TEACHERS',
+                'name' => NULL,
+                'shortcut' => 'BS Mathematics for Teachers',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -932,7 +1022,8 @@ class ListCoursesTableSeeder extends Seeder
             91 => 
             array (
                 'id' => 92,
-                'shortcut' => 'BS MECHANICAL ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Mechanical Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -942,7 +1033,8 @@ class ListCoursesTableSeeder extends Seeder
             92 => 
             array (
                 'id' => 93,
-                'shortcut' => 'BS MEDICAL TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Medical Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -952,7 +1044,8 @@ class ListCoursesTableSeeder extends Seeder
             93 => 
             array (
                 'id' => 94,
-                'shortcut' => 'BS METALLURGICAL ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Metallurgical Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -962,7 +1055,8 @@ class ListCoursesTableSeeder extends Seeder
             94 => 
             array (
                 'id' => 95,
-                'shortcut' => 'BS METALLURGY',
+                'name' => NULL,
+                'shortcut' => 'BS Metallurgy',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -972,7 +1066,8 @@ class ListCoursesTableSeeder extends Seeder
             95 => 
             array (
                 'id' => 96,
-                'shortcut' => 'BS METEOROLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Meteorology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -982,7 +1077,8 @@ class ListCoursesTableSeeder extends Seeder
             96 => 
             array (
                 'id' => 97,
-                'shortcut' => 'BS MICROBIOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Microbiology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -992,7 +1088,8 @@ class ListCoursesTableSeeder extends Seeder
             97 => 
             array (
                 'id' => 98,
-                'shortcut' => 'BS MINING ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Mining Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -1002,7 +1099,8 @@ class ListCoursesTableSeeder extends Seeder
             98 => 
             array (
                 'id' => 99,
-                'shortcut' => 'BS MOLECULAR BIOLOGY AND BIOTECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Molecular Biology and Biotechnology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -1012,7 +1110,8 @@ class ListCoursesTableSeeder extends Seeder
             99 => 
             array (
                 'id' => 100,
-                'shortcut' => 'BS NUTRITION',
+                'name' => NULL,
+                'shortcut' => 'BS Nutrition',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -1022,7 +1121,8 @@ class ListCoursesTableSeeder extends Seeder
             100 => 
             array (
                 'id' => 101,
-                'shortcut' => 'BS NUTRITION AND DIETETICS',
+                'name' => NULL,
+                'shortcut' => 'BS Nutrition and Dietetics',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -1032,7 +1132,8 @@ class ListCoursesTableSeeder extends Seeder
             101 => 
             array (
                 'id' => 102,
-                'shortcut' => 'BS PETROLEUM ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Petroleum Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -1042,7 +1143,8 @@ class ListCoursesTableSeeder extends Seeder
             102 => 
             array (
                 'id' => 103,
-                'shortcut' => 'BS PHYSICAL SCIENCE',
+                'name' => NULL,
+                'shortcut' => 'BS Physical Science',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1052,7 +1154,8 @@ class ListCoursesTableSeeder extends Seeder
             103 => 
             array (
                 'id' => 104,
-                'shortcut' => 'BS PHYSICS',
+                'name' => NULL,
+                'shortcut' => 'BS Physics',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -1062,7 +1165,8 @@ class ListCoursesTableSeeder extends Seeder
             104 => 
             array (
                 'id' => 105,
-                'shortcut' => 'BS PHYSICS FOR TEACHERS',
+                'name' => NULL,
+                'shortcut' => 'BS Physics for Teachers',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -1072,7 +1176,8 @@ class ListCoursesTableSeeder extends Seeder
             105 => 
             array (
                 'id' => 106,
-                'shortcut' => 'BS PHYSICS WITH APPLIED COMPUTER SYSTEMS',
+                'name' => NULL,
+                'shortcut' => 'BS Physics with Applied Computer Systems',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1082,7 +1187,8 @@ class ListCoursesTableSeeder extends Seeder
             106 => 
             array (
                 'id' => 107,
-                'shortcut' => 'BS PHYSICS WITH MATERIALS SCIENCE',
+                'name' => NULL,
+                'shortcut' => 'BS Physics with Materials Science',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1092,7 +1198,8 @@ class ListCoursesTableSeeder extends Seeder
             107 => 
             array (
                 'id' => 108,
-                'shortcut' => 'BS PHYSICS WITH MATERIALS SCIENCE ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Physics with Materials Science Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1102,7 +1209,8 @@ class ListCoursesTableSeeder extends Seeder
             108 => 
             array (
                 'id' => 109,
-                'shortcut' => 'BS PSYCHOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Psychology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -1112,7 +1220,8 @@ class ListCoursesTableSeeder extends Seeder
             109 => 
             array (
                 'id' => 110,
-                'shortcut' => 'BS SOCIOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Sociology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1122,7 +1231,8 @@ class ListCoursesTableSeeder extends Seeder
             110 => 
             array (
                 'id' => 111,
-                'shortcut' => 'BS STATISTICS',
+                'name' => NULL,
+                'shortcut' => 'BS Statistics',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -1132,7 +1242,8 @@ class ListCoursesTableSeeder extends Seeder
             111 => 
             array (
                 'id' => 112,
-                'shortcut' => 'BS SUGAR TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Sugar Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1142,7 +1253,8 @@ class ListCoursesTableSeeder extends Seeder
             112 => 
             array (
                 'id' => 113,
-                'shortcut' => 'BS VETERINARY MEDICINE',
+                'name' => NULL,
+                'shortcut' => 'BS Veterinary Medicine',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1152,7 +1264,8 @@ class ListCoursesTableSeeder extends Seeder
             113 => 
             array (
                 'id' => 114,
-                'shortcut' => 'BS ZOOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Zoology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1162,7 +1275,8 @@ class ListCoursesTableSeeder extends Seeder
             114 => 
             array (
                 'id' => 115,
-                'shortcut' => 'BSE BIOLOGICAL SCIENCES',
+                'name' => NULL,
+                'shortcut' => 'BSE Biological Sciences',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -1172,7 +1286,8 @@ class ListCoursesTableSeeder extends Seeder
             115 => 
             array (
                 'id' => 116,
-                'shortcut' => 'BSE BIOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BSE Biology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -1182,7 +1297,8 @@ class ListCoursesTableSeeder extends Seeder
             116 => 
             array (
                 'id' => 117,
-                'shortcut' => 'BSE BIOLOGY-CHEMISTRY',
+                'name' => NULL,
+                'shortcut' => 'BSE Biology-Chemistry',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -1192,7 +1308,8 @@ class ListCoursesTableSeeder extends Seeder
             117 => 
             array (
                 'id' => 118,
-                'shortcut' => 'BSE CHEMISTRY',
+                'name' => NULL,
+                'shortcut' => 'BSE Chemistry',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -1202,7 +1319,8 @@ class ListCoursesTableSeeder extends Seeder
             118 => 
             array (
                 'id' => 119,
-                'shortcut' => 'BSE COMPUTER',
+                'name' => NULL,
+                'shortcut' => 'BSE Computer',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1212,7 +1330,8 @@ class ListCoursesTableSeeder extends Seeder
             119 => 
             array (
                 'id' => 120,
-                'shortcut' => 'BSE ELEMENTARY EDUCATION',
+                'name' => NULL,
+                'shortcut' => 'BSE Elementary Education',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1222,7 +1341,8 @@ class ListCoursesTableSeeder extends Seeder
             120 => 
             array (
                 'id' => 121,
-                'shortcut' => 'BSE ENVIRONMENTAL SCIENCE',
+                'name' => NULL,
+                'shortcut' => 'BSE Environmental Science',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1232,7 +1352,8 @@ class ListCoursesTableSeeder extends Seeder
             121 => 
             array (
                 'id' => 122,
-                'shortcut' => 'BSE GENERAL SCIENCES',
+                'name' => NULL,
+                'shortcut' => 'BSE General Sciences',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -1242,7 +1363,8 @@ class ListCoursesTableSeeder extends Seeder
             122 => 
             array (
                 'id' => 123,
-                'shortcut' => 'BSE MATHEMATICS',
+                'name' => NULL,
+                'shortcut' => 'BSE Mathematics',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -1252,7 +1374,8 @@ class ListCoursesTableSeeder extends Seeder
             123 => 
             array (
                 'id' => 124,
-                'shortcut' => 'BSE MATHEMATICS AND SCIENCE TEACHING',
+                'name' => NULL,
+                'shortcut' => 'BSE Mathematics and Science Teaching',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1262,7 +1385,8 @@ class ListCoursesTableSeeder extends Seeder
             124 => 
             array (
                 'id' => 125,
-                'shortcut' => 'BSE PHYSICAL SCIENCES',
+                'name' => NULL,
+                'shortcut' => 'BSE Physical Sciences',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -1272,7 +1396,8 @@ class ListCoursesTableSeeder extends Seeder
             125 => 
             array (
                 'id' => 126,
-                'shortcut' => 'BSE PHYSICS',
+                'name' => NULL,
+                'shortcut' => 'BSE Physics',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -1282,7 +1407,8 @@ class ListCoursesTableSeeder extends Seeder
             126 => 
             array (
                 'id' => 127,
-                'shortcut' => 'BSE PHYSICS AND TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BSE Physics and Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1292,7 +1418,8 @@ class ListCoursesTableSeeder extends Seeder
             127 => 
             array (
                 'id' => 128,
-                'shortcut' => 'BSE PHYSICS-CHEMISTRY',
+                'name' => NULL,
+                'shortcut' => 'BSE Physics-Chemistry',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -1302,7 +1429,8 @@ class ListCoursesTableSeeder extends Seeder
             128 => 
             array (
                 'id' => 129,
-                'shortcut' => 'BSE PHYSICS-MATHEMATICS',
+                'name' => NULL,
+                'shortcut' => 'BSE Physics-Mathematics',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -1312,7 +1440,8 @@ class ListCoursesTableSeeder extends Seeder
             129 => 
             array (
                 'id' => 130,
-                'shortcut' => 'BSE SCIENCE',
+                'name' => NULL,
+                'shortcut' => 'BSE Science',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -1322,7 +1451,8 @@ class ListCoursesTableSeeder extends Seeder
             130 => 
             array (
                 'id' => 131,
-                'shortcut' => 'CERTIFICATE IN FORESTRY',
+                'name' => NULL,
+                'shortcut' => 'Certificate in Forestry',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1332,7 +1462,8 @@ class ListCoursesTableSeeder extends Seeder
             131 => 
             array (
                 'id' => 132,
-                'shortcut' => 'CHEMICAL ENGINEERING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Chemical Engineering Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1342,7 +1473,8 @@ class ListCoursesTableSeeder extends Seeder
             132 => 
             array (
                 'id' => 133,
-                'shortcut' => 'CHEMICAL TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Chemical Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1352,7 +1484,8 @@ class ListCoursesTableSeeder extends Seeder
             133 => 
             array (
                 'id' => 134,
-                'shortcut' => 'CIVIL ENGINEERING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Civil Engineering Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1362,7 +1495,8 @@ class ListCoursesTableSeeder extends Seeder
             134 => 
             array (
                 'id' => 135,
-                'shortcut' => 'CIVIL TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Civil Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1372,7 +1506,8 @@ class ListCoursesTableSeeder extends Seeder
             135 => 
             array (
                 'id' => 136,
-                'shortcut' => 'COMPUTER AND ELECTRONICS TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Computer and Electronics Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1382,7 +1517,8 @@ class ListCoursesTableSeeder extends Seeder
             136 => 
             array (
                 'id' => 137,
-                'shortcut' => 'COMPUTER AND INFORMATION MANAGEMENT',
+                'name' => NULL,
+                'shortcut' => 'Computer and Information Management',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1392,7 +1528,8 @@ class ListCoursesTableSeeder extends Seeder
             137 => 
             array (
                 'id' => 138,
-                'shortcut' => 'COMPUTER AND INFORMATION TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Computer and Information Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1402,7 +1539,8 @@ class ListCoursesTableSeeder extends Seeder
             138 => 
             array (
                 'id' => 139,
-                'shortcut' => 'COMPUTER ENGINEERING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Computer Engineering Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1412,7 +1550,8 @@ class ListCoursesTableSeeder extends Seeder
             139 => 
             array (
                 'id' => 140,
-                'shortcut' => 'COMPUTER HARDWARE AND SERVICING',
+                'name' => NULL,
+                'shortcut' => 'Computer Hardware and Servicing',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1422,7 +1561,8 @@ class ListCoursesTableSeeder extends Seeder
             140 => 
             array (
                 'id' => 141,
-                'shortcut' => 'COMPUTER PROGRAMMING',
+                'name' => NULL,
+                'shortcut' => 'Computer Programming',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1432,7 +1572,8 @@ class ListCoursesTableSeeder extends Seeder
             141 => 
             array (
                 'id' => 142,
-                'shortcut' => 'COMPUTER PROGRAMMING AND OPERATION',
+                'name' => NULL,
+                'shortcut' => 'Computer Programming and Operation',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1442,7 +1583,8 @@ class ListCoursesTableSeeder extends Seeder
             142 => 
             array (
                 'id' => 143,
-                'shortcut' => 'COMPUTER SYSTEM AND NETWORK TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Computer System and Network Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1452,7 +1594,8 @@ class ListCoursesTableSeeder extends Seeder
             143 => 
             array (
                 'id' => 144,
-                'shortcut' => 'COMPUTER SYSTEM DESIGN AND PROGRAMMING',
+                'name' => NULL,
+                'shortcut' => 'Computer System Design and Programming',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1462,7 +1605,8 @@ class ListCoursesTableSeeder extends Seeder
             144 => 
             array (
                 'id' => 145,
-                'shortcut' => 'COMPUTER SYSTEM PROGRAMMING',
+                'name' => NULL,
+                'shortcut' => 'Computer System Programming',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1472,7 +1616,8 @@ class ListCoursesTableSeeder extends Seeder
             145 => 
             array (
                 'id' => 146,
-                'shortcut' => 'COMPUTER SYSTEM TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Computer System Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1482,7 +1627,8 @@ class ListCoursesTableSeeder extends Seeder
             146 => 
             array (
                 'id' => 147,
-                'shortcut' => 'COMPUTER TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Computer Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1492,7 +1638,8 @@ class ListCoursesTableSeeder extends Seeder
             147 => 
             array (
                 'id' => 148,
-                'shortcut' => 'DIGITAL LOGIC TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Digital Logic Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1502,7 +1649,8 @@ class ListCoursesTableSeeder extends Seeder
             148 => 
             array (
                 'id' => 149,
-                'shortcut' => 'DIPLOMA IN AUTOMATION MAINTENANCE TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Diploma in Automation Maintenance Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1512,7 +1660,8 @@ class ListCoursesTableSeeder extends Seeder
             149 => 
             array (
                 'id' => 150,
-                'shortcut' => 'DIPLOMA IN CHEMISTRY',
+                'name' => NULL,
+                'shortcut' => 'Diploma in Chemistry',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1522,7 +1671,8 @@ class ListCoursesTableSeeder extends Seeder
             150 => 
             array (
                 'id' => 151,
-                'shortcut' => 'DIPLOMA TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Diploma Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1532,7 +1682,8 @@ class ListCoursesTableSeeder extends Seeder
             151 => 
             array (
                 'id' => 152,
-                'shortcut' => 'DRAFTING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Drafting Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1542,7 +1693,8 @@ class ListCoursesTableSeeder extends Seeder
             152 => 
             array (
                 'id' => 153,
-                'shortcut' => 'ELECTRICAL ENGINEERING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Electrical Engineering Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1552,7 +1704,8 @@ class ListCoursesTableSeeder extends Seeder
             153 => 
             array (
                 'id' => 154,
-                'shortcut' => 'ELECTRICAL TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Electrical Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1562,7 +1715,8 @@ class ListCoursesTableSeeder extends Seeder
             154 => 
             array (
                 'id' => 155,
-                'shortcut' => 'ELECTROMECHANICAL AND PROCESS ENGINEERING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Electromechanical and Process Engineering Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1572,7 +1726,8 @@ class ListCoursesTableSeeder extends Seeder
             155 => 
             array (
                 'id' => 156,
-                'shortcut' => 'ELECTROMECHANICAL ENGINEERING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Electromechanical Engineering Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1582,7 +1737,8 @@ class ListCoursesTableSeeder extends Seeder
             156 => 
             array (
                 'id' => 157,
-                'shortcut' => 'ELECTROMECHANICAL TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Electromechanical Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1592,7 +1748,8 @@ class ListCoursesTableSeeder extends Seeder
             157 => 
             array (
                 'id' => 158,
-                'shortcut' => 'ELECTRONICS AND COMMUNICATIONS ENGINEERING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Electronics and Communications Engineering Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1602,7 +1759,8 @@ class ListCoursesTableSeeder extends Seeder
             158 => 
             array (
                 'id' => 159,
-                'shortcut' => 'ELECTRONICS AND COMMUNICATIONS TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Electronics and Communications Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1612,7 +1770,8 @@ class ListCoursesTableSeeder extends Seeder
             159 => 
             array (
                 'id' => 160,
-                'shortcut' => 'ELECTRONICS DATA PROCESS TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Electronics and Data Process Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1622,7 +1781,8 @@ class ListCoursesTableSeeder extends Seeder
             160 => 
             array (
                 'id' => 161,
-                'shortcut' => 'ELECTRONICS ENGINEERING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Electronics Engineering Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1632,7 +1792,8 @@ class ListCoursesTableSeeder extends Seeder
             161 => 
             array (
                 'id' => 162,
-                'shortcut' => 'ELECTRONICS SERVICE ENGINEERING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Electronics Service Engineering Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1642,7 +1803,8 @@ class ListCoursesTableSeeder extends Seeder
             162 => 
             array (
                 'id' => 163,
-                'shortcut' => 'ELECTRONICS TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Electronics Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1652,7 +1814,8 @@ class ListCoursesTableSeeder extends Seeder
             163 => 
             array (
                 'id' => 164,
-                'shortcut' => 'ENGINEERING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Engineering Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1662,7 +1825,8 @@ class ListCoursesTableSeeder extends Seeder
             164 => 
             array (
                 'id' => 165,
-                'shortcut' => 'FISHERIES PROCESSING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Fisheries Processing Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1672,7 +1836,8 @@ class ListCoursesTableSeeder extends Seeder
             165 => 
             array (
                 'id' => 166,
-                'shortcut' => 'FISHERIES TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Fisheries Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1682,7 +1847,8 @@ class ListCoursesTableSeeder extends Seeder
             166 => 
             array (
                 'id' => 167,
-                'shortcut' => 'FOOD AND BEVERAGE PREPARATION AND SERVICE',
+                'name' => NULL,
+                'shortcut' => 'Food and Beverage Preparation and Service',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1692,7 +1858,8 @@ class ListCoursesTableSeeder extends Seeder
             167 => 
             array (
                 'id' => 168,
-                'shortcut' => 'FOOD AND BEVERAGES TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Food and Beverages Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1702,7 +1869,8 @@ class ListCoursesTableSeeder extends Seeder
             168 => 
             array (
                 'id' => 169,
-                'shortcut' => 'FOOD ENGINEERING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Food Engineering Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1712,7 +1880,8 @@ class ListCoursesTableSeeder extends Seeder
             169 => 
             array (
                 'id' => 170,
-                'shortcut' => 'FOOD SERVICE MANAGEMENT',
+                'name' => NULL,
+                'shortcut' => 'Food Service Management',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1722,7 +1891,8 @@ class ListCoursesTableSeeder extends Seeder
             170 => 
             array (
                 'id' => 171,
-                'shortcut' => 'FOOD TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Food Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1732,7 +1902,8 @@ class ListCoursesTableSeeder extends Seeder
             171 => 
             array (
                 'id' => 172,
-                'shortcut' => 'FOOD TRADES TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Food Trades Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1742,7 +1913,8 @@ class ListCoursesTableSeeder extends Seeder
             172 => 
             array (
                 'id' => 173,
-                'shortcut' => 'FOREST RANGER TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Forest Ranger Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1752,7 +1924,8 @@ class ListCoursesTableSeeder extends Seeder
             173 => 
             array (
                 'id' => 174,
-                'shortcut' => 'FORESTRY TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Forestry Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1762,7 +1935,8 @@ class ListCoursesTableSeeder extends Seeder
             174 => 
             array (
                 'id' => 175,
-                'shortcut' => 'FOUNDRY TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Foundry Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1772,7 +1946,8 @@ class ListCoursesTableSeeder extends Seeder
             175 => 
             array (
                 'id' => 176,
-                'shortcut' => 'GARMENTS TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Garments Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1782,7 +1957,8 @@ class ListCoursesTableSeeder extends Seeder
             176 => 
             array (
                 'id' => 177,
-                'shortcut' => 'GEODETIC AND GEOMATIC ENGINEERING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Geodetic and Geomatic Engineering Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1792,7 +1968,8 @@ class ListCoursesTableSeeder extends Seeder
             177 => 
             array (
                 'id' => 178,
-                'shortcut' => 'GEODETIC ENGINEERING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Geodetic Engineering Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1802,7 +1979,8 @@ class ListCoursesTableSeeder extends Seeder
             178 => 
             array (
                 'id' => 179,
-                'shortcut' => 'GEODETIC TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Geodetic Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1812,7 +1990,8 @@ class ListCoursesTableSeeder extends Seeder
             179 => 
             array (
                 'id' => 180,
-                'shortcut' => 'GRAPHICS ARTS AND PRINTING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Graphics Arts and Printing Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1822,7 +2001,8 @@ class ListCoursesTableSeeder extends Seeder
             180 => 
             array (
                 'id' => 181,
-                'shortcut' => 'HEATING VENTILATING AIRCONDITIONING AND REFRIGERATION',
+                'name' => NULL,
+                'shortcut' => 'Heating Ventilating Airconditioning and Refrigeration',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1832,7 +2012,8 @@ class ListCoursesTableSeeder extends Seeder
             181 => 
             array (
                 'id' => 182,
-                'shortcut' => 'INDUSTRIAL AUTOMATION AND CONTROL ENGINEERING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Industrial Automation and Control Engineering Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1842,7 +2023,8 @@ class ListCoursesTableSeeder extends Seeder
             182 => 
             array (
                 'id' => 183,
-                'shortcut' => 'INDUSTRIAL TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Industrial Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1852,7 +2034,8 @@ class ListCoursesTableSeeder extends Seeder
             183 => 
             array (
                 'id' => 184,
-                'shortcut' => 'INFORMATION AND COMMUNICATION TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Information and Communication Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1862,7 +2045,8 @@ class ListCoursesTableSeeder extends Seeder
             184 => 
             array (
                 'id' => 185,
-                'shortcut' => 'INFORMATION TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Information Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1872,7 +2056,8 @@ class ListCoursesTableSeeder extends Seeder
             185 => 
             array (
                 'id' => 186,
-                'shortcut' => 'INSTRUMENTATION AND CONTROL ENGINEERING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Instrumentation and Control Engineering Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1882,7 +2067,8 @@ class ListCoursesTableSeeder extends Seeder
             186 => 
             array (
                 'id' => 187,
-                'shortcut' => 'INSTRUMENTATION AND CONTROL TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Instrumentation and Control Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1892,7 +2078,8 @@ class ListCoursesTableSeeder extends Seeder
             187 => 
             array (
                 'id' => 188,
-                'shortcut' => 'INSTRUMENTATION AND FOOD PROCESSING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Instrumentation and Food Processing Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1902,7 +2089,8 @@ class ListCoursesTableSeeder extends Seeder
             188 => 
             array (
                 'id' => 189,
-                'shortcut' => 'INSTRUMENTATION AND PROCESS CONTROL TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Instrumentation and Process Control Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1912,7 +2100,8 @@ class ListCoursesTableSeeder extends Seeder
             189 => 
             array (
                 'id' => 190,
-                'shortcut' => 'MACHINE SHOP TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Machine Shop Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1922,7 +2111,8 @@ class ListCoursesTableSeeder extends Seeder
             190 => 
             array (
                 'id' => 191,
-                'shortcut' => 'MANUFACTURING ENGINEERING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Manufacturing Engineering Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1932,7 +2122,8 @@ class ListCoursesTableSeeder extends Seeder
             191 => 
             array (
                 'id' => 192,
-                'shortcut' => 'MANUFACTURING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Manufacturing Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1942,7 +2133,8 @@ class ListCoursesTableSeeder extends Seeder
             192 => 
             array (
                 'id' => 193,
-                'shortcut' => 'MATERIALS ENGINEERING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Materials Engineering Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1952,7 +2144,8 @@ class ListCoursesTableSeeder extends Seeder
             193 => 
             array (
                 'id' => 194,
-                'shortcut' => 'MATERIALS SCIENCE ENGINEERING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Materials Science Engineering Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1962,7 +2155,8 @@ class ListCoursesTableSeeder extends Seeder
             194 => 
             array (
                 'id' => 195,
-                'shortcut' => 'MECHANICAL AND PRODUCT ENGINEERING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Mechanical and Product Engineering Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1972,7 +2166,8 @@ class ListCoursesTableSeeder extends Seeder
             195 => 
             array (
                 'id' => 196,
-                'shortcut' => 'MECHANICAL DESIGN AND FABRICATION TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Mechanical Design and Fabrication Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1982,7 +2177,8 @@ class ListCoursesTableSeeder extends Seeder
             196 => 
             array (
                 'id' => 197,
-                'shortcut' => 'MECHANICAL ENGINEERING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Mechanical Engineering Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -1992,7 +2188,8 @@ class ListCoursesTableSeeder extends Seeder
             197 => 
             array (
                 'id' => 198,
-                'shortcut' => 'MECHANICAL TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Mechanical Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -2002,7 +2199,8 @@ class ListCoursesTableSeeder extends Seeder
             198 => 
             array (
                 'id' => 199,
-                'shortcut' => 'MEDIATRONICS TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Mediatronics Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -2012,7 +2210,8 @@ class ListCoursesTableSeeder extends Seeder
             199 => 
             array (
                 'id' => 200,
-                'shortcut' => 'METAL WORKING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Metal Working Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -2022,7 +2221,8 @@ class ListCoursesTableSeeder extends Seeder
             200 => 
             array (
                 'id' => 201,
-                'shortcut' => 'METALLURGICAL ENGINEERING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Metallurgical Engineering Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -2032,7 +2232,8 @@ class ListCoursesTableSeeder extends Seeder
             201 => 
             array (
                 'id' => 202,
-                'shortcut' => 'NON-DESTRUCTIVE TESTING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Non-Destructive Testing Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -2042,7 +2243,8 @@ class ListCoursesTableSeeder extends Seeder
             202 => 
             array (
                 'id' => 203,
-                'shortcut' => 'NUTRITION AND FOOD TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Nutrition and Food Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -2052,7 +2254,8 @@ class ListCoursesTableSeeder extends Seeder
             203 => 
             array (
                 'id' => 204,
-                'shortcut' => 'PRODUCT DESIGN AND DEVELOPMENT TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Product Design and Development Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -2062,7 +2265,8 @@ class ListCoursesTableSeeder extends Seeder
             204 => 
             array (
                 'id' => 205,
-                'shortcut' => 'RADIO COMMUNICATION TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Radio Communication Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -2072,7 +2276,8 @@ class ListCoursesTableSeeder extends Seeder
             205 => 
             array (
                 'id' => 206,
-                'shortcut' => 'REFRIGERATION AND AIRCONDITIONING ENGINEERING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Refrigeration and Airconditioning Engineering Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -2082,7 +2287,8 @@ class ListCoursesTableSeeder extends Seeder
             206 => 
             array (
                 'id' => 207,
-                'shortcut' => 'REFRIGERATION AND AIRCONDITIONING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Refrigeration and Airconditioning Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -2092,7 +2298,8 @@ class ListCoursesTableSeeder extends Seeder
             207 => 
             array (
                 'id' => 208,
-                'shortcut' => 'SPRINT',
+                'name' => NULL,
+                'shortcut' => 'Sprint',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -2102,7 +2309,8 @@ class ListCoursesTableSeeder extends Seeder
             208 => 
             array (
                 'id' => 209,
-                'shortcut' => 'TECHNICAL DRAFTING GRAPHICS ARTS AND DESIGN',
+                'name' => NULL,
+                'shortcut' => 'Technical Drafting Graphics Arts and Design',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -2112,7 +2320,8 @@ class ListCoursesTableSeeder extends Seeder
             209 => 
             array (
                 'id' => 210,
-                'shortcut' => 'TOOL AND DIE ENGINEERING TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Tool and Die Engineering Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -2122,7 +2331,8 @@ class ListCoursesTableSeeder extends Seeder
             210 => 
             array (
                 'id' => 211,
-                'shortcut' => 'TOOL AND DIE TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Tool and Die Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -2132,7 +2342,8 @@ class ListCoursesTableSeeder extends Seeder
             211 => 
             array (
                 'id' => 212,
-                'shortcut' => 'WELDING AND FABRICATION TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Welding and Fabrication Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -2142,7 +2353,8 @@ class ListCoursesTableSeeder extends Seeder
             212 => 
             array (
                 'id' => 213,
-                'shortcut' => 'BS PHARMACY',
+                'name' => NULL,
+                'shortcut' => 'BS Pharmacy',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2152,7 +2364,8 @@ class ListCoursesTableSeeder extends Seeder
             213 => 
             array (
                 'id' => 214,
-                'shortcut' => 'BACHELOR IN MATHEMATICS EDUCATION',
+                'name' => NULL,
+                'shortcut' => 'Bachelor in Mathematics Education',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2162,7 +2375,8 @@ class ListCoursesTableSeeder extends Seeder
             214 => 
             array (
                 'id' => 215,
-                'shortcut' => 'BACHELOR OF MEDICAL LABORATORY SCIENCE',
+                'name' => NULL,
+                'shortcut' => 'Bachelor of Medical Laboratory Science',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -2172,7 +2386,8 @@ class ListCoursesTableSeeder extends Seeder
             215 => 
             array (
                 'id' => 216,
-                'shortcut' => 'BS AGRIBUSINESS',
+                'name' => NULL,
+                'shortcut' => 'BS Agribusiness',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2182,7 +2397,8 @@ class ListCoursesTableSeeder extends Seeder
             216 => 
             array (
                 'id' => 217,
-                'shortcut' => 'BS AGRIBUSINESS MANAGEMENT',
+                'name' => NULL,
+                'shortcut' => 'BS Agribusiness Management',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2192,7 +2408,8 @@ class ListCoursesTableSeeder extends Seeder
             217 => 
             array (
                 'id' => 218,
-                'shortcut' => 'BS AGRICULTURAL ECONOMICS',
+                'name' => NULL,
+                'shortcut' => 'BS Agricultural Economics',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2202,7 +2419,8 @@ class ListCoursesTableSeeder extends Seeder
             218 => 
             array (
                 'id' => 219,
-                'shortcut' => 'BS AGRICULTURAL TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Agricultural Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2212,7 +2430,8 @@ class ListCoursesTableSeeder extends Seeder
             219 => 
             array (
                 'id' => 220,
-                'shortcut' => 'BS ANIMAL HUSBANDRY',
+                'name' => NULL,
+                'shortcut' => 'BS Animal Husbandry',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2222,7 +2441,8 @@ class ListCoursesTableSeeder extends Seeder
             220 => 
             array (
                 'id' => 221,
-                'shortcut' => 'BS ANIMAL SCIENCE',
+                'name' => NULL,
+                'shortcut' => 'BS Animal Science',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2232,7 +2452,8 @@ class ListCoursesTableSeeder extends Seeder
             221 => 
             array (
                 'id' => 222,
-                'shortcut' => 'BS FOOD SCIENCE AND TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Food Science and Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2242,7 +2463,8 @@ class ListCoursesTableSeeder extends Seeder
             222 => 
             array (
                 'id' => 223,
-                'shortcut' => 'BS INDUSTRIAL DESIGN',
+                'name' => NULL,
+                'shortcut' => 'BS Industrial Design',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2252,7 +2474,8 @@ class ListCoursesTableSeeder extends Seeder
             223 => 
             array (
                 'id' => 224,
-                'shortcut' => 'BS INFORMATION SYSTEMS',
+                'name' => NULL,
+                'shortcut' => 'BS Information Systems',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2262,7 +2485,8 @@ class ListCoursesTableSeeder extends Seeder
             224 => 
             array (
                 'id' => 225,
-                'shortcut' => 'BS MECHANICAL ENGINEERING WITH MECHATRONICS',
+                'name' => NULL,
+                'shortcut' => 'BS Mechanical Engineering with Mechatronics',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -2272,7 +2496,8 @@ class ListCoursesTableSeeder extends Seeder
             225 => 
             array (
                 'id' => 226,
-                'shortcut' => 'BS PUBLIC HEALTH',
+                'name' => NULL,
+                'shortcut' => 'BS Public Health',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2282,7 +2507,8 @@ class ListCoursesTableSeeder extends Seeder
             226 => 
             array (
                 'id' => 227,
-                'shortcut' => 'DOCTOR OF VETERINARY MEDICINE',
+                'name' => NULL,
+                'shortcut' => 'Doctor of Veterinary Medicine',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2292,7 +2518,8 @@ class ListCoursesTableSeeder extends Seeder
             227 => 
             array (
                 'id' => 228,
-                'shortcut' => 'BS AERONAUTICAL ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Aeronautical Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2302,7 +2529,8 @@ class ListCoursesTableSeeder extends Seeder
             228 => 
             array (
                 'id' => 229,
-                'shortcut' => 'BS INDUSTRIAL PHARMACY',
+                'name' => NULL,
+                'shortcut' => 'BS Industrial Pharmacy',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2312,7 +2540,8 @@ class ListCoursesTableSeeder extends Seeder
             229 => 
             array (
                 'id' => 230,
-                'shortcut' => 'BS HUMAN BIOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Human Biology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2322,7 +2551,8 @@ class ListCoursesTableSeeder extends Seeder
             230 => 
             array (
                 'id' => 231,
-                'shortcut' => 'BS INFORMATION AND COMMUNICATIONS TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Information and Communications Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2332,7 +2562,8 @@ class ListCoursesTableSeeder extends Seeder
             231 => 
             array (
                 'id' => 232,
-                'shortcut' => 'BS MEDICAL LABORATORY SCIENCE',
+                'name' => NULL,
+                'shortcut' => 'BS Medical Laboratory Science',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2342,7 +2573,8 @@ class ListCoursesTableSeeder extends Seeder
             232 => 
             array (
                 'id' => 233,
-                'shortcut' => 'BS LIFE SCIENCES',
+                'name' => NULL,
+                'shortcut' => 'BS Life Sciences',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2352,7 +2584,8 @@ class ListCoursesTableSeeder extends Seeder
             233 => 
             array (
                 'id' => 234,
-                'shortcut' => 'BS MECHATRONICS ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Mechatronics Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2362,7 +2595,8 @@ class ListCoursesTableSeeder extends Seeder
             234 => 
             array (
                 'id' => 235,
-                'shortcut' => 'BS ASTRONOMY',
+                'name' => NULL,
+                'shortcut' => 'BS Astronomy',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2372,7 +2606,8 @@ class ListCoursesTableSeeder extends Seeder
             235 => 
             array (
                 'id' => 236,
-                'shortcut' => 'BS MANAGEMENT INFORMATION SYSTEMS',
+                'name' => NULL,
+                'shortcut' => 'BS Management Information Systems',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2382,7 +2617,8 @@ class ListCoursesTableSeeder extends Seeder
             236 => 
             array (
                 'id' => 237,
-                'shortcut' => 'BS PHARMACEUTICAL SCIENCES',
+                'name' => NULL,
+                'shortcut' => 'BS Pharmaceutical Sciences',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2392,7 +2628,8 @@ class ListCoursesTableSeeder extends Seeder
             237 => 
             array (
                 'id' => 238,
-                'shortcut' => 'BS GEOGRAPHY',
+                'name' => NULL,
+                'shortcut' => 'BS Geography',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2402,7 +2639,8 @@ class ListCoursesTableSeeder extends Seeder
             238 => 
             array (
                 'id' => 239,
-                'shortcut' => 'BACHELOR OF LIBRARY AND INFORMATION SCIENCE',
+                'name' => NULL,
+                'shortcut' => 'Bachelor of Library and Information Science',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2412,7 +2650,8 @@ class ListCoursesTableSeeder extends Seeder
             239 => 
             array (
                 'id' => 240,
-                'shortcut' => 'BS ASTRONOMY TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Astronomy Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2422,7 +2661,8 @@ class ListCoursesTableSeeder extends Seeder
             240 => 
             array (
                 'id' => 241,
-                'shortcut' => 'BS HEALTH SCIENCES',
+                'name' => NULL,
+                'shortcut' => 'BS Health Sciences',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2432,7 +2672,8 @@ class ListCoursesTableSeeder extends Seeder
             241 => 
             array (
                 'id' => 242,
-                'shortcut' => 'BS INDUSTRIAL PSYCHOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Industrial Psychology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -2442,7 +2683,8 @@ class ListCoursesTableSeeder extends Seeder
             242 => 
             array (
                 'id' => 243,
-                'shortcut' => 'BS LIBRARY AND INFORMATION SCIENCE',
+                'name' => NULL,
+                'shortcut' => 'BS Library and Information Science',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -2452,7 +2694,8 @@ class ListCoursesTableSeeder extends Seeder
             243 => 
             array (
                 'id' => 244,
-                'shortcut' => 'BACHELOR IN TECHNOLOGY AND LIVELIHOOD EDUCATION-INFORMATION AND COMMUNICATION TECHNOLOGY',
+                'name' => NULL,
+                'shortcut' => 'Bachelor in Technology and Livelihood Education-Information and Communication Technology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2462,7 +2705,8 @@ class ListCoursesTableSeeder extends Seeder
             244 => 
             array (
                 'id' => 245,
-                'shortcut' => 'BS TECHNOLOGY TEACHER EDUCATION',
+                'name' => NULL,
+                'shortcut' => 'BS Technology Techer Education',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -2472,7 +2716,8 @@ class ListCoursesTableSeeder extends Seeder
             245 => 
             array (
                 'id' => 246,
-                'shortcut' => 'BS AGRIBUSINESS MANAGEMENT AND ENTREPRENEURSHIP',
+                'name' => NULL,
+                'shortcut' => 'BS Agribusiness Management and Entrepreneurship',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2482,7 +2727,8 @@ class ListCoursesTableSeeder extends Seeder
             246 => 
             array (
                 'id' => 247,
-                'shortcut' => 'BS AGRICULTURAL AND APPLIED ECONOMICS',
+                'name' => NULL,
+                'shortcut' => 'BS Agricultural and Applied Economics',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -2492,7 +2738,8 @@ class ListCoursesTableSeeder extends Seeder
             247 => 
             array (
                 'id' => 248,
-                'shortcut' => 'BS ARCHITECTURE',
+                'name' => NULL,
+                'shortcut' => 'BS Architecture',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2502,7 +2749,8 @@ class ListCoursesTableSeeder extends Seeder
             248 => 
             array (
                 'id' => 249,
-                'shortcut' => 'BS AEROSPACE ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Aerospace Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2512,7 +2760,8 @@ class ListCoursesTableSeeder extends Seeder
             249 => 
             array (
                 'id' => 250,
-                'shortcut' => 'BS SPEECH PATHOLOGY',
+                'name' => NULL,
+                'shortcut' => 'BS Speech Pathology',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2522,7 +2771,8 @@ class ListCoursesTableSeeder extends Seeder
             250 => 
             array (
                 'id' => 251,
-                'shortcut' => 'BS MANUFACTURING ENGINEERING MANAGEMENT',
+                'name' => NULL,
+                'shortcut' => 'BS Manufacturing Engineering Management',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 0,
@@ -2532,7 +2782,8 @@ class ListCoursesTableSeeder extends Seeder
             251 => 
             array (
                 'id' => 252,
-                'shortcut' => 'BS PACKAGING ENGINEERING',
+                'name' => NULL,
+                'shortcut' => 'BS Packing Engineering',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2542,7 +2793,8 @@ class ListCoursesTableSeeder extends Seeder
             252 => 
             array (
                 'id' => 253,
-                'shortcut' => 'BS INFORMATION TECHNOLOGY SYSTEMS',
+                'name' => NULL,
+                'shortcut' => 'BS Information Technology Systems',
                 'abbreviation' => NULL,
                 'others' => NULL,
                 'is_active' => 1,
@@ -2550,7 +2802,7 @@ class ListCoursesTableSeeder extends Seeder
                 'updated_at' => '2023-05-21 09:58:43',
             ),
         ));
-        
+
         
     }
 }

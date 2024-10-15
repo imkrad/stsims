@@ -5,7 +5,28 @@
         <template v-if="layoutType === 'vertical' || layoutType === 'semibox'">
             <ul class="navbar-nav h-100" id="navbar-nav">
                 <template v-if="checkUrl() == 'management'">
-                    <li class="nav-item" v-for="(menu,index) in $page.props.menus.management" v-bind:key="index">
+                    <li class="nav-item" v-for="(menu,index) in $page.props.menus.management1" v-bind:key="index">
+                        <Link v-if="!menu.main.has_child" class="nav-link menu-link" :href="menu.main.route" :class="{'active': $page.component.startsWith(menu.main.path) }">
+                            <i :class="menu.main.icon"></i>
+                            <span data-key="krad-dashboards">{{menu.main.name}}</span>
+                        </Link>
+                        <Link v-else class="nav-link menu-link" :href="'#'+menu.main.name" :class="{'active': $page.component.startsWith(menu.main.path) }" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAuth">
+                            <i :class="menu.main.icon"></i>
+                            <span data-key="krad-scholars">{{menu.main.name}}</span>
+                        </Link>
+                        <div v-if="menu.main.has_child" class="collapse menu-dropdown" :id="menu.main.name">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item" v-for="(sub,index) in menu.submenus" v-bind:key="index">
+                                    <Link class="nav-link" :class="{'active': $page.url === sub.path }" :href="sub.route">{{sub.name}}</Link>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menu-title">
+                        <i class="ri-more-fill" aria-expanded="false"></i>
+                         <span data-key="t-components">Lists</span>
+                    </li>
+                    <li class="nav-item" v-for="(menu,index) in $page.props.menus.management2" v-bind:key="index">
                         <Link v-if="!menu.main.has_child" class="nav-link menu-link" :href="menu.main.route" :class="{'active': $page.component.startsWith(menu.main.path) }">
                             <i :class="menu.main.icon"></i>
                             <span data-key="krad-dashboards">{{menu.main.name}}</span>

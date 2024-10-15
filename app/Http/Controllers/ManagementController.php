@@ -118,11 +118,17 @@ class ManagementController extends Controller
     public function show($code, Request $request){
         switch($code){
             case 'scholars':
-                return inertia('Modules/Management/Scholars/Index',[
-                    'dropdowns' => [
-                        'statuses' => $this->dropdown->statuses(),
-                    ]
-                ]);
+                if($request->code){
+                    return inertia('Modules/Management/Scholars/Profile/Index',[
+                        'scholar' => $this->scholar->view($request)
+                    ]);
+                }else{
+                    return inertia('Modules/Management/Scholars/Index',[
+                        'dropdowns' => [
+                            'statuses' => $this->dropdown->statuses(),
+                        ]
+                    ]);
+                }
             break;
             case 'schools':
                 return inertia('Modules/Management/Schools/Index',[

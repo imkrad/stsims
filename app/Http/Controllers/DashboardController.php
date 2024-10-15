@@ -11,6 +11,10 @@ class DashboardController extends Controller
         $this->dropdown = $dropdown;
     }
 
+    public function prospectus(){
+        return inertia('Prospectus');
+    }
+
     public function index(Request $request){
         if(!\Auth::check()){
             return inertia('Auth/Login');

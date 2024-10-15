@@ -10,7 +10,8 @@
                         <span class="input-group-text"> <i class="ri-search-line search-icon"></i></span>
                         <input type="text" v-model="filter.keyword" placeholder="Search Scholar" class="form-control">
                         <Multiselect v-if="filter.progress == 7" class="white" style="width: 15%;" :options="ongoing" v-model="filter.ongoing" label="name" :searchable="true" placeholder="Select Ongoing Status" />
-                        <Multiselect class="white" style="width: 12%;" :options="progresses" v-model="filter.progress" label="name" :searchable="true" placeholder="Select Status" />
+                        <Multiselect class="white" style="width: 11%;" :options="progresses" v-model="filter.progress" label="name" :searchable="true" placeholder="Select Status" />
+                        <Multiselect class="white" style="width: 11%;" :options="['Undergraduate','JLSS']" v-model="filter.type" label="name" :searchable="true" placeholder="Select Type" />
                         <span @click="openUpload()" class="input-group-text" v-b-tooltip.hover title="Upload" style="cursor: pointer;"> 
                             <i class="ri-upload-cloud-fill search-icon"></i>
                         </span>
@@ -32,32 +33,41 @@
                         <tr class="fs-11">
                             <th style="width: 3%;"></th>
                             <th style="width: 25%;">Name</th>
-                            <th style="width: 15%;" class="text-center">Program</th>
-                            <th style="width: 15%;" class="text-center">School</th>
-                            <th style="width: 15%;" class="text-center">Course</th>
-                            <th style="width: 13%;" class="text-center">Status</th>
+                            <th style="width: 28%;" class="text-center">School & Course</th>
+                            <th style="width: 12%;" class="text-center">Type</th>
+                            <th style="width: 12%;" class="text-center">Program</th>
+                            <th style="width: 8%;" class="text-center">Status</th>
                             <th style="width: 7%;" class="text-center">Year Awarded</th>
-                            <th style="width: 7%;"></th>
+                            <th style="width: 5%;"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(list,index) in lists" v-bind:key="index">
+                        <tr v-for="(list,index) in lists" v-bind:key="index" @click="selectRow(index)" :class="{'bg-dark-subtle': selectedRow === index}">
                             <td> {{ (meta.current_page - 1) * meta.per_page + index + 1 }}.</td>
                             <td>
                                 <h5 class="fs-13 mb-0 fw-semibold text-primary">{{ list.profile.lastname+', '+list.profile.firstname}}</h5>
                                 <p class="fs-12 text-muted mb-0">{{list.spas_id}}</p>
                             </td>
+                            <td class="text-center fs-12">
+                                <h5 class="fs-12 mb-0"> {{ list.education.campus.school.name + ((list.education.campus.campus == 'Main') ? '' : ' - '+list.education.campus.campus) }}</h5>
+                                <p class="fs-12 text-muted mb-0">{{ list.education.course.shortcut }}</p>
+                            </td>
+                            <td class="text-center fs-12">{{ list.program.type.name }}</td>
                             <td class="text-center fs-12">{{ list.program.program.name + ' - ' + list.program.name }}</td>
-                            <td class="text-center fs-12">{{ list.education.campus.school.name + ((list.education.campus.campus == 'Main') ? '' : ' - '+list.education.campus.campus) }}</td>
-                            <td class="text-center fs-12">{{ list.education.course.shortcut }}</td>
                             <td class="text-center">
                                 <span :class="'badge '+list.status.color+' '+list.status.others">{{list.status.name}}</span>
                             </td>
                             <td class="text-center">{{ list.awarded_year }}</td>
+                            <td class="text-end">
+                                <a :href="`/management/scholars?code=${list.code}`" target="_blank">
+                                    <b-button variant="soft-info" class="me-1" v-b-tooltip.hover title="View" size="sm">
+                                        <i class="ri-eye-fill align-bottom"></i>
+                                    </b-button>
+                                </a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
-                
                 <Pagination class="ms-2 me-2" v-if="meta" @fetch="fetch" :lists="lists.length" :links="links" :pagination="meta" />
             </div>
         </div>
@@ -86,9 +96,11 @@ export default {
                 status: null,
                 ongoing: null,
                 progress: null,
+                type: null,
                 year: null
             },
-            index: null
+            index: null,
+            selectedRow: null,
         }
     },
     watch: {
@@ -96,6 +108,9 @@ export default {
             this.checkSearchStr(newVal);
         },
         "filter.status"(newVal){
+            (newVal) ? this.fetch() : '';
+        },
+        "filter.type"(newVal){
             (newVal) ? this.fetch() : '';
         },
         "filter.progress"(newVal){
@@ -129,8 +144,10 @@ export default {
             axios.get(page_url,{
                 params : {
                     keyword: this.filter.keyword,
+                    status: this.filter.status,
                     year: this.filter.year,
-                    count: ((window.innerHeight-350)/59),
+                    type: this.filter.type,
+                    count: Math.floor((window.innerHeight-350)/59),
                     option: 'scholars'
                 }
             })
@@ -152,6 +169,9 @@ export default {
         openUpdate(data,index){
             this.index = index;
             this.$refs.create.update(data);
+        },
+        selectRow(index) {
+            this.selectedRow = index;
         },
         truncate(){
             this.$refs.truncate.show();
