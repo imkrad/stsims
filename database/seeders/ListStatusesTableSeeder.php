@@ -150,6 +150,50 @@ class ListStatusesTableSeeder extends Seeder
                 'created_at' => '2024-10-03 16:13:48',
                 'updated_at' => '2024-10-03 16:13:48',
             ),
+            12 => 
+            array (
+                'id' => 13,
+                'name' => 'Waiting',
+                'type' => 'Qualifier',
+                'color' => 'bg-warning',
+                'others' => 'n/a',
+                'is_active' => 1,
+                'created_at' => '2024-10-03 16:13:48',
+                'updated_at' => '2024-10-03 16:13:48',
+            ),
+            13 => 
+            array (
+                'id' => 14,
+                'name' => 'Deferment',
+                'type' => 'Qualifier',
+                'color' => 'bg-danger',
+                'others' => 'n/a',
+                'is_active' => 1,
+                'created_at' => '2024-10-03 16:13:48',
+                'updated_at' => '2024-10-03 16:13:48',
+            ),
+            14 => 
+            array (
+                'id' => 15,
+                'name' => 'Not Avail',
+                'type' => 'Qualifier',
+                'color' => 'bg-dark',
+                'others' => 'n/a',
+                'is_active' => 1,
+                'created_at' => '2024-10-03 16:13:48',
+                'updated_at' => '2024-10-03 16:13:48',
+            ),
+            15 => 
+            array (
+                'id' => 16,
+                'name' => 'Enrolled',
+                'type' => 'Qualifier',
+                'color' => 'bg-success',
+                'others' => 'n/a',
+                'is_active' => 1,
+                'created_at' => '2024-10-03 16:13:48',
+                'updated_at' => '2024-10-03 16:13:48',
+            ),
         ));
 
         

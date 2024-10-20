@@ -723,3 +723,7 @@ File: Custom Css File
   background-color: #fff; /* Set the background color for the fixed header */
   z-index: 1; /* Ensure the fixed header is above the scrolling content */
 }
+
+.nav-tabs {
+  display: none;
+}

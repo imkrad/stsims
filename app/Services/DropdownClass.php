@@ -60,6 +60,29 @@ class DropdownClass
         return $data;
     }
 
+    public function levels(){
+        $data = ListDropdown::where('classification','Level')->get()->map(function ($item) {
+            return [
+                'value' => $item->id,
+                'name' => $item->name,
+                'others' => $item->others,
+                'color' => $item->color
+            ];
+        });
+        return $data;
+    }
+
+    public function semesters($semester){
+        $data = ListDropdown::where('classification',$semester)->get()->map(function ($item) {
+            return [
+                'value' => $item->id,
+                'name' => $item->name,
+                'others' => $item->others,
+            ];
+        });
+        return $data;
+    }
+
     public function certifications(){
         $data = ListDropdown::where('classification','Certification')->get()->map(function ($item) {
             return [

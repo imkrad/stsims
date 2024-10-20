@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\DropdownClass;
 use App\Traits\HandlesTransaction;
+use App\Services\Management\QualifierClass;
 use App\Services\Management\CampusClass;
 use App\Services\Management\SchoolClass;
 use App\Services\Management\CourseClass;
@@ -19,6 +20,7 @@ class ManagementController extends Controller
 
     public function __construct(
         ScholarClass $scholar, 
+        QualifierClass $qualifier, 
         ProspectusClass $prospectus, 
         SchoolClass $school, 
         CourseClass $course, 
@@ -84,6 +86,9 @@ class ManagementController extends Controller
                 case 'truncate':
                     return $this->scholar->truncate();
                 break;
+                case 'prospectus':
+                    return $this->prospectus->save($request,$this->dropdown->levels(),$this->dropdown->semesters($request->term));
+                break;
             }
         });
 
@@ -96,6 +101,11 @@ class ManagementController extends Controller
     }
 
     public function update(Request $request){
+        if($request->type == 'subjects'){
+            $validatedData = $request->validate([
+                'is_completed' => 'required',
+            ]);
+        }
         $result = $this->handleTransaction(function () use ($request) {
             switch($request->option){
                 case 'campus':
@@ -106,6 +116,9 @@ class ManagementController extends Controller
                 break;
                 case 'campus-grading':
                     return $this->campus->gradingUpdate($request);
+                break;
+                case 'prospectus':
+                    return $this->prospectus->update($request);
                 break;
             }
         });

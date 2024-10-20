@@ -59,7 +59,6 @@
                 </tbody>
             </table>
         </simplebar>
-        {{ campus }}
     </div>
     <Create :campus="campus" ref="create"/>
     <Certification :certifications="certifications" ref="certification"/>
