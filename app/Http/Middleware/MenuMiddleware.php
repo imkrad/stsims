@@ -29,12 +29,6 @@ class MenuMiddleware
             if(auth()->user()->is_active) {
                 if(auth()->user()->is_new) {
                     return redirect()->intended(route('new', absolute: false));
-                }else{
-                    $laboratory_id = \Auth::user()->userrole->laboratory_id;
-                    $count = Configuration::where('laboratory_id',$laboratory_id)->count();
-                    if($count == 0){
-                        return redirect()->intended(route('installation', absolute: false));
-                    }
                 }
             }
         }

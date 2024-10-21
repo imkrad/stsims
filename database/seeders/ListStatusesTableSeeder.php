@@ -194,6 +194,17 @@ class ListStatusesTableSeeder extends Seeder
                 'created_at' => '2024-10-03 16:13:48',
                 'updated_at' => '2024-10-03 16:13:48',
             ),
+            16 => 
+            array (
+                'id' => 17,
+                'name' => '-',
+                'type' => 'Qualifier Status',
+                'color' => 'bg-success',
+                'others' => 'n/a',
+                'is_active' => 1,
+                'created_at' => '2024-10-03 16:13:48',
+                'updated_at' => '2024-10-03 16:13:48',
+            ),
         ));
 
         

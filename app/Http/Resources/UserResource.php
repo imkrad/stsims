@@ -15,6 +15,7 @@ class UserResource extends JsonResource
             'username' => $this->username,
             'email' => $this->email,
             'role' => $this->role,
+            'assigned_agency_id' => ($this->myrole) ? $this->myrole->agency_id : null,
             'assigned_role' => ($this->myrole) ? $this->myrole->role->name : 'n/a',
             'assigned_type' => ($this->myrole) ? new TypeResource($this->myrole) : 'n/a',
             'assigned_agency' => ($this->myrole) ? $this->myrole->agency->acronym : 'n/a',

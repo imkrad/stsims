@@ -22,7 +22,7 @@
                         <th style="width: 33%;">Course</th>
                         <th style="width: 13%;" class="text-center">Type</th>
                         <th style="width: 8%;" class="text-center">Years</th>
-                        <th style="width: 8%;" class="text-center">Certification</th>
+                        <th v-if="type == 'Private'" style="width: 8%;" class="text-center">Certification</th>
                         <th style="width: 8%;" class="text-center">Status</th>
                         <th style="width: 5%;"></th>
                     </tr>
@@ -33,7 +33,7 @@
                         <td>{{ list.course.shortcut }}</td>
                         <td class="text-center">{{ list.type }}</td>
                         <td class="text-center">{{ list.years }}</td>
-                        <td class="text-center">
+                        <td v-if="type == 'Private'" class="text-center">
                             <span v-if="list.certifications.length > 0" class="badge bg-success-subtle text-success">Active</span>
                             <span v-else class="badge bg-warning-subtle text-warning">Expired</span>
                         </td>
@@ -60,7 +60,7 @@
             </table>
         </simplebar>
     </div>
-    <Create :campus="campus" ref="create"/>
+    <Create :campus="campus" :type="type" ref="create"/>
     <Certification :certifications="certifications" ref="certification"/>
 </template>
 <script>
@@ -68,7 +68,7 @@ import Create from './Create.vue';
 import Certification from './Certification.vue';
 import simplebar from "simplebar-vue";
 export default {
-    props:['code','campus','courses','certifications'],
+    props:['code','campus','courses','certifications','type'],
     components: { Create, Certification, simplebar },
     data(){
         return {

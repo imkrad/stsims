@@ -438,6 +438,48 @@ class ListMenusTableSeeder extends Seeder
                 'is_mother' => 1,
                 'is_active' => 1,
             ),
+            30 => 
+            array (
+                'id' => 31,
+                'name' => 'Dashboard',
+                'icon' => 'ri-apps-line',
+                'route' => '/dashboard',
+                'path' => 'Modules/Operation/Dashboard',
+                'group' => 'Menu',
+                'module' => 'Operation',
+                'order' => 1,
+                'has_child' => 0,
+                'is_mother' => 1,
+                'is_active' => 1,
+            ),
+            31 => 
+            array (
+                'id' => 32,
+                'name' => 'Qualifiers',
+                'icon' => 'ri-group-2-fill',
+                'route' => '/qualifiers',
+                'path' => 'Modules/Operation/Qualifiers',
+                'group' => 'Menu',
+                'module' => 'Operation',
+                'order' => 2,
+                'has_child' => 0,
+                'is_mother' => 1,
+                'is_active' => 1,
+            ),
+            32 => 
+            array (
+                'id' => 33,
+                'name' => 'Scholars',
+                'icon' => 'ri-team-fill',
+                'route' => '/scholars',
+                'path' => 'Modules/Operation/Scholars',
+                'group' => 'Menu',
+                'module' => 'Operation',
+                'order' => 3,
+                'has_child' => 0,
+                'is_mother' => 1,
+                'is_active' => 1,
+            ),
         ));
 
         

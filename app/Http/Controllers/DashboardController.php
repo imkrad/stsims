@@ -22,7 +22,7 @@ class DashboardController extends Controller
             if(\Auth::user()->role === 'Administrator'){
                 return inertia('Modules/Executive/Dashboard/Index');
             }else{
-                
+                return inertia('Modules/Operation/Dashboard/Index');
             }
         }
     }
@@ -43,7 +43,10 @@ class DashboardController extends Controller
                 return $this->dropdown->courses($request->code);
             break;
             case 'schools':
-                return $this->dropdown->schools($request->code);
+                return $this->dropdown->schools($request->code,$request->agency);
+            break;
+            case 'schoolcourses':
+                return $this->dropdown->schoolcourses($request->code);
             break;
         }
     }

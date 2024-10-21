@@ -17,6 +17,7 @@ class CampusResource extends JsonResource
             'id' => $this->id,
             'code' => $code,
             'campus' => $this->campus,
+            'is_main' => $this->is_main,
             'is_active' => $this->is_active,
             'school' => $this->school,
             'grading' => $this->grading,

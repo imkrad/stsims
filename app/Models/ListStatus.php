@@ -15,6 +15,11 @@ class ListStatus extends Model
         'name', 'type', 'color', 'others', 'is_active'
     ];
 
+    public function scholars()
+    {
+        return $this->hasMany('App\Models\Scholar', 'status_id');
+    } 
+
     protected static $recordEvents = ['updated','created'];
     public function getActivitylogOptions(): LogOptions {
         return LogOptions::defaults()

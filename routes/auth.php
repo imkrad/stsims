@@ -10,7 +10,7 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\TwoFactorAuthenticationController;
-use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\Auth\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -26,7 +26,6 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('installation', [WelcomeController::class, 'installation'])->name('installation');
     Route::post('install', [WelcomeController::class, 'install']);
     Route::get('activation', [WelcomeController::class, 'activation'])->name('activation');
     Route::post('activate', [WelcomeController::class, 'activate']);

@@ -112,6 +112,21 @@ class HandleInertiaRequests extends Middleware
             ];
         }
 
+        $lists = ListMenu::where('is_mother',1)->where('module','Operation')->where('group','Menu')->where('is_active',1)->orderBy('order','ASC')->get();
+        foreach($lists as $list){
+            $submenus = [];
+            if($list['has_child']){
+                $subs = ListMenu::where('is_active',1)->where('group',$list['name'])->get();
+                foreach($subs as $menu){
+                    $submenus[] = $menu;
+                }
+            }
+            $operation[] = [
+                'main' => $list,
+                'submenus' => $submenus
+            ];
+        }
+
        
         return [
             ...parent::share($request),
@@ -129,7 +144,8 @@ class HandleInertiaRequests extends Middleware
                 'management2' => $management2,
                 'reference1' => $reference1,
                 'reference2' => $reference2,
-                'reference3' => $reference3
+                'reference3' => $reference3,
+                'operation' => $operation
             ]
         ];
     }

@@ -29,6 +29,7 @@ class ManagementController extends Controller
         DropdownClass $dropdown
     ){
         $this->scholar = $scholar;
+        $this->qualifier = $qualifier;
         $this->school = $school;
         $this->prospectus = $prospectus;
         $this->course = $course;
@@ -39,6 +40,9 @@ class ManagementController extends Controller
 
     public function index(Request $request){
         switch($request->option){
+            case 'qualifiers':
+                return $this->qualifier->lists($request);
+            break;
             case 'scholars':
                 return $this->scholar->lists($request);
             break;
@@ -142,6 +146,19 @@ class ManagementController extends Controller
                     return inertia('Modules/Management/Scholars/Index',[
                         'dropdowns' => [
                             'statuses' => $this->dropdown->statuses(),
+                        ]
+                    ]);
+                }
+            break;
+            case 'qualifiers':
+                if($request->code){
+                    return inertia('Modules/Management/Scholars/Profile/Index',[
+                        'scholar' => $this->scholar->view($request)
+                    ]);
+                }else{
+                    return inertia('Modules/Management/Qualifiers/Index',[
+                        'dropdowns' => [
+                            'statuses' => $this->dropdown->qualifier_statuses(),
                         ]
                     ]);
                 }

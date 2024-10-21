@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\SchoolCampus;
+use App\Models\SchoolCampusCourse;
 use App\Models\ListRole;
 use App\Models\ListCourse;
 use App\Models\ListAgency;
@@ -17,6 +18,19 @@ class DropdownClass
 {   
     public function statuses(){
         $data = ListStatus::whereIn('type',['Progress','Ongoing'])->get()->map(function ($item) {
+            return [
+                'value' => $item->id,
+                'name' => $item->name,
+                'color' => $item->color,
+                'others' => $item->others,
+                'type' => $item->type,
+            ];
+        });
+        return $data;
+    }
+
+    public function qualifier_statuses(){
+        $data = ListStatus::where('type','Qualifier')->get()->map(function ($item) {
             return [
                 'value' => $item->id,
                 'name' => $item->name,
@@ -164,18 +178,6 @@ class DropdownClass
         return $data;
     }
 
-    public function courses($code){
-        $data = ListCourse::where('name','LIKE',"%{$code}%")
-        ->orWhere('shortcut','LIKE',"%{$code}%")
-        ->where('is_active',1)->get()->map(function ($item) {
-            return [
-                'value' => $item->id,
-                'name' => $item->shortcut
-            ];
-        });
-        return $data;
-    }
-
     public function municipalities($code){
         $data = LocationMunicipality::where('province_code',$code)->get()->map(function ($item) {
             return [
@@ -196,15 +198,41 @@ class DropdownClass
         return $data;
     }
 
-    public function schools($code){
+    public function courses($code){
+        $data = ListCourse::where('name','LIKE',"%{$code}%")
+        ->orWhere('shortcut','LIKE',"%{$code}%")
+        ->where('is_active',1)->get()->map(function ($item) {
+            return [
+                'value' => $item->id,
+                'name' => $item->shortcut
+            ];
+        });
+        return $data;
+    }
+
+    public function schools($code,$agency = null){
         $data = SchoolCampus::withWhereHas('school', function ($query) use ($code){
             $query->where('name','LIKE',"%{$code}%")->orWhere('shortcut','LIKE',"%{$code}%");
+        })
+        ->when($agency, function ($query,$agency) {
+            $query->where('agency_id',$agency);
         })
         ->get()->map(function ($item) {
             $name = ($item->campus === 'Main') ? '' : ' - '.$item->campus;
             return [
                 'value' => $item->id,
                 'name' => $item->school->name.$name
+            ];
+        });
+        return $data;
+    }
+
+    public function schoolcourses($code){
+        $data = SchoolCampusCourse::with('course')->where('campus_id',$code)
+        ->get()->map(function ($item) {
+            return [
+                'value' => $item->course->id,
+                'name' => $item->course->shortcut
             ];
         });
         return $data;
