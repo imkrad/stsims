@@ -53,11 +53,11 @@
                             </td>
                             <td class="text-center">{{ list.awarded_year }}</td>
                             <td class="text-end">
-                                <a :href="`/scholars/${list.code}`" target="_blank">
+                                <Link :href="`/scholars/${list.code}`">
                                     <b-button variant="soft-info" class="me-1" v-b-tooltip.hover title="View" size="sm">
                                         <i class="ri-eye-fill align-bottom"></i>
                                     </b-button>
-                                </a>
+                                </Link>
                             </td>
                         </tr>
                     </tbody>

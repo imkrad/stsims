@@ -53,6 +53,11 @@ class Scholar extends Model
         return $this->belongsTo('App\Models\ListDropdown', 'category_id', 'id');
     } 
 
+    public function enrollments()
+    {
+        return $this->hasMany('App\Models\Enrollment', 'scholar_id')->orderBy('created_at','DESC');
+    } 
+
     protected static $recordEvents = ['updated','created'];
     public function getActivitylogOptions(): LogOptions {
         return LogOptions::defaults()

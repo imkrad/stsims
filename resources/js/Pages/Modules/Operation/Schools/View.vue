@@ -1,5 +1,5 @@
 <template>
-    <!-- <PageHeader title="View School" pageTitle="List" /> -->
+    <Head title="School Profile" />
     <div class="chat-wrapper d-lg-flex gap-1 mx-n4 mt-n4 p-1">
         <div class="w-100 p-4 pb-0" ref="box">
 
@@ -98,18 +98,21 @@
                         <div class="card-body" style="height: calc(100vh - 290px); overflow: auto;">
                             <p class="text-muted text-uppercase fs-12 fw-medium mb-2 mt-0">Active Semester</p>
                             <div class="list-group">
-                                <div class="list-group-item" style="cursor: pointer;">
+                                <div class="list-group-item " style="cursor: pointer;">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-shrink-0">
                                             <div class="avatar-xs">
-                                                <div class="avatar-title rounded bg-warning-subtle text-warning"><i
-                                                        class="fs-15 ri-error-warning-line"></i></div>
+                                                <div class="avatar-title rounded bg-dark-subtle text-dark"><i class="fs-15 ri-calendar-fill"></i></div>
                                             </div>
                                         </div>
-                                        <div class="flex-grow-1 ms-3">
-                                            <h5 class="mb-0 fs-12">Due Soon</h5>
-                                            <p class="mb-0 fs-11 text-muted">5 days ahead of the due date</p>
-                                        </div><span class="text-muted fs-12">10</span>
+                                        <div class="flex-grow-1 ms-3" v-if="!active">
+                                            <h5 class="mb-0 fs-12 text-danger">No active semester</h5>
+                                            <p class="mb-0 fs-11 text-muted">Please add a new active semester</p>
+                                        </div>
+                                        <div class="flex-grow-1 ms-3" v-else>
+                                            <h5 class="mb-0 fs-12">{{active.semester.name}}</h5>
+                                            <p class="mb-0 fs-11 text-muted">{{active.academic_year}} ({{active.start_at}} - {{active.end_at}})</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -130,7 +133,7 @@
                                 </div>
                             </div>
                             <p class="text-muted text-uppercase fs-12 fw-medium mb-2 mt-3">Name History</p>
-                            <b-list-group v-if="campus.names.length > 0">
+                            <b-list-group v-if="campus.names.length > 0" class="fs-11">
                                 <b-list-group-item v-for="(list,index) in campus.names" v-bind:key="index"><i class="mdi mdi-check-bold align-middle lh-1 me-2"></i>{{ list.name }}</b-list-group-item>
                             </b-list-group>
                             <b-list-group v-else>
@@ -153,10 +156,8 @@ import Semester from './Components/Semester/Index.vue';
 import Course from './Components/Course/Index.vue';
 import Grading from './Components/Grading/Index.vue';
 import Multiselect from "@vueform/multiselect";
-import PageHeader from '@/Shared/Components/PageHeader.vue';
-import Pagination from "@/Shared/Components/Pagination.vue";
 export default {
-    components: { PageHeader, Pagination, Multiselect, simplebar, Name, Course, Semester, Grading},
+    components: { Multiselect, simplebar, Name, Course, Semester, Grading},
     props:['campus','dropdowns','counts','statuses'],
     data(){
         return {
@@ -168,10 +169,26 @@ export default {
                 keyword: null,
                 class: null
             },
+            active: null,
             index: null,
         }
     },
+    created(){
+        this.fetchActive();
+    },
     methods: {
+        fetchActive(){
+            axios.get('/schools',{
+                params : {
+                    id: this.campus.id,
+                    option: 'active-semester'
+                }
+            })
+            .then(response => {
+                this.active = response.data;
+            })
+            .catch(err => console.log(err));
+        },
         openCreate(){
             this.$refs.campus.show(this.school.id);
         },

@@ -10,7 +10,7 @@
                 </div>
                 
                 <div class="file-manager-content w-100 p-4 pb-0" ref="box" style="margin-right: 20px;">
-                    <Main />
+                    <Main :scholar="scholar.data" />
                 </div>
             </div>
         </div>

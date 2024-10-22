@@ -70,7 +70,7 @@ class SchoolCampus extends Model
 
     public function semesters()
     {
-        return $this->hasMany('App\Models\SchoolCampusSemester', 'campus_id');
+        return $this->hasMany('App\Models\SchoolCampusSemester', 'campus_id')->orderBy('created_at','DESC');
     } 
 
     protected static $recordEvents = ['updated','created'];

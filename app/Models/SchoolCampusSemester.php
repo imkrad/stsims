@@ -23,6 +23,26 @@ class SchoolCampusSemester extends Model
         return $this->belongsTo('App\Models\ListDropdown', 'semester_id', 'id');
     }
 
+    public function getStartAtAttribute($value)
+    {
+        return date('M Y', strtotime($value));
+    }
+
+    public function getEndAtAttribute($value)
+    {
+        return date('M Y', strtotime($value));
+    }
+
+    public function getUpdatedAtAttribute($value)
+    {
+        return date('M d, Y g:i a', strtotime($value));
+    }
+
+    public function getCreatedAtAttribute($value)
+    {
+        return date('M d, Y g:i a', strtotime($value));
+    }
+
     protected static $recordEvents = ['updated','created'];
     public function getActivitylogOptions(): LogOptions {
         return LogOptions::defaults()

@@ -1,30 +1,29 @@
 <?php
 
-namespace App\Http\Resources\Operation;
+namespace App\Http\Resources\Operation\Scholar;
 
 use Hashids\Hashids;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ScholarResource extends JsonResource
+class ViewResource extends JsonResource
 {
     public function toArray(Request $request): array
     {
         $hashids = new Hashids('krad',10);
         $code = $hashids->encode($this->id);
 
-        return [
+         return [
             'id' => $this->id,
             'code' => $code,
-            'awarded_year' => $this->awarded_year,
             'spas_id' => $this->spas_id,
-            'profile' => $this->profile,
-            'reference' => $this->reference,
+            'awarded_year' => $this->awarded_year,
             'status' => $this->status,
             'program' => $this->program,
-            'education' => $this->education,
-            'enrollments' => $this->enrollments,
-            'address' => $this->address,
+            'profile' => new ProfileResource($this->profile), 
+            'education' =>  new EducationResource($this->education),
+            'enrollments' => EnrollmentResource::collection($this->enrollments),
+            'semesters' =>  $this->education->campus->semesters,
         ];
     }
 }

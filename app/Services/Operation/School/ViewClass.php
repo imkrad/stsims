@@ -6,6 +6,7 @@ use Hashids\Hashids;
 use App\Models\Scholar;
 use App\Models\SchoolCampus;
 use App\Models\ListStatus;
+use App\Models\SchoolCampusSemester;
 use App\Models\SchoolCampusCourse;
 use App\Http\Resources\Operation\SchoolResource;
 
@@ -131,19 +132,12 @@ class ViewClass
         $hashids = new Hashids('krad',10);
         $id = $hashids->decode($code);
 
-        $icons = [
-            'bx bxs-graduation',
-            'ri-close-circle-fill',
-            'ri-error-warning-fill',
-            'ri-radio-button-fill',
-            'ri-checkbox-circle-fill'
-        ];
         $definitions = [
-            'bx bxs-graduation',
-            'ri-close-circle-fill',
-            'ri-error-warning-fill',
-            'ri-radio-button-fill',
-            'ri-checkbox-circle-fill'
+            'Successfully completed a course or program.',
+            'Ended or revoked before the scheduled completion.',
+            'Has not submitted the required periodic reports.',
+            'Voluntarily left or discontinued the scholarship.',
+            'Currently active and continuing in a scholarship program.'
         ];
 
         $data = ListStatus::withCount(['scholars' => function ($query) use ($id) {
@@ -153,7 +147,7 @@ class ViewClass
         }])
         ->where('type','Progress')->whereNot('id',2)
         ->get()
-        ->map(function ($item, $index) use ($icons,$definitions) {
+        ->map(function ($item, $index) use ($definitions) {
             return [
                 'id' => $item->id,
                 'name' => $item->name,
@@ -161,10 +155,15 @@ class ViewClass
                 'others' => $item->others,
                 'type' => $item->type,
                 'count' => $item->scholars_count,
-                'icon' => $icons[$index % count($icons)],
+                'icon' => $item->icon,
                 'definition' => $definitions[$index % count($definitions)]
             ];
         });
+        return $data;
+    }
+
+    public function activeSemester($request){
+        $data = SchoolCampusSemester::with('semester')->where('campus_id',$request->id)->first();
         return $data;
     }
 }

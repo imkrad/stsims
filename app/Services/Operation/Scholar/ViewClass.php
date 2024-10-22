@@ -70,9 +70,92 @@ class ViewClass
         $data = new ScholarResource(
             Scholar::with('profile','reference','program.program','program.type','status')
             ->with('education.course','education.campus.school','education.level')
+            ->with('enrollments.semester.semester','enrollments.level','enrollments.benefits.privilege','enrollments.benefits.status','enrollments.subjects')
             ->with('address.region','address.province','address.municipality','address.barangay')
             ->where('id',$id)->first()
         );
         return $data;
     }
+
+    public function search($request){
+        $keyword = $request->keyword;
+        $data = Scholar::with('profile','program:id,name')
+        ->whereHas('status',function ($query){$query->where('name','Ongoing');})
+        ->when($request->keyword, function ($query, $keyword) {
+            $query->whereHas('profile',function ($query) use ($keyword) {
+                $query->where(\DB::raw('concat(firstname," ",lastname)'), 'LIKE', '%'.$keyword.'%')
+                ->orWhere(\DB::raw('concat(lastname," ",firstname)'), 'LIKE', '%'.$keyword.'%')
+                ->orWhere('spas_id','LIKE','%'.$keyword.'%');
+            });
+        })
+        ->when($this->role, function ($query) {
+            switch($this->role){
+                case 'PSTO Staff':
+                    $query->whereHas('address',function ($query){
+                        $query->where('province_code',$this->assigned);
+                    });
+                break;
+                case 'University Coordinator':
+                    $query->whereHas('education',function ($query){
+                        $query->where('campus_id',$this->assigned);
+                    });
+                break;
+                default: 
+                    $region = \Auth::user()->myrole->agency->region_code;
+                    $query->whereHas('address',function ($query) use ($region) {
+                        $query->where('region_code',$region);
+                    });
+            }
+        })
+        ->take(5)->get()->map(function ($item) {
+            $hashids = new Hashids('krad',10);
+            $code = $hashids->encode($item->id);
+            return [
+                'code' => $code,
+                'name' => $item->profile->lastname.', '.$item->profile->firstname.' '.$item->profile->middlename[0],
+                'program' => $item->program->name
+            ];
+        });
+        return $data;
+    }
+
+    // public function search($request){
+    //     $keyword = $request->keyword;
+    //     $data = Scholar::with('profile')
+    //     ->with('program:id,name','status:id,name,type,color,others')
+    //     ->with('education.campus.school','education.campus.semesters','education.campus.gradings','education.course','education.level')
+    //     ->with('enrollments.semester.semester','enrollments.level','enrollments.subjects')
+    //     ->whereHas('status',function ($query){
+    //         $query->where('name','Ongoing');
+    //     })
+    //     ->when($request->keyword, function ($query, $keyword) {
+    //         $query->whereHas('profile',function ($query) use ($keyword) {
+    //             $query->where(\DB::raw('concat(firstname," ",lastname)'), 'LIKE', '%'.$keyword.'%')
+    //             ->orWhere(\DB::raw('concat(lastname," ",firstname)'), 'LIKE', '%'.$keyword.'%')
+    //             ->orWhere('spas_id','LIKE','%'.$keyword.'%');
+    //         });
+    //     })
+    //     ->when($this->role, function ($query) {
+    //         switch($this->role){
+    //             case 'PSTO Staff':
+    //                 $query->whereHas('address',function ($query){
+    //                     $query->where('province_code',$this->assigned);
+    //                 });
+    //             break;
+    //             case 'University Coordinator':
+    //                 $query->whereHas('education',function ($query){
+    //                     $query->where('campus_id',$this->assigned);
+    //                 });
+    //             break;
+    //             default: 
+    //                 $region = \Auth::user()->myrole->agency->region_code;
+    //                 $query->whereHas('address',function ($query) use ($region) {
+    //                     $query->where('region_code',$region);
+    //                 });
+    //         }
+    //     })
+    //     ->take(5)->get();
+    //     return $data;
+    // }
+
 }

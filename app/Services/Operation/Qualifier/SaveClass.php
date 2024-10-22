@@ -8,6 +8,7 @@ use App\Models\ScholarEducation;
 use App\Models\ScholarAddress;
 use App\Models\ScholarInformation;
 use App\Models\Qualifier;
+use App\Jobs\NewScholar;
 
 class SaveClass
 {
@@ -87,7 +88,7 @@ class SaveClass
                                     $type = 'bxs-x-circle';
                                     $message = 'Qualifier was added';
                                 }
-                                
+                                NewScholar::dispatch($scholar_info->id)->delay(now()->addSeconds(10));
                                 \DB::commit();
                                
                             }else{

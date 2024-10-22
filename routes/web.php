@@ -21,6 +21,7 @@ Route::middleware(['2fa','auth','verified','is_active','menu'])->group(function 
     Route::resource('/qualifiers', App\Http\Controllers\Operation\QualifierController::class);
     Route::resource('/scholars', App\Http\Controllers\Operation\ScholarController::class);
     Route::resource('/schools', App\Http\Controllers\Operation\SchoolController::class);
+    Route::resource('/enrollments', App\Http\Controllers\Operation\EnrollmentController::class);
 });
 
 require __DIR__.'/auth.php';

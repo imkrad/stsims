@@ -24,6 +24,9 @@ class SchoolController extends Controller
             case 'lists':
                 return $this->view->lists($request);
             break;
+            case 'active-semester':
+                return $this->view->activeSemester($request);
+            break;
             default:
                 return inertia('Modules/Operation/Schools/Index',[
                     'dropdowns' => [

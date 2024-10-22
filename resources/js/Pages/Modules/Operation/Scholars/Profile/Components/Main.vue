@@ -1,29 +1,23 @@
 <template>
-    <ul class="nav nav-pills nav-custom nav-custom-light fs-12 mb-3 mt-0" role="tablist">
-        <li class="nav-item">
-            <b-link class="nav-link active" data-bs-toggle="tab" href="#samples" role="tab">
-                Overview
-            </b-link>
-        </li>
-        <li class="nav-item">
-            <b-link class="nav-link" data-bs-toggle="tab" href="#samples" role="tab">
-                Enrollments
-            </b-link>
-        </li>
-        <li class="nav-item">
-            <b-link class="nav-link" data-bs-toggle="tab" href="#groups" role="tab">
-                Financial Benefits
-            </b-link>
-        </li>
-        <li class="nav-item">
-            <b-link class="nav-link" data-bs-toggle="tab" href="#childs" role="tab">
-               Tracer
-            </b-link>
-        </li>
-    </ul>
+    <BTabs nav-class="nav-pills nav-custom nav-custom-light" small pills>
+        <BTab title="Overview">
+            
+        </BTab>
+        <BTab title="Enrollments">
+            <Enrollment :enrollments="scholar.enrollments"/>
+        </BTab>
+        <BTab title="Financial Benefits">
+           
+        </BTab>
+        <BTab title="Tracer" v-if="scholar.status.name == 'Graduated'">
+           
+        </BTab>
+    </BTabs>
 </template>
 <script>
+import Enrollment from '../Pages/Enrollment/Index.vue';
 export default {
-    
+    props: ['scholar'],
+    components: { Enrollment }
 }
 </script>
