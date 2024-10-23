@@ -12,13 +12,12 @@ class EducationResource extends JsonResource
        
         return [
             'id' => $this->id,
+            'campus_id' => $this->campus_id,
             'scholar_id' => $this->scholar_id,
-            'school' => new SchoolResource($this->campus),
+            'school' => new SchoolResource($this->campus, $this->scholar_id),
             'course' => $this->course,
             'level' => $this->level,
-            'award' => ($this->award == null) ? 'n/a' : $this->award,
-            
-            'has_subcourse' => ($this->subcourse == null) ? false : true,
+            'award' => ($this->award == null) ? 'n/a' : $this->award
         ];
     }
 }

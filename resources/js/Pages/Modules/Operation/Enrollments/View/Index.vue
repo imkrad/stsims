@@ -36,8 +36,9 @@
                         </div>
                     </li>
                     <li>
-                        <ul class="list-group mb-1">
-                            <li class="list-group-item" v-for="list in selected.enrollments" v-bind:key="list.id">
+                        <hr class="text-muted mt-n3"/>
+                        <ul class="list-group">
+                            <li class="list-group-item" v-for="(list,index) in selected.enrollments" v-bind:key="list.id">
                                 <div class="d-flex align-items-center">
                                     <div class="flex-grow-1">
                                         <i v-if="list.is_locked" v-b-tooltip.hover title="Enrollment already locked." class="ri-lock-2-fill float-end fs-24 text-light align-middle me-2"></i>
@@ -51,7 +52,7 @@
                                                     <i class="ri-file-warning-fill"></i>
                                                 </div>
                                             </div>
-                                            <div class="flex-shrink-0 ms-3" @click="(list.is_enrolled) ? showAssessment(list) : showEnrollment(list)" style="cursor: pointer;">
+                                            <div class="flex-shrink-0 ms-3" @click="(list.is_enrolled) ? showAssessment(list,index) : showEnrollment(list,index)" style="cursor: pointer;">
                                                 <h6 class="fs-12 mb-0">
                                                     <span class="text-primary">{{ list.semester.semester.name }}</span>
                                                 </h6>
@@ -67,16 +68,26 @@
             </div>
         </div>
         <div class="file-manager-content w-100 p-4 pb-0" style="height: calc(100vh - 180px); overflow: auto;" ref="box">
-            <Assessment v-if="show == 'default'" ref="assessment"/>
-            <Enrollment v-else-if="show == 'enrollment'" ref="enrollment"/>
-            <Prospectus v-else-if="show == 'prospectus'" ref="prospectus"/>
+            <Prospectus :id="selected.id" 
+            :prospectus="selected.course" 
+            :course="selected.education.course" 
+            :campus="selected.education.campus_id" 
+             @update-prospectus="updateProspectus"
+            v-if="show == 'default'" ref="prospectus"/>
+            <Assessment 
+            :gradings="selected.education.school.gradings" 
+            @update-enrollment="updateEnrollment"
+            v-else-if="show == 'assessment'" ref="assessment"/>
+            <Enrollment 
+            @update-enrollment="updateEnrollment"
+            v-else-if="show == 'enrollment'" ref="enrollment"/>
         </div>
     </div>
 </template>
 <script>
-import Assessment from './Pages/Assessment.vue';
-import Enrollment from './Pages/Enrollment.vue';
-import Prospectus from './Pages/Prospectus.vue';
+import Assessment from './Pages/Assessment/Index.vue';
+import Enrollment from './Pages/Enrollment/Index.vue';
+import Prospectus from './Pages/Prospectus/Index.vue';
 import PageHeader from '@/Shared/Components/PageHeader.vue';
 export default {
     components: { PageHeader, Assessment, Enrollment, Prospectus },
@@ -86,15 +97,40 @@ export default {
             currentUrl: window.location.origin,
             selected : this.scholar.data,
             show: 'default',
+            index: null
         }
     },
     methods: {
-        showEnrollment(data){
-            this.$refs.enrollment.set(this.selected.education.info,data);
+        showEnrollment(data,index){
+            this.index = index;
+            this.show = 'enrollment';
+            this.$nextTick(function () {
+                this.$refs.enrollment.set(this.selected.course,data);
+            });
         },
-        showAssessment(data){
-            this.$parent.showAssessment(data,this.scholar.education.school.gradings);
+        showAssessment(data,index){
+            this.index = index;
+            this.show = 'assessment';
+            this.$nextTick(function () {
+                this.$refs.assessment.set(data);
+            });
         },
+        showProspectus(){
+            this.show = 'default';
+        },
+        updateProspectus(data) {
+            this.selected.course = data;
+        },
+        updateEnrollment(data) {
+            if(this.show == 'enrollment'){
+                this.show = 'asessement';
+                this.showAssessment(data,this.index);
+                this.selected.education.school.is_enrolled = true;
+            }else{
+                this.showAssessment(data,this.index);
+            }
+            this.selected.enrollments[this.index] = data;
+        }
     }
 }
 </script>

@@ -724,6 +724,13 @@ File: Custom Css File
   z-index: 1; /* Ensure the fixed header is above the scrolling content */
 }
 
+.tfoot-fixed {
+  position: sticky;
+  bottom: 0;
+  background-color: #fff; /* Set the background color for the fixed header */
+  z-index: 1; /* Ensure the fixed header is above the scrolling content */
+}
+
 .nav-tabs {
   display: none;
 }

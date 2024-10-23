@@ -23,6 +23,11 @@ class Scholar extends Model
         return $this->hasOne('App\Models\ScholarEducation', 'scholar_id');
     } 
 
+    public function course()
+    {
+        return $this->hasOne('App\Models\ScholarCourse', 'scholar_id');
+    } 
+
     public function address()
     {
         return $this->hasOne('App\Models\ScholarAddress', 'scholar_id');

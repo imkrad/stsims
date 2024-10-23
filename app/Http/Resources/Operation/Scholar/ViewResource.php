@@ -20,6 +20,7 @@ class ViewResource extends JsonResource
             'awarded_year' => $this->awarded_year,
             'status' => $this->status,
             'program' => $this->program,
+            'course' => new CourseResource($this->course),
             'profile' => new ProfileResource($this->profile), 
             'education' =>  new EducationResource($this->education),
             'enrollments' => EnrollmentResource::collection($this->enrollments),
