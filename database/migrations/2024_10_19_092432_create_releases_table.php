@@ -19,10 +19,13 @@ return new class extends Migration
             $table->string('dv_no')->nullable();
             $table->decimal('total',12,2);
             $table->boolean('is_checked')->default(0);
+            $table->boolean('is_national')->default(0);
             $table->tinyInteger('status_id')->unsigned()->index();
             $table->foreign('status_id')->references('id')->on('list_statuses')->onDelete('cascade');
             $table->integer('user_id')->unsigned()->index();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->tinyInteger('agency_id')->unsigned()->nullable();
+            $table->foreign('agency_id')->references('id')->on('list_agencies')->onDelete('cascade');
             $table->timestamps();
         });
     }

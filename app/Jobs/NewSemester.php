@@ -44,6 +44,7 @@ class NewSemester implements ShouldQueue
             })->get();
 
             $enrollmentsData = $scholars->map(function ($scholar) use ($semester_id,$semester_name,$month){
+                $count = Enrollment::where('scholar_id',$scholar->id)->where('is_locked',0)->count();
                 $fill = [
                     'scholar_id' => $scholar->id,
                     'semester_id' => $semester_id,
@@ -100,7 +101,7 @@ class NewSemester implements ShouldQueue
                             'amount' => $total,
                             'release_type' => 'Full',
                             'month' => date('Y-m-01', strtotime($month)),  
-                            'status_id' => 11,
+                            'status_id' => 18, //pending
                             'attachment' => json_encode($attachment)
                         ];
             

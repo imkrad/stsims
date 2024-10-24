@@ -38,10 +38,11 @@ class NewScholar implements ShouldQueue
                 $campus_id = $scholar->education->campus_id;
                 $level_id = $scholar->education->level_id;
             }
-            $semesters = SchoolCampusSemester::where('campus_id',$campus_id)->where('year','>=',$awarded_year)->get();
+            $semesters = SchoolCampusSemester::where('campus_id',$campus_id)->where('year','>=',$awarded_year)->orderBy('created_at','ASC')->get();
             if(count($semesters) > 0){
-                foreach($semesters as $semester){
+                foreach($semesters as $index => $semester){
                     $information = [
+                        'is_disabled' => ($index == 0) ? 0 : 1,
                         'scholar_id' => $this->id,
                         'semester_id' => $semester->id,
                         'level_id' => $level_id ,

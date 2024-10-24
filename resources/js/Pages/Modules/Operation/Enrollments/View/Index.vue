@@ -1,6 +1,6 @@
 <template>
-    <Head title="View" />
-    <PageHeader title="List of Enrollments" pageTitle="List" />
+    <Head title="Scholar Enrollment" />
+    <PageHeader title="Scholar Enrollment" pageTitle="List" />
     <div class="chat-wrapper d-lg-flex gap-1 mx-n4 mt-n4 p-1">
         <div class="file-manager-sidebar">
             <div class="p-4 d-flex flex-column h-100" style="overflow: auto;">
@@ -52,7 +52,7 @@
                                                     <i class="ri-file-warning-fill"></i>
                                                 </div>
                                             </div>
-                                            <div class="flex-shrink-0 ms-3" @click="(list.is_enrolled) ? showAssessment(list,index) : showEnrollment(list,index)" style="cursor: pointer;">
+                                            <div class="flex-shrink-0 ms-3" @click="(!list.is_disabled) ? (list.is_enrolled) ? showAssessment(list,index) : showEnrollment(list,index) : ''" style="cursor: pointer;">
                                                 <h6 class="fs-12 mb-0">
                                                     <span class="text-primary">{{ list.semester.semester.name }}</span>
                                                 </h6>
@@ -128,6 +128,11 @@ export default {
                 this.selected.education.school.is_enrolled = true;
             }else{
                 this.showAssessment(data,this.index);
+                if(data.is_locked){
+                    if (this.selected.enrollments[this.index-1]) {
+                        this.selected.enrollments[this.index-1].is_disabled = 0;
+                    }
+                }
             }
             this.selected.enrollments[this.index] = data;
         }

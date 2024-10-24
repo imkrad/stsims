@@ -508,6 +508,20 @@ class ListMenusTableSeeder extends Seeder
                 'is_mother' => 1,
                 'is_active' => 1,
             ),
+            35 => 
+            array (
+                'id' => 36,
+                'name' => 'Financial Benefits',
+                'icon' => 'ri-wallet-3-fill',
+                'route' => '/benefits',
+                'path' => 'Modules/Operation/Benefits',
+                'group' => 'Menu',
+                'module' => 'Operation',
+                'order' => 6,
+                'has_child' => 0,
+                'is_mother' => 1,
+                'is_active' => 1,
+            ),
         ));
 
         

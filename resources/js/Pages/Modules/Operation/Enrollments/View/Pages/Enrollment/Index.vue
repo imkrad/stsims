@@ -59,13 +59,17 @@
             </div>
         </div>
     </b-row>
+    <Retake ref="retake"/>
+    <Swtch @status="fetchSemesters" ref="swtch"/>
     <Confirm @update="updateEnrollment" ref="confirm"/>
 </template>
 <script>
 import simplebar from "simplebar-vue";
+import Swtch from './Modals/Swtch.vue';
+import Retake from './Modals/Retake.vue';
 import Confirm from './Modals/Confirm.vue';
 export default {
-    components: { simplebar, Confirm },
+    components: { simplebar, Confirm, Swtch, Retake },
     data(){
         return {
             selected: { semester: { semester: {}}, level: {}},
@@ -118,6 +122,17 @@ export default {
             data.append('file_type', 'enrollment');
             data.append('option', 'enrollment');
             this.$refs.confirm.set(data,this.selected.semester.academic_year,this.selected.level.others,this.selected.semester.semester.name);
+        },
+        openSwitch(subject){
+            this.$refs.switch.set(this.subjects,subject,this.selected.scholar_id);
+        },
+        openRetake(){
+            this.$refs.retake.set(this.customs);
+        },
+        openCustom(){
+            this.custom = true;
+            this.lists = [];
+            this.$refs.custom.set(this.customs);
         },
         updateEnrollment(data){
             this.$emit('update-enrollment', data);

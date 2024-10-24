@@ -18,6 +18,7 @@ return new class extends Migration
             $table->boolean('is_delayed')->default(0);
             $table->boolean('is_checked')->default(0);
             $table->boolean('is_missed')->default(0);
+            $table->boolean('is_disabled')->default(0);
             $table->boolean('is_grades_completed')->default(0);
             $table->boolean('is_benefits_released')->default(0);
             $table->boolean('is_completed')->default(0);

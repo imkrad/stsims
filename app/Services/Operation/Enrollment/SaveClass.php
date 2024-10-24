@@ -15,8 +15,6 @@ class SaveClass
     public function enroll($request){
         $data = Enrollment::where('id',$request->id)->first();
         $attach = $this->upload($data,$request,'enrollments');
-        ($data->is_missed) ? $data->is_delayed = 1 : ''; 
-        ($data->is_missed) ? $data->is_missed = 0 : '';
         $data->attachment = $attach;
         $data->user_id = \Auth::user()->id;
         $data->is_enrolled = 1;
@@ -147,13 +145,19 @@ class SaveClass
     public function lockGrade($request){
         $enrollment_id = $request->id;
         $data = Enrollment::with('semester.semester','level','subjects')->where('id',$enrollment_id)->first();
-        $data->update($request->except('option'));
+        $data->is_locked = 1;
+        $data->is_disabled = 0;
+        $data->save();
+        if($data->save){
+            Enrollment::where('scholar_id',$data->scholar_id)->where('is_disabled',1)->orderBy('created_at', 'asc')->first()->update(['is_disabled' => 0]);
+        }
+        
         if($data->is_grades_completed){
             $scholar_id =  $data->scholar_id;
             $semester_id =  $data->semester_id;
 
             $p = ScholarCourse::with('course')->where('scholar_id',$scholar_id)->first();
-            $years = $p->subcourse->years; 
+            $years = $p->course->years; 
             $semesters = 3;
 
             $prospectus = json_decode($p->information,true);

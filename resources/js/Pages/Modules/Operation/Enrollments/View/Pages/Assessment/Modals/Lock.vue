@@ -57,7 +57,7 @@ export default {
        save(){
            this.form = this.$inertia.form({
                id: this.selected.id,
-               is_locked: (this.selected.is_locked) ? 0 : 1,
+               is_locked: (this.selected.is_locked == 0) ? 0 : 1,
                option: 'lock',
                lists: this.lists
            })

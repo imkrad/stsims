@@ -19,35 +19,35 @@ class ScholarInformation extends Model
         return $this->belongsTo('App\Models\Scholar', 'scholar_id', 'id');
     }
 
-    public function setEmailAttribute($value)
-    {
-        $this->attributes['email'] = Crypt::encryptString($value);
-    }
+    // public function setEmailAttribute($value)
+    // {
+    //     $this->attributes['email'] = Crypt::encryptString($value);
+    // }
 
-    public function getEmailAttribute($value)
-    {
-        return Crypt::decryptString($value);
-    }
+    // public function getEmailAttribute($value)
+    // {
+    //     return Crypt::decryptString($value);
+    // }
 
-    public function setContactNoAttribute($value)
-    {
-        $this->attributes['contact_no'] = Crypt::encryptString($value);
-    }
+    // public function setContactNoAttribute($value)
+    // {
+    //     $this->attributes['contact_no'] = Crypt::encryptString($value);
+    // }
 
-    public function getContactNoAttribute($value)
-    {
-        return Crypt::decryptString($value);
-    }
+    // public function getContactNoAttribute($value)
+    // {
+    //     return Crypt::decryptString($value);
+    // }
 
-    public function setAccountNoAttribute($value)
-    {
-        $this->attributes['account_no'] = Crypt::encryptString($value);
-    }
+    // public function setAccountNoAttribute($value)
+    // {
+    //     $this->attributes['account_no'] = Crypt::encryptString($value);
+    // }
 
-    public function getAccountNoAttribute($value)
-    {
-        return Crypt::decryptString($value);
-    }
+    // public function getAccountNoAttribute($value)
+    // {
+    //     return Crypt::decryptString($value);
+    // }
 
     public function updateIfDirty(array $attributes){
         $dirtyAttributes = [];

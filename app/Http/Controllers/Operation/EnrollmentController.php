@@ -29,14 +29,7 @@ class EnrollmentController extends Controller
                 return $this->view->prospectus($request);
             break;
             default:
-                return inertia('Modules/Operation/Enrollments/Index',[
-                    'dropdowns' => [
-                        'gradings' => $this->dropdown->gradings(),
-                        'terms' => $this->dropdown->terms(),
-                        'regions' => $this->dropdown->regions(),
-                        'agencies' => $this->dropdown->agencies()
-                    ]
-                ]); 
+                return inertia('Modules/Operation/Enrollments/Index'); 
         }   
     }  
 

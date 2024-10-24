@@ -60,7 +60,7 @@ class Scholar extends Model
 
     public function enrollments()
     {
-        return $this->hasMany('App\Models\Enrollment', 'scholar_id')->orderBy('created_at','DESC');
+        return $this->hasMany('App\Models\Enrollment', 'scholar_id')->orderBy('id','DESC');
     } 
 
     protected static $recordEvents = ['updated','created'];

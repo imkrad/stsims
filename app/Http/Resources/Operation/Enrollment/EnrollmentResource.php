@@ -22,6 +22,7 @@ class EnrollmentResource extends JsonResource
             'is_checked' => $this->is_checked,
             'is_locked' => $this->is_locked,
             'is_missed' => $this->is_missed,
+            'is_disabled' => $this->is_disabled,
             'is_grades_completed' => $this->is_grades_completed,
             'is_benefits_completed' => $this->is_benefits_completed,
             'is_completed' => $this->is_completed,

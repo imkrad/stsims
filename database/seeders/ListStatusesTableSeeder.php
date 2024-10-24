@@ -222,6 +222,54 @@ class ListStatusesTableSeeder extends Seeder
                 'created_at' => '2024-10-03 16:13:48',
                 'updated_at' => '2024-10-03 16:13:48',
             ),
+            17 => 
+            array (
+                'id' => 18,
+                'name' => 'Pending',
+                'type' => 'Benefit Status',
+                'color' => 'bg-warning',
+                'icon' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+                'created_at' => '2024-10-03 16:13:48',
+                'updated_at' => '2024-10-03 16:13:48',
+            ),
+            18 => 
+            array (
+                'id' => 19,
+                'name' => 'Waiting',
+                'type' => 'Benefit Status',
+                'color' => 'bg-info',
+                'icon' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+                'created_at' => '2024-10-03 16:13:48',
+                'updated_at' => '2024-10-03 16:13:48',
+            ),
+            19 => 
+            array (
+                'id' => 20,
+                'name' => 'Released',
+                'type' => 'Benefit Status',
+                'color' => 'bg-success',
+                'icon' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+                'created_at' => '2024-10-03 16:13:48',
+                'updated_at' => '2024-10-03 16:13:48',
+            ),
+            20 => 
+            array (
+                'id' => 21,
+                'name' => 'Cancelled',
+                'type' => 'Benefit Status',
+                'color' => 'bg-danger',
+                'icon' => 'n/a',
+                'others' => 'n/a',
+                'is_active' => 1,
+                'created_at' => '2024-10-03 16:13:48',
+                'updated_at' => '2024-10-03 16:13:48',
+            ),
         ));
 
         

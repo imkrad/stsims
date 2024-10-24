@@ -10,7 +10,7 @@ class Enrollment extends Model
     use HasFactory;
 
     protected $fillable = [
-        'semester_id', 'level_id', 'scholar_id', 'user_id','is_enrolled','is_delayed','is_checked','is_missed','is_grades_completed','is_benefits_released','is_completed','is_locked', 'attachment'
+        'semester_id', 'level_id', 'scholar_id', 'user_id','is_enrolled','is_delayed','is_checked','is_missed','is_disabled','is_grades_completed','is_benefits_released','is_completed','is_locked', 'attachment'
     ];
 
     public function scholar()

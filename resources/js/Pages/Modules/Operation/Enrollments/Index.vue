@@ -18,7 +18,6 @@ import PageHeader from '@/Shared/Components/PageHeader.vue';
 import Pagination from "@/Shared/Components/Pagination.vue";
 export default {
     components: { PageHeader, Pagination, Multiselect, Sidebar },
-    props:['dropdowns'],
     data(){
         return {
             currentUrl: window.location.origin,
