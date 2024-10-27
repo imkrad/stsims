@@ -38,7 +38,7 @@
             </div>
         </div>
     </b-row>
-    <Release ref="release"/>
+    <Release @update="updateList" ref="release"/>
     <View ref="view"/>
 </template>
 <script>
@@ -88,6 +88,9 @@ export default {
         },
         openClose(){
             this.$emit('close',true);
+        },
+        updateList(){
+            this.$emit('update',true);
         }
     }
 }

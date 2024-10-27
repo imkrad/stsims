@@ -17,6 +17,7 @@ class ListMenu extends Model
         'route',
         'path',
         'group',
+        'module',
         'order',
         'has_child',
         'is_mother',

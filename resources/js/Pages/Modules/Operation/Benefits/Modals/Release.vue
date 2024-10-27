@@ -75,7 +75,7 @@
                     preserveScroll: true,
                     onSuccess: (response) => {
                         this.showModal = false;
-                        this.$parent.$parent.$parent.fetchLatest();
+                        this.$emit('update',true);
                     }
                 });
             },

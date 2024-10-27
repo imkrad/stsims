@@ -62,14 +62,36 @@
                 </div>
             </div>
         </div>
+        <hr class="text-muted mt-n2 mb-2"/>
+        <p class="text-muted text-uppercase fs-12 fw-medium mt-1">Pending Release</p>
+        <hr class="text-muted mt-n1"/>
+        
+        <div class="list-group" v-if="pendings.length > 0">
+            <div class="list-group-item" style="cursor: pointer;" v-for="(list,index) in pendings" v-bind:key="index">
+                <div class="d-flex align-items-center">
+                    <div class="flex-grow-1">
+                        <h5 class="mb-0 fs-12">{{list.month}} <span class="text-muted">- Batch {{ list.batch }}</span></h5>
+                        <p class="mb-0 fs-11 text-muted">{{  formatMoney(list.total) }}</p>
+                    </div> 
+                    <b-button v-if="list.status.name != 'Released'" @click="openConfirmation(list)" variant="soft-success" v-b-tooltip.hover title="Mark as Completed" size="sm" class="edit-list"><i class="ri-checkbox-circle-fill align-bottom"></i> </b-button>
+                </div>
+            </div>
+        </div>
+        <div v-else>
+            <p class="text-muted text-center fs-12 mt-1">No pending release.</p>
+        </div>
     </div>
+    <Confirm @update="updateList" ref="confirm"/>
 </template>
 <script>
+import Confirm from '../Modals/Confirm.vue';
 export default {
+    components: { Confirm },
     props: ['latest'],
     data(){
         return {
             currentUrl: window.location.origin,
+            pendings: [],
             formattedDate: new Date().toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'long',
@@ -77,5 +99,33 @@ export default {
             }),
         }
     },
+    created(){
+        this.fetch();
+    },
+    methods: {
+        fetch(){
+            axios.get(this.currentUrl+'/benefits',{
+                params : {
+                    option: 'pendings'
+                }
+            })
+            .then(response => {
+                if(response){
+                    this.pendings = response.data.data;       
+                }
+            })
+            .catch(err => console.log(err));
+        },
+        formatMoney: function formatMoney(value) {
+            var val = (value / 1).toFixed(2).replace(',', '.');
+            return '₱' + val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        },
+        openConfirmation(data){
+            this.$refs.confirm.set(data);
+        },
+        updateList(){
+            this.$emit('update',true);
+        }
+    }
 }
 </script>

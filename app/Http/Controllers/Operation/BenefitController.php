@@ -21,6 +21,12 @@ class BenefitController extends Controller
 
     public function index(Request $request){
         switch($request->option){
+            case 'lists':
+                return $this->view->lists($request);
+            break;
+            case 'pendings':
+                return $this->view->pendings();
+            break;
             case 'scholars':
                 return $this->view->scholars($request);
             break;
@@ -36,6 +42,9 @@ class BenefitController extends Controller
             switch($request->option){
                 case 'pending':
                     return $this->save->pending($request);
+                break; 
+                case 'completed':
+                    return $this->save->completed($request);
                 break; 
             }
         });

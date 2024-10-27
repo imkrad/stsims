@@ -8,6 +8,7 @@ use App\Models\Enrollment;
 use App\Models\EnrollmentBenefit;
 use App\Http\Resources\Operation\NameResource;
 use App\Http\Resources\Operation\Benefits\ListResource;
+use App\Http\Resources\Operation\Benefits\ReleaseResource;
 
 class ViewClass
 {
@@ -67,6 +68,24 @@ class ViewClass
             'received' => $received
         ];
         return $data;
+    }
+
+    public function lists($request){
+        $data = Release::with('status','user')
+        ->when($request->status, function ($query, $status) {
+            $query->where('status_id',$status);
+        })
+        ->where('agency_id',$this->agency_id)
+        ->paginate($request->count);
+        return ReleaseResource::collection($data);
+    }
+
+    public function pendings(){
+        $data = Release::with('status','user')
+        ->where('status_id',18)
+        ->where('agency_id',$this->agency_id)
+        ->get();
+        return ReleaseResource::collection($data);
     }
 
     public function scholars($request){

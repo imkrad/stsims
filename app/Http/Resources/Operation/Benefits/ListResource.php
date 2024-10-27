@@ -11,7 +11,7 @@ class ListResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'account_no' => $this->information->account_no,
+            'account_no' => ( $this->information->account_no) ? $this->information->account_no : '000-0000-000',
             'name' => $this->profile->lastname.', '. $this->profile->firstname,
             'program' => $this->program->name,
             'avatar' => 'avatar.jpg',

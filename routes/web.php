@@ -23,6 +23,9 @@ Route::middleware(['2fa','auth','verified','is_active','menu'])->group(function 
     Route::resource('/schools', App\Http\Controllers\Operation\SchoolController::class);
     Route::resource('/enrollments', App\Http\Controllers\Operation\EnrollmentController::class);
     Route::resource('/benefits', App\Http\Controllers\Operation\BenefitController::class);
+    Route::resource('/insights', App\Http\Controllers\Operation\InsightController::class);
+    Route::resource('/reports', App\Http\Controllers\Operation\ReportController::class);
+    Route::resource('/others', App\Http\Controllers\Operation\OtherController::class);
 });
 
 require __DIR__.'/auth.php';

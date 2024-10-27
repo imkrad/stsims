@@ -90,7 +90,7 @@ class NewScholar implements ShouldQueue
                                 'amount' => $total,
                                 'release_type' => 'Full',
                                 'month' => date('Y-m-01', strtotime($month)),  
-                                'status_id' => 11,
+                                'status_id' => 18,
                                 'attachment' => json_encode($attachment)
                             ];
                 

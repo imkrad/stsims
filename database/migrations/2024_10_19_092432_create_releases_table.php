@@ -16,6 +16,7 @@ return new class extends Migration
             $table->increments('id');
             $table->string('batch',10);
             $table->json('attachment');
+            $table->string('count')->nullable();
             $table->string('dv_no')->nullable();
             $table->decimal('total',12,2);
             $table->boolean('is_checked')->default(0);
