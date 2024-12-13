@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('school_campus_names', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->tinyIncrements('id');
+            $table->bigIncrements('id');
             $table->string('name');
             $table->integer('campus_id')->unsigned()->index();
             $table->foreign('campus_id')->references('id')->on('school_campuses')->onDelete('cascade');

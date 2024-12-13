@@ -9,9 +9,9 @@
                     <div class="input-group mb-1">
                         <span class="input-group-text"> <i class="ri-search-line search-icon"></i></span>
                         <input type="text" v-model="filter.keyword" placeholder="Search Campus" class="form-control" style="width: 100px;">
-                        <Multiselect class="white" style="width: 10%;" :options="dropdowns.terms" v-model="filter.term" label="name" :searchable="true" placeholder="Select Term" />
-                        <Multiselect class="white" style="width: 10%;" :options="dropdowns.gradings" v-model="filter.grading" label="name" :searchable="true" placeholder="Select Grading" />
-                        <Multiselect class="white" style="width: 10%;" :options="dropdowns.agencies" v-model="filter.agency" label="name" :searchable="true" placeholder="Select Agency" />
+                        <Multiselect class="white" style="width: 15%;" :options="dropdowns.terms" v-model="filter.term" label="name" :searchable="true" placeholder="Select Term" />
+                        <Multiselect class="white" style="width: 15%;" :options="dropdowns.gradings" v-model="filter.grading" label="name" :searchable="true" placeholder="Select Grading" />
+                        <Multiselect class="white" style="width: 15%;" :options="dropdowns.agencies" v-model="filter.agency" label="name" :searchable="true" placeholder="Select Agency" />
                         <span @click="refresh()" class="input-group-text" v-b-tooltip.hover title="Refresh" style="cursor: pointer;"> 
                             <i class="bx bx-refresh search-icon"></i>
                         </span>
@@ -47,7 +47,7 @@
                             </td>
                             <td>
                                 <h5 class="fs-13 mb-0 text-dark">{{list.school.name}} {{(list.is_main) ? '' : '- '+list.campus}}</h5>
-                                <p class="fs-12 text-muted mb-0">{{(list.address.address === '-') ? '' : list.address.address+','}} {{list.address.barangay.name}}, {{list.address.municipality.name}}, {{list.address.province.name}}, , {{list.address.region.region}}</p>
+                                <p class="fs-12 text-muted mb-0">{{list.address.barangay.name}}, {{list.address.municipality.name}}, {{list.address.province.name}}, , {{list.address.region.region}}</p>
                             </td>
                             <td class="text-center">{{list.school.shortcut}}</td>
                             <td class="text-center">

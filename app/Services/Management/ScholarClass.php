@@ -17,6 +17,7 @@ use App\Http\Resources\Management\ScholarResource;
 class ScholarClass
 {   
     public function lists($request){
+        $keyword = $request->keyword;
         $data = ScholarResource::collection(
             Scholar::with('profile','reference','program.program','program.type','status')
             ->with('education.course','education.campus.school')
@@ -27,6 +28,13 @@ class ScholarClass
                     $query->whereHas('type',function ($query) use ($type) {
                         $query->where('name',$type);
                     });
+                });
+            })
+            ->whereHas('profile',function ($query) use ($keyword) {
+                $query->when($keyword, function ($query, $keyword) {
+                    $query->where(\DB::raw('concat(firstname," ",lastname)'), 'LIKE', '%'.$keyword.'%')
+                    ->where(\DB::raw('concat(lastname," ",firstname)'), 'LIKE', '%'.$keyword.'%')
+                    ->orWhere('spas_id','LIKE','%'.$keyword.'%');
                 });
             })
             ->when($request->status, function ($query, $status) {

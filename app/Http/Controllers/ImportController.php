@@ -165,7 +165,7 @@ class ImportController extends Controller
                     'suffix' => strtoupper(strtolower($row[4])),
                     'sex' => $row[5],
                     'birthday' =>  Carbon::parse($row[6])->format('Y-m-d'),
-                    'address' => strtoupper(strtolower($row[7])), strtoupper(strtolower($row[8])),
+                    'address' => strtoupper(strtolower($row[7])).' '.strtoupper(strtolower($row[8])),
                     'barangay' => strtoupper(strtolower($row[9])),
                     'municipality' => strtoupper(strtolower($row[10])),
                     'province' => strtoupper(strtolower($row[11])),
@@ -188,128 +188,145 @@ class ImportController extends Controller
         return $information;
     }
 
-    private function upload($request){
-        set_time_limit(0);
+    private function upload($request)
+{
+    ini_set('max_execution_time', 0);
+    set_time_limit(0);
 
-        $result = \DB::transaction(function () use ($request){
-            $lists = $request->lists;
-            $success = array();
-            $failed = array();
-            $duplicate = array();
-            $error = null;
+    $lists = $request->lists;
 
-            foreach($lists as $list){
-                $count = Scholar::where('spas_id',$list['spas_id'])->count();
-                if($count == 0){
-                    $scholar = [
-                        'spas_id' => $list['spas_id'],
-                        'status_id' => $this->status($list['status']),
-                        'program_id' => $this->program($list['subprogram']),
-                        'category_id' => $this->category($list['category']),
-                        'awarded_year' => $list['year_awarded'],
-                        'created_at' => now(),
-                        'updated_at' => now()
-                    ];
-                    \DB::beginTransaction();
-                    $scholar_info = Scholar::create($scholar);
-                    if($scholar_info){
-                        $education = [
-                            'scholar_id' => $scholar_info->id,
-                            'campus_id' => $this->school($list['school']),
-                            'course_id' => $this->course($list['course']),
-                            'created_at' => now(),
-                            'updated_at' => now()
-                        ];
+    $chunkSize = 100; // Adjust based on your server capacity
+    $result = [
+        'success' => [],
+        'failed' => [],
+        'duplicate' => []
+    ];
 
-                        $education_info = ScholarEducation::insertOrIgnore($education);
-                        if($education_info){
-                            $profile = [
-                                'scholar_id' => $scholar_info->id,
-                                'firstname' => $list['firstname'],
-                                'middlename' => $list['middlename'],
-                                'lastname' => $list['lastname'],
-                                'suffix' => $list['suffix'],
-                                'birthday' => $list['birthday'],
-                                'sex' => $list['sex'],
-                                'created_at' => now(),
-                                'updated_at' => now()
-                            ];
+    foreach (array_chunk($lists, $chunkSize) as $chunk) {
+        $chunkResult = \DB::transaction(function () use ($chunk) {
+            $success = [];
+            $failed = [];
+            $duplicate = [];
 
-                            $profile_info = ScholarProfile::insertOrIgnore($profile);
-                            if($profile_info){
-                                $info = [
-                                    'scholar_id' => $scholar_info->id,
-                                    'email' => (filter_var($list['email'], FILTER_VALIDATE_EMAIL)) ? $list['email'] : NULL,
-                                    'contact_no' => $list['contact'],
-                                    'created_at' => now(),
-                                    'updated_at' => now()
-                                ];
-                                $info_info = ScholarInformation::insertOrIgnore($info);
-                                if($info_info){
-                                    $address = $this->address(
-                                        $list['region'],
-                                        $list['province'],
-                                        $list['municipality'],
-                                        $list['barangay'],
-                                        $list['district'],
-                                        $list['zipcode'],
-                                        $list['address'],
-                                        $scholar_info->id,
-                                    );
-                                    $address_info = ScholarAddress::insertOrIgnore($address[0]);
-                                    if($address_info){
-                                        $reference = [
-                                            'scholar_id' => $scholar_info->id,
-                                            'school' => $list['school'],
-                                            'course' => $list['course'],
-                                            'address' => $address[1],
-                                            'has_address' => $address[2],
-                                            'has_education' => ($this->school($list['school']) && $this->course($list['course'])) ? true : false
-
-                                        ];
-                                        $reference_info = ScholarReference::insertOrIgnore($reference);
-                                        if($reference_info){
-                                            array_push($success,$list['spas_id']);
-                                            \DB::commit();
-                                        }else{
-                                            array_push($failed,[$list['spas_id'],'Reference']);
-                                            \DB::rollback();
-                                        }
-                                    }else{
-                                        array_push($failed,[$list['spas_id'],'Address']);
-                                        \DB::rollback();
-                                    }
-                                   
-                                }else{
-                                    array_push($failed,[$list['spas_id'],'Information']);
-                                    \DB::rollback();
-                                }
-                            }else{
-                                array_push($failed,[$list['spas_id'],'Profile']);
-                                \DB::rollback();
-                            }
-                        }else{
-                            array_push($failed,[$list['spas_id'],'Education']);
-                            \DB::rollback();
-                        }
-                    }else{
-                        array_push($failed,[$list['spas_id'],'Scholar']);
-                        \DB::rollback();
+            foreach ($chunk as $list) {
+                try {
+                    if ($this->isDuplicate($list['spas_id'])) {
+                        $duplicate[] = ['spas_id' => $list['spas_id'], 'reason' => 'Duplicate'];
+                        continue;
                     }
-                }else{
-                    array_push($duplicate,$list['spas_id']);
+
+                    $scholar = $this->createScholar($list);
+                    $this->createScholarEducation($list, $scholar->id);
+                    $this->createScholarProfile($list, $scholar->id);
+                    $this->createScholarInformation($list, $scholar->id);
+                    $this->createScholarAddressAndReference($list, $scholar->id);
+
+                    $success[] = ['spas_id' => $list['spas_id']];
+                    \DB::commit();
+                } catch (\Exception $e) {
                     \DB::rollback();
+                    $failed[] = [
+                        'spas_id' => $list['spas_id'],
+                        'reason' => $e->getMessage()
+                    ];
                 }
             }
-            $result = [
+
+            return [
                 'success' => $success,
                 'failed' => $failed,
-                'duplicate' => $duplicate,
+                'duplicate' => $duplicate
             ];
-            return $result;
         });
-        return $result;
+
+        // Merge chunk results into the final result
+        $result['success'] = array_merge($result['success'], $chunkResult['success']);
+        $result['failed'] = array_merge($result['failed'], $chunkResult['failed']);
+        $result['duplicate'] = array_merge($result['duplicate'], $chunkResult['duplicate']);
     }
+
+    return $result;
+}
+
+private function isDuplicate($spasId)
+{
+    return Scholar::where('spas_id', $spasId)->exists();
+}
+
+private function createScholar($data)
+{
+    return Scholar::create([
+        'spas_id' => $data['spas_id'],
+        'status_id' => $this->status($data['status']),
+        'program_id' => $this->program($data['subprogram']),
+        'category_id' => $this->category($data['category']),
+        'awarded_year' => $data['year_awarded'],
+        'created_at' => now(),
+        'updated_at' => now()
+    ]);
+}
+
+private function createScholarEducation($data, $scholarId)
+{
+    ScholarEducation::create([
+        'scholar_id' => $scholarId,
+        'campus_id' => $this->school($data['school']),
+        'course_id' => $this->course($data['course']),
+        'created_at' => now(),
+        'updated_at' => now()
+    ]);
+}
+
+private function createScholarProfile($data, $scholarId)
+{
+    ScholarProfile::create([
+        'scholar_id' => $scholarId,
+        'firstname' => $data['firstname'],
+        'middlename' => $data['middlename'],
+        'lastname' => $data['lastname'],
+        'suffix' => $data['suffix'],
+        'birthday' => $data['birthday'],
+        'sex' => $data['sex'],
+        'created_at' => now(),
+        'updated_at' => now()
+    ]);
+}
+
+private function createScholarInformation($data, $scholarId)
+{
+    ScholarInformation::create([
+        'scholar_id' => $scholarId,
+        'email' => filter_var($data['email'], FILTER_VALIDATE_EMAIL) ? $data['email'] : null,
+        'contact_no' => $data['contact'],
+        'created_at' => now(),
+        'updated_at' => now()
+    ]);
+}
+
+private function createScholarAddressAndReference($data, $scholarId)
+{
+    $addressData = $this->address(
+        $data['region'],
+        $data['province'],
+        $data['municipality'],
+        $data['barangay'],
+        $data['district'],
+        $data['zipcode'],
+        $data['address'],
+        $scholarId
+    );
+
+    ScholarAddress::create($addressData[0]);
+
+    ScholarReference::create([
+        'scholar_id' => $scholarId,
+        'school' => $data['school'],
+        'course' => $data['course'],
+        'address' => $addressData[1],
+        'has_address' => $addressData[2],
+        'has_education' => $this->school($data['school']) && $this->course($data['course'])
+    ]);
+}
 
     private function status($status){
         if($status == 'NEW' || $status == 'ONGOING'){
@@ -334,7 +351,7 @@ class ImportController extends Controller
 
     private function course($course){
         $data = ListCourse::select('id')->where('shortcut',$course)->first();
-        $data = ($data) ? $data->id : '';
+        $data = ($data) ? $data->id : null;
         return $data;
     }
 
@@ -591,58 +608,58 @@ class ImportController extends Controller
     private function address($region,$province,$municipality,$barangay,$district,$zipcode,$address,$id){
         switch($region){
             case '1':
-                $region_code = '010000000';
+                $region = '010000000';
             break;
             case '2':
-                $region_code = '020000000';
+                $region = '020000000';
             break;
             case '3':
-                $region_code = '030000000';
+                $region = '030000000';
             break;
             case '4a':
-                $region_code = '040000000';
+                $region = '040000000';
             break;
             case '4b':
-                $region_code = '170000000';
+                $region = '170000000';
             break;
             case '5':
-                $region_code = '050000000';
+                $region = '050000000';
             break;
             case '6':
-                $region_code = '060000000';
+                $region = '060000000';
             break;
             case '7':
-                $region_code = '070000000';
+                $region = '070000000';
             break;
             case '8':
-                $region_code = '080000000';
+                $region = '080000000';
             break;
             case '9':
-                $region_code = '090000000';
+                $region = '090000000';
             break;
             case '10':
-                $region_code = '100000000';
+                $region = '100000000';
             break;
             case '11':
-                $region_code = '110000000';
+                $region = '110000000';
             break;
             case '12':
-                $region_code = '120000000';
+                $region = '120000000';
             break;
             case 'NCR':
-                $region_code = '13000000';
+                $region = '13000000';
             break;
             case 'CAR':
-                $region_code = '14000000';
+                $region = '14000000';
             break;
             case 'ARMM':
-                $region_code = '15000000';
+                $region = '15000000';
             break;  
             case 'BARMM':
-                $region_code = '15000000';
+                $region = '15000000';
             break; 
             case 'CARAGA':
-                $region_code = '16000000';
+                $region = '16000000';
             break; 
         }
 
@@ -661,18 +678,18 @@ class ImportController extends Controller
         $district = null;
         // ($municipality == 'ZAMBOANGA CITY') ? $province = 'ZAMBOANGA CITY' : $province;
 
-        if($province){
+        if($province != '' || $province != null){
             $data = LocationProvince::with('region')
             ->where(function($query) use ($province) {  
-                $query->where('name','LIKE', '%'.$province.'%');
+                $query->where('name','LIKE', '%'.$province.'%')->orWhere('old_name','LIKE', '%'.$province.'%');
             })->first();
             $province = $data->code;
             $region = $data->region->code;
-            if($region_code != $region){
-                $is_within = 0;
-            }
+            // if($region_code != $region){
+            //     $is_within = 0;
+            // }
         }
-        if($municipality){
+        if($municipality != '' || $municipality != null){
             $m = LocationMunicipality::where(function($query) use ($municipality) {  
                 $query->where('name','LIKE', '%'.$municipality.'%');
             })

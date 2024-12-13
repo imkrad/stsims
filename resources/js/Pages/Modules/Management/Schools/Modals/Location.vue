@@ -46,7 +46,7 @@ export default {
         return {
             currentUrl: window.location.origin,
             form: useForm({
-                address: null,
+                address: 'Main road',
                 region: null,
                 province: null,
                 municipality: null,
