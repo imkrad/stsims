@@ -331,6 +331,8 @@ private function createScholarAddressAndReference($data, $scholarId)
     private function status($status){
         if($status == 'NEW' || $status == 'ONGOING'){
             return 7;
+        }else if($status == ''){
+            return 2;
         }else{
             $status = ListStatus::select('id')->where('name',$status)->first();
             return $status->id;
@@ -451,10 +453,10 @@ private function createScholarAddressAndReference($data, $scholarId)
             case '3':
                 $region_code = '030000000';
             break;
-            case '4a':
+            case '4A':
                 $region_code = '040000000';
             break;
-            case '4b':
+            case '4B':
                 $region_code = '170000000';
             break;
             case '5':
@@ -617,10 +619,10 @@ private function createScholarAddressAndReference($data, $scholarId)
             case '3':
                 $region = '030000000';
             break;
-            case '4a':
+            case '4A':
                 $region = '040000000';
             break;
-            case '4b':
+            case '4B':
                 $region = '170000000';
             break;
             case '5':
