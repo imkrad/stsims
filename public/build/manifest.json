@@ -7,38 +7,9 @@
     "file": "assets/layers-BWBAp2CZ.png",
     "src": "node_modules/leaflet/dist/images/layers.png"
   },
-  "node_modules/leaflet/dist/images/marker-icon-2x.png": {
-    "file": "assets/marker-icon-2x-1TirABJh.js",
-    "name": "marker-icon-2x",
-    "src": "node_modules/leaflet/dist/images/marker-icon-2x.png",
-    "isDynamicEntry": true,
-    "assets": [
-      "assets/marker-icon-2x-_ZA0WGCc.png"
-    ]
-  },
   "node_modules/leaflet/dist/images/marker-icon.png": {
-    "file": "assets/marker-icon-B6h-nX3D.js",
-    "name": "marker-icon",
-    "src": "node_modules/leaflet/dist/images/marker-icon.png",
-    "isDynamicEntry": true,
-    "assets": [
-      "assets/marker-icon-hN30_KVU.png"
-    ]
-  },
-  "node_modules/leaflet/dist/images/marker-shadow.png": {
-    "file": "assets/marker-shadow-B9CpECYs.js",
-    "name": "marker-shadow",
-    "src": "node_modules/leaflet/dist/images/marker-shadow.png",
-    "isDynamicEntry": true,
-    "assets": [
-      "assets/marker-shadow-f7SaPCxT.png"
-    ]
-  },
-  "node_modules/leaflet/dist/leaflet-src.esm.js": {
-    "file": "assets/leaflet-src.esm-HdBnhJze.js",
-    "name": "leaflet-src.esm",
-    "src": "node_modules/leaflet/dist/leaflet-src.esm.js",
-    "isDynamicEntry": true
+    "file": "assets/marker-icon-hN30_KVU.png",
+    "src": "node_modules/leaflet/dist/images/marker-icon.png"
   },
   "public/fonts/boxicons.eot": {
     "file": "assets/boxicons-CSrLvhY_.eot",
@@ -221,15 +192,15 @@
     "src": "public/images/cover-pattern.png"
   },
   "public/images/logo-dark.png": {
-    "file": "assets/logo-dark-DGKr6nTV.png",
+    "file": "assets/logo-dark-B_U2cmo0.png",
     "src": "public/images/logo-dark.png"
   },
   "public/images/logo-light.png": {
-    "file": "assets/logo-light-CqfqkvTN.png",
-    "src": "public/images/logo-light.png"
+    "file": "assets/logo-dark-B_U2cmo0.png",
+    "src": "public/images/logo-dark.png"
   },
   "public/images/logo-sm.png": {
-    "file": "assets/logo-sm-BMbbSDmV.png",
+    "file": "assets/logo-sm-BWtcP0WZ.png",
     "src": "public/images/logo-sm.png"
   },
   "public/images/sidebar/img-1.jpg": {
@@ -249,29 +220,16 @@
     "src": "public/images/sidebar/img-4.jpg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-PLBTsxv0.js",
+    "file": "assets/app-w0tMBmy4.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
-    "dynamicImports": [
-      "node_modules/leaflet/dist/images/marker-icon-2x.png",
-      "node_modules/leaflet/dist/images/marker-icon.png",
-      "node_modules/leaflet/dist/images/marker-shadow.png",
-      "node_modules/leaflet/dist/leaflet-src.esm.js",
-      "node_modules/leaflet/dist/leaflet-src.esm.js",
-      "node_modules/leaflet/dist/leaflet-src.esm.js",
-      "node_modules/leaflet/dist/leaflet-src.esm.js",
-      "node_modules/leaflet/dist/leaflet-src.esm.js",
-      "node_modules/leaflet/dist/leaflet-src.esm.js",
-      "node_modules/leaflet/dist/leaflet-src.esm.js"
-    ],
     "css": [
-      "assets/app-BXFlXMA8.css"
+      "assets/app-DdVshkA4.css"
     ],
     "assets": [
-      "assets/logo-sm-BMbbSDmV.png",
-      "assets/logo-dark-DGKr6nTV.png",
-      "assets/logo-light-CqfqkvTN.png",
+      "assets/logo-sm-BWtcP0WZ.png",
+      "assets/logo-dark-B_U2cmo0.png",
       "assets/laboratory-DGebyxyk.png",
       "assets/inventory-DCAGjWxa.png",
       "assets/calendar-yfM8ZpJt.png",
