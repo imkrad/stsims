@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('scholar_references', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
-            $table->string('school',250);
-            $table->string('course',250);
+            $table->string('school',250)->nullable();
+            $table->string('course',250)->nullable();
             $table->string('address',250);
             $table->boolean('has_education'); //is_completed
             $table->boolean('has_address'); //is_completed

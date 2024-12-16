@@ -482,7 +482,7 @@ private function createScholarAddressAndReference($data, $scholarId)
                 $region_code = '120000000';
             break;
             case 'NCR':
-                $region_code = '13000000';
+                $region_code = '130000000';
             break;
             case 'CAR':
                 $region_code = '140000000';
@@ -520,6 +520,7 @@ private function createScholarAddressAndReference($data, $scholarId)
                 $region = $data->region->code;
             }else{
                 $province = null;
+                $region = $region_code;
             }
         }
         if($municipality != null){
@@ -647,19 +648,19 @@ private function createScholarAddressAndReference($data, $scholarId)
                 $region = '120000000';
             break;
             case 'NCR':
-                $region = '13000000';
+                $region = '130000000';
             break;
             case 'CAR':
-                $region = '14000000';
+                $region = '140000000';
             break;
             case 'ARMM':
-                $region = '15000000';
+                $region = '150000000';
             break;  
             case 'BARMM':
-                $region = '15000000';
+                $region = '150000000';
             break; 
             case 'CARAGA':
-                $region = '16000000';
+                $region = '160000000';
             break; 
         }
 
