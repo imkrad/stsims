@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Hashids\Hashids;
 use Illuminate\Http\Request;
 use App\Services\DropdownClass;
+use App\Services\Operation\School\ViewClass as UniversityClass;
 
 class DashboardController extends Controller
 {
-    public function __construct(DropdownClass $dropdown){
+    public function __construct(DropdownClass $dropdown, UniversityClass $university,){
         $this->dropdown = $dropdown;
+        $this->university = $university;
     }
 
     public function prospectus(){
@@ -22,7 +25,22 @@ class DashboardController extends Controller
             if(\Auth::user()->role === 'Administrator'){
                 return inertia('Modules/Executive/Dashboard/Index');
             }else{
-                return inertia('Modules/Operation/Dashboard/Index');
+                if(\Auth::user()->myrole->role->name == 'University Coordinator'){
+                    $code = \Auth::user()->myrole->roleable_id;
+                    $hashids = new Hashids('krad',10);
+                    $code = $hashids->encode($code);
+                    return inertia('Modules/Operation/Dashboard/University/Index',[
+                        'campus' => $this->university->view($code),
+                        'counts' => $this->university->counts($code),
+                        'statuses' => $this->university->statuses($code),
+                        'dropdowns' => [
+                            'certifications' => $this->dropdown->certifications(),
+                            'terms' => $this->dropdown->term_types(),
+                        ]
+                    ]);
+                }else{
+                    return inertia('Modules/Operation/Dashboard/Index');
+                }
             }
         }
     }

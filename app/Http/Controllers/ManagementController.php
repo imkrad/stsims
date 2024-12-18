@@ -215,6 +215,9 @@ class ManagementController extends Controller
             case 'courses':
                 return inertia('Modules/Management/Courses/Index');
             break;
+            case 'financials':
+                return inertia('Modules/Management/Financials/Index');
+            break;
             case 'course-view':
                 return inertia('Modules/Management/Courses/View',[
                     'course' => $this->course->view($request),

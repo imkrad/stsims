@@ -116,7 +116,7 @@ class ViewClass
         $ongoing = Scholar::whereHas('education',function ($query) use ($id) {
             $query->where('campus_id',$id);
         })->whereHas('status',function ($query) use ($id) {
-            $query->where('type','Ongoing');
+            $query->where('name','Ongoing');
         })->count();
 
         $array = [

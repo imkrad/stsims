@@ -149,6 +149,7 @@
                         <span data-key="t-components">Functionalities</span>
                     </li>
                     <li class="nav-item" v-for="(menu,index) in $page.props.menus.operation2" v-bind:key="index">
+                        <template v-if="menu.main.name !== 'Financial Benefits' || $page.props.user.data.assigned_role !== 'University Coordinator'">
                         <Link v-if="!menu.main.has_child" class="nav-link menu-link" :href="menu.main.route" :class="{'active': $page.component.startsWith(menu.main.path) }">
                             <i :class="menu.main.icon"></i>
                             <span data-key="krad-dashboards">{{menu.main.name}}</span>
@@ -163,13 +164,14 @@
                                     <Link class="nav-link" :class="{'active': $page.url === sub.path }" :href="sub.route">{{sub.name}}</Link>
                                 </li>
                             </ul>
-                        </div>
+                        </div></template>
                     </li>
                     <li class="menu-title">
                         <i class="ri-more-fill" aria-expanded="false"></i>
                         <span data-key="t-components">Lists</span>
                     </li>
                     <li class="nav-item" v-for="(menu,index) in $page.props.menus.operation1" v-bind:key="index">
+                        <template v-if="menu.main.name !== 'Schools' || $page.props.user.data.assigned_role !== 'University Coordinator'">
                         <Link v-if="!menu.main.has_child" class="nav-link menu-link" :href="menu.main.route" :class="{'active': $page.component.startsWith(menu.main.path) }">
                             <i :class="menu.main.icon"></i>
                             <span data-key="krad-dashboards">{{menu.main.name}}</span>
@@ -185,6 +187,7 @@
                                 </li>
                             </ul>
                         </div>
+                    </template>
                     </li>
                     <li class="menu-title">
                         <i class="ri-more-fill" aria-expanded="false"></i>
@@ -237,25 +240,6 @@
                 get() {
                     return this.$store ? this.$store.state.layout.layoutType : {} || {};
                 },
-            },
-            filteredFinance() {
-                const cashier = ['Dashboard', 'Receipts', 'Deposits', 'Collection Type', 'OR Series', 'Names',
-                    'Reports'];
-                const accountant = ['Dashboard', 'Order of Payment', 'Collection Type', 'Reports'];
-
-                const role = this.$page.props.user.data.assigned_role;
-                const menus = this.$page.props.menus.finance;
-
-                const isMenuNameInArray = (menuName, nameArray) =>
-                    nameArray.some(name => menuName.toLowerCase().includes(name.toLowerCase()));
-
-                if (role === 'Cashier') {
-                    return menus.filter(menu => isMenuNameInArray(menu.main.name, cashier));
-                } else if (role === 'Accountant') {
-                    return menus.filter(menu => isMenuNameInArray(menu.main.name, accountant));
-                }
-
-                return [];
             }
         },
         mounted() {

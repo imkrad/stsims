@@ -2,7 +2,7 @@
     <b-modal v-model="showModal" header-class="p-3 bg-light" title="Filter Education" class="v-modal-custom" modal-class="zoomIn" centered no-close-on-backdrop>
         <form class="customform">
             <BRow class="g-3">
-                <BCol lg="12" class="mt-2">
+                <BCol lg="12" class="mt-2" v-if="$page.props.user.data.assigned_role != 'University Coordinator'">
                     <InputLabel value="School"/>
                     <Multiselect :options="schools" @search-change="debouncedFetchSchools" v-model="school" label="name" :searchable="true" placeholder="Select School" />
                 </BCol>

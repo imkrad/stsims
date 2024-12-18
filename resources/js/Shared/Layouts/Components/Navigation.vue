@@ -211,7 +211,7 @@ export default {
             </BLink>
           </BDropdown> -->
 
-          <BDropdown class="dropdown" variant="ghost-secondary" dropstart
+          <!-- <BDropdown class="dropdown" variant="ghost-secondary" dropstart
             :offset="{ alignmentAxis: 57, crossAxis: 0, mainAxis: -42 }"
             toggle-class="btn-icon btn-topbar rounded-circle mode-layout ms-1 arrow-none"
             menu-class="p-0 dropdown-menu-end">
@@ -274,7 +274,7 @@ export default {
                 </BCol>
               </BRow>
             </div>
-          </BDropdown> 
+          </BDropdown>  -->
 
        
 
@@ -298,10 +298,11 @@ export default {
             menu-class="dropdown-menu-lg dropdown-menu-end p-0" auto-close="outside">
             <template #button-content>
               <i class='bx bx-bell fs-22'></i>
-              <span class="position-absolute topbar-badge fs-10 translate-middle badge rounded-pill bg-danger"><span
+              <span class="position-absolute topbar-badge fs-10 translate-middle badge rounded-pill bg-danger">
+                <!-- <span
                   class="notification-badge">3</span><span class="visually-hidden">unread
                   messages
-                </span>
+                </span> -->
               </span>
             </template>
             <div class="dropdown-head bg-primary bg-pattern rounded-top dropdown-menu-lg">
@@ -313,7 +314,7 @@ export default {
                     </h6>
                   </BCol>
                   <BCol cols="auto" class="dropdown-tabs">
-                    <BBadge variant="light-subtle" class="bg-light-subtle text-body fs-13"> 4 New</BBadge>
+                    <BBadge variant="light-subtle" class="bg-light-subtle text-body fs-13"> no data</BBadge>
                   </BCol>
                 </BRow>
               </div>
