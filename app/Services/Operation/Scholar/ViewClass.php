@@ -27,6 +27,15 @@ class ViewClass
             ->with('education.course','education.campus.school')
             ->with('address.region','address.province','address.municipality','address.barangay')
             ->join('scholar_profiles', 'scholar_profiles.scholar_id', '=', 'scholars.id')
+            ->when($request->keyword, function ($query, $keyword) {
+                $query->whereHas('profile',function ($query) use ($keyword) {
+                    $query->when($keyword, function ($query, $keyword) {
+                        $query->where(\DB::raw('concat(firstname," ",lastname)'), 'LIKE', '%'.$keyword.'%')
+                        ->where(\DB::raw('concat(lastname," ",firstname)'), 'LIKE', '%'.$keyword.'%')
+                        ->orWhere('spas_id','LIKE','%'.$keyword.'%');
+                    });
+                });
+            })
             ->when($request->type, function ($query, $type) {
                 $query->whereHas('program',function ($query) use ($type) {
                     $query->whereHas('type',function ($query) use ($type) {
@@ -36,6 +45,19 @@ class ViewClass
             })
             ->when($request->status, function ($query, $status) {
                 $query->where('status_id',$status);
+            })
+            ->when($request->year, function ($query, $year) {
+                $query->where('awarded_year',$year);
+            })
+            ->when($request->school, function ($query, $school) {
+                $query->whereHas('education', function ($query) use ($school) {
+                    $query->where('campus_id', $school); // Filter by campus_id matching the school
+                });
+            })
+            ->when($request->course, function ($query, $course) {
+                $query->whereHas('education', function ($query) use ($course) {
+                    $query->where('course_id', $course); // Filter by course_id matching the course
+                });
             })
             ->when($this->role, function ($query) {
                 switch($this->role){

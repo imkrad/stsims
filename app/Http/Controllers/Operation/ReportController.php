@@ -21,7 +21,9 @@ class ReportController extends Controller
             break;
             default:
                 return inertia('Modules/Operation/Reports/Index',[
-                    'types' => $this->report->types()
+                    'types' => $this->report->types(),
+                    'programs' => $this->dropdown->programs(),
+                    'terms' => $this->dropdown->terms2()
                 ]);
         }   
     }

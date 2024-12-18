@@ -70,9 +70,11 @@
         <div class="file-manager-content w-100 p-4 pb-0" style="height: calc(100vh - 180px); overflow: auto;" ref="box">
             <Prospectus :id="selected.id" 
             :prospectus="selected.course" 
+            :level="selected.education.level"
             :course="selected.education.course" 
             :campus="selected.education.campus_id" 
-             @update-prospectus="updateProspectus"
+            @update-prospectus="updateProspectus"
+            :levels="levels"
             v-if="show == 'default'" ref="prospectus"/>
             <Assessment 
             :gradings="selected.education.school.gradings" 
@@ -91,7 +93,7 @@ import Prospectus from './Pages/Prospectus/Index.vue';
 import PageHeader from '@/Shared/Components/PageHeader.vue';
 export default {
     components: { PageHeader, Assessment, Enrollment, Prospectus },
-    props: ['scholar'],
+    props: ['scholar','levels'],
     data(){
         return {
             currentUrl: window.location.origin,

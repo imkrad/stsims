@@ -199,7 +199,7 @@ export default {
             this.$refs.name.show(this.campus.id);
         },
         back(){
-            this.$inertia.visit('/management/campuses');
+            this.$inertia.visit('/schools');
         }
     }
 }

@@ -35,7 +35,8 @@ class EnrollmentController extends Controller
 
     public function show($code){
         return inertia('Modules/Operation/Enrollments/View/Index',[
-            'scholar' => $this->view->scholar($code)
+            'scholar' => $this->view->scholar($code),
+            'levels' => $this->dropdown->levels()
         ]);
     }
 
@@ -56,7 +57,7 @@ class EnrollmentController extends Controller
                 break;
             }
         });
-
+        
         return back()->with([
             'data' => $result['data'],
             'message' => $result['message'],

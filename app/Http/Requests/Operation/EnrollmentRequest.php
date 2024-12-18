@@ -21,6 +21,11 @@ class EnrollmentRequest extends FormRequest
                     'files.*' => 'sometimes|required|mimes:pdf,docx|max:2000'
                 ];
             break;
+            case 'subcourse':
+                return [
+                    'level' => 'sometimes|required_if:has_level,false',
+                ];
+            break;
             default: 
                 return [];
         }

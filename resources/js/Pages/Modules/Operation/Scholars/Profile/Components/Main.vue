@@ -12,6 +12,9 @@
         <BTab title="Tracer" v-if="scholar.status.name == 'Graduated'">
            
         </BTab>
+        <BTab title="Logs">
+           
+        </BTab>
     </BTabs>
 </template>
 <script>

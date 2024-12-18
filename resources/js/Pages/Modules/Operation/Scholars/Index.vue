@@ -8,10 +8,14 @@
                 <b-col lg>
                     <div class="input-group mb-1">
                         <span class="input-group-text"> <i class="ri-search-line search-icon"></i></span>
-                        <input type="text" v-model="filter.keyword" placeholder="Search Scholar" class="form-control">
+                        <input type="text" v-model="filter.keyword" placeholder="Search Scholar" class="form-control" style="width: 30%;">
                         <Multiselect v-if="filter.progress == 7" class="white" style="width: 15%;" :options="ongoing" v-model="filter.ongoing" label="name" :searchable="true" placeholder="Select Ongoing Status" />
                         <Multiselect class="white" style="width: 11%;" :options="progresses" v-model="filter.progress" label="name" :searchable="true" placeholder="Select Status" />
                         <Multiselect class="white" style="width: 11%;" :options="['Undergraduate','JLSS']" v-model="filter.type" label="name" :searchable="true" placeholder="Select Type" />
+                        <input type="text" v-model="filter.year" placeholder="Awarded Year" class="form-control">
+                        <span @click="openEducation()" class="input-group-text" v-b-tooltip.hover title="Education" style="cursor: pointer;"> 
+                            <i class="bx bxs-graduation search-icon"></i>
+                        </span>
                         <span @click="refresh()" class="input-group-text" v-b-tooltip.hover title="Refresh" style="cursor: pointer;"> 
                             <i class="bx bx-refresh search-icon"></i>
                         </span>
@@ -53,11 +57,11 @@
                             </td>
                             <td class="text-center">{{ list.awarded_year }}</td>
                             <td class="text-end">
-                                <Link :href="`/scholars/${list.code}`">
+                                <a :href="`/scholars/${list.code}`" target="_blank">
                                     <b-button variant="soft-info" class="me-1" v-b-tooltip.hover title="View" size="sm">
                                         <i class="ri-eye-fill align-bottom"></i>
                                     </b-button>
-                                </Link>
+                                </a>
                             </td>
                         </tr>
                     </tbody>
@@ -66,14 +70,16 @@
             </div>
         </div>
     </div>
+    <Education @filter-selected="handleFilterSelection" ref="education"/>
 </template>
 <script>
 import _ from 'lodash';
+import Education from './Modals/Education.vue';
 import Multiselect from "@vueform/multiselect";
 import PageHeader from '@/Shared/Components/PageHeader.vue';
 import Pagination from "@/Shared/Components/Pagination.vue";
 export default {
-    components: { PageHeader, Pagination, Multiselect },
+    components: { PageHeader, Pagination, Multiselect, Education },
     props:['dropdowns'],
     data(){
         return {
@@ -86,6 +92,8 @@ export default {
                 status: null,
                 ongoing: null,
                 progress: null,
+                school: null,
+                course: null,
                 type: null,
                 year: null
             },
@@ -100,15 +108,20 @@ export default {
         "filter.status"(newVal){
             (newVal) ? this.fetch() : '';
         },
+        "filter.year"(newVal){
+            (newVal) ? this.fetch() : '';
+        },
         "filter.type"(newVal){
             (newVal) ? this.fetch() : '';
         },
         "filter.progress"(newVal){
-            if(newVal != 7){
-                this.filter.ongoing = null;
-                this.filter.status = this.filter.progress;
-                (newVal) ? this.fetch() : '';
-            }
+            // if(newVal != 7){
+            //     this.filter.ongoing = null;
+            //     this.filter.status = this.filter.progress;
+            //     (newVal) ? this.fetch() : '';
+            // }
+            this.filter.status = newVal;
+            (newVal) ? this.fetch() : '';
         },
         "filter.ongoing"(newVal){
             (newVal) ? this.fetch() : '';
@@ -137,6 +150,8 @@ export default {
                     status: this.filter.status,
                     year: this.filter.year,
                     type: this.filter.type,
+                    school: this.filter.school,
+                    course: this.filter.course,
                     count: Math.floor((window.innerHeight-350)/59),
                     option: 'lists'
                 }
@@ -157,8 +172,16 @@ export default {
             this.index = index;
             this.$refs.create.update(data);
         },
+        openEducation(){
+            this.$refs.education.show();
+        },
         selectRow(index) {
             this.selectedRow = index;
+        },
+        handleFilterSelection(payload) {
+            this.filter.school = payload.school;
+            this.filter.course = payload.course;
+            this.fetch();
         },
         refresh(){
             Object.keys(this.filter).forEach(key => {

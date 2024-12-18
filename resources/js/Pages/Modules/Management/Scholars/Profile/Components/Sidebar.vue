@@ -117,7 +117,7 @@
                                     </div>
                                 </div>
                                 <div class="flex-grow-1 overflow-hidden">
-                                    <p class="mb-1 fs-12 text-muted">Address :</p>  <h6 class="text-truncate mb-0"> {{(scholar.address.address) ? user.address.address : 'n/a'}} </h6>
+                                    <p class="mb-1 fs-12 text-muted">Address :</p>  <h6 class="text-truncate mb-0"> {{(scholar.address.address) ? scholar.address.address : 'n/a'}} </h6>
                                 </div>
                             </div>
                         </div>

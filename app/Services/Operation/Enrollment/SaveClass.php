@@ -6,9 +6,12 @@ use Hashids\Hashids;
 use App\Models\Enrollment;
 use App\Models\EnrollmentSubject;
 use App\Models\ScholarCourse;
+use App\Models\ScholarReference;
+use App\Models\ScholarEducation;
 use App\Models\SchoolCampusCourseProspectus;
 use App\Http\Resources\Operation\Scholar\CourseResource;
 use App\Http\Resources\Operation\Enrollment\EnrollmentResource;
+use App\Jobs\OldScholar;
 
 class SaveClass
 {   
@@ -104,20 +107,32 @@ class SaveClass
                 'prospectus' => json_decode($prospectus->subjects)
             ];
             $count = ScholarCourse::where('scholar_id',$request->scholar_id)->count();
+            
+            if($request->level){
+                ScholarEducation::where('id',$request->scholar_id)->update(['level_id' => $request->level]);
+            }
             if($count == 0){
                 $data = ScholarCourse::create([
                     'course_id' => $request->course_id,
                     'scholar_id' => $request->scholar_id,
                     'information' => json_encode($information)
                 ]);
-
+                if($data){
+                    $count = ScholarReference::where('id',$request->scholar_id)->count();
+                    if($count > 0){
+                        OldScholar::dispatch($request->scholar_id)->delay(now()->addSeconds(10));
+                    }
+                }
                 $data = new CourseResource(ScholarCourse::with('course')->where('scholar_id',$request->scholar_id)->first());
             }else{
                 $data = null;
             }
         }
+        $hashids = new Hashids('krad',10);
+        $code = $hashids->encode($request->scholar_id);
+      
         return [
-            'data' => $data,
+            'data' => $code,
             'message' => 'Prospectus added successfully.', 
             'info' => 'The prospectus has been added to the scholar',
         ];

@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Setting;
 use App\Models\SchoolCampus;
 use App\Models\SchoolCampusCourse;
 use App\Models\ListRole;
@@ -9,6 +10,7 @@ use App\Models\ListCourse;
 use App\Models\ListAgency;
 use App\Models\ListStatus;
 use App\Models\ListDropdown;
+use App\Models\ListProgram;
 use App\Models\LocationRegion;
 use App\Models\LocationProvince;
 use App\Models\LocationMunicipality;
@@ -127,6 +129,16 @@ class DropdownClass
         return $data;
     }
 
+    public function terms2(){
+        $data = ListDropdown::where('type','Term')->get()->map(function ($item) {
+            return [
+                'value' => $item->id,
+                'name' => $item->name.' ('.$item->classification.')'
+            ];
+        });
+        return $data;
+    }
+
     public function classes(){
         $data = ListDropdown::where('classification','Class')->get()->map(function ($item) {
             return [
@@ -233,6 +245,17 @@ class DropdownClass
             return [
                 'value' => $item->course->id,
                 'name' => $item->course->shortcut
+            ];
+        });
+        return $data;
+    }
+
+    public function years($code){
+        $data = Setting::where('agency_id',\Auth::user()->myrole->agency_id)
+        ->get()->map(function ($item) {
+            return [
+                'value' => $item->academic_year,
+                'name' => $item->academic_year
             ];
         });
         return $data;

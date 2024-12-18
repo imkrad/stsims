@@ -23,7 +23,7 @@
                                 <p class="fs-12 text-muted mb-0">{{list.years}} years</p>
                             </td>
                             <td class="text-end">
-                                <b-button @click="openConfirm(list)" variant="info" size="sm" class="me-1">
+                                <b-button @click="openConfirm(list,level)" variant="info" size="sm" class="me-1">
                                     Select Prospectus
                                 </b-button>
                             </td>
@@ -81,13 +81,13 @@
             </div>
         </div>
     </div>
-    <Confirm @update="addCourse" ref="confirm"/>
+    <Confirm @update="addCourse" :levels="levels" ref="confirm"/>
 </template>
 <script>
 import Confirm from './Modals/Confirm.vue';
 export default {
     components: { Confirm },
-    props: ['id','prospectus','course','campus'],
+    props: ['id','prospectus','course','campus','level','levels'],
     data(){
         return {
             subcourses: [],
@@ -117,8 +117,8 @@ export default {
             })
             .catch(err => console.log(err));
         },
-        openConfirm(data){
-            this.$refs.confirm.show(data,this.id);
+        openConfirm(data,level){
+            this.$refs.confirm.show(data,this.id,level);
         },
         addCourse(data){
             this.$emit('update-prospectus', data);
