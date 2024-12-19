@@ -18,9 +18,15 @@ class ViewClass
     public function __construct()
     {
         if (\Auth::check()) {
-            $this->assigned = \Auth::user()->myrole->roleable_id;
-            $this->role = \Auth::user()->myrole->role->name;
-            $this->agency_id = \Auth::user()->myrole->agency_id;
+            if(\Auth::user()->myrole){
+                $this->assigned = \Auth::user()->myrole->roleable_id;
+                $this->role = \Auth::user()->myrole->role->name;
+                $this->agency_id = \Auth::user()->myrole->agency_id;
+            }else{
+                $this->assigned = null; 
+                $this->role = null;
+                $this->agency_id = null;
+            }
         } else {
             $this->assigned = null; 
             $this->role = null;
@@ -192,4 +198,12 @@ class ViewClass
         ->sortBy('profile.lastname');
         return LbpResource::collection($data);
     }
+
+    public function management($request){
+        $data = Release::with('status','user','agency')
+        ->where('status_id',18)
+        ->paginate($request->count);
+        return ReleaseResource::collection($data);
+    }
+
 }

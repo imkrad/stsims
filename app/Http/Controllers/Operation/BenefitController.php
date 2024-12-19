@@ -36,6 +36,9 @@ class BenefitController extends Controller
             case 'lbp':
                 return $this->view->lbp($request);
             break;
+            case 'management':
+                return $this->view->management($request);
+            break;
             default:
                 return inertia('Modules/Operation/Benefits/Index',[
                     'upcoming' => $this->view->upcoming()

@@ -1,5 +1,5 @@
 <template>
-    <b-modal v-model="showModal" title="List of Benefits" style="--vz-modal-width: 50%;" hide-footer header-class="p-3 bg-light" class="v-modal-custom" modal-class="zoomIn" centered>    
+    <b-modal v-model="showModal" title="List of Benefits" style="--vz-modal-width: 60%;" hide-footer header-class="p-3 bg-light" class="v-modal-custom" modal-class="zoomIn" centered>    
         <b-row class="mb-0 mt-n2">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb p-3 py-2 bg-light mb-n1">
@@ -15,8 +15,8 @@
                         <thead class="table-dark">
                             <tr class="fs-11">
                                 <th class="text-center" width="5%">#</th>
-                                <th width="30%">Benefit</th>
-                                <th class="text-center" width="25%">Month</th>
+                                <th width="35%">Benefit</th>
+                                <th class="text-center" width="20%">Month</th>
                                 <th class="text-center" width="20%">Status</th>
                                 <th class="text-center" width="20%">Amount</th>
                             </tr>

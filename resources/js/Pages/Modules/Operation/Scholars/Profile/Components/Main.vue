@@ -1,7 +1,7 @@
 <template>
     <BTabs nav-class="nav-pills nav-custom nav-custom-light" small pills>
         <BTab title="Overview">
-            
+            <Enrollment :enrollments="scholar.enrollments"/>
         </BTab>
         <BTab title="Enrollments">
             <Enrollment :enrollments="scholar.enrollments"/>
