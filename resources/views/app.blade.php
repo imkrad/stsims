@@ -4,11 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title inertia>STSIMS</title>
-        <meta name="description" content="STLIMS - DOST IX">
-        <meta name="keywords" content="DOST, STLIMS, EULIMS, ONELAB">
-        <meta name="author" content="Krad Jumli">
-        <meta property="og:title" content="STLIMS - Science & Technology Laboratory Information Management System">
-        <meta property="og:description" content="Laboratory Management System">
+        <meta name="description" content="STSIMS - DOST IX">
+        <meta name="keywords" content="DOST, STSIMS, SCHOLARSHIP, SEI">
+        <meta name="author" content="KR4D">
+        <meta property="og:title" content="STSIMS - Science & Technology Scholarship Information Management System">
+        <meta property="og:description" content="Scholarship Management System">
         <meta property="og:image" content="URL to the template's logo or featured image">
         <meta property="og:url" content="URL to the template's webpage">
         <meta name="twitter:card" content="summary_large_image">

@@ -15,8 +15,8 @@ class ViewClass
     public function __construct()
     {
         if (\Auth::check()) {
-            $this->assigned = \Auth::user()->myrole->roleable_id;
-            $this->role = \Auth::user()->myrole->role->name;
+            $this->assigned = (\Auth::user()->myrole) ? \Auth::user()->myrole->roleable_id : null;
+            $this->role = (\Auth::user()->myrole) ? \Auth::user()->myrole->role->name : null;
         } else {
             $this->assigned = null; 
             $this->role = null;

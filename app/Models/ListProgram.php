@@ -25,6 +25,11 @@ class ListProgram extends Model
         return $this->belongsTo('App\Models\ListDropdown', 'type_id', 'id');
     }
 
+    public function scholar()
+    {
+        return $this->hasMany('App\Models\Scholar', 'program_id');
+    } 
+
     protected static $recordEvents = ['updated','created'];
     public function getActivitylogOptions(): LogOptions {
         return LogOptions::defaults()

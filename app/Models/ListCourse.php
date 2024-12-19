@@ -15,6 +15,16 @@ class ListCourse extends Model
         'name','shortcut','abbreviation','others','is_active'
     ];
 
+    public function scholars()
+    {
+        return $this->hasMany('App\Models\ScholarEducation', 'course_id');
+    } 
+
+    public function lists()
+    {
+        return $this->hasMany('App\Models\SchoolCourse', 'course_id');
+    } 
+
     protected static $recordEvents = ['updated','created'];
     public function getActivitylogOptions(): LogOptions {
         return LogOptions::defaults()

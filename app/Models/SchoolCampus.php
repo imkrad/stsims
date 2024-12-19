@@ -73,6 +73,11 @@ class SchoolCampus extends Model
         return $this->hasMany('App\Models\SchoolCampusSemester', 'campus_id')->orderBy('created_at','DESC');
     } 
 
+    public function scholars()
+    {
+        return $this->hasMany('App\Models\ScholarEducation', 'campus_id');
+    } 
+
     protected static $recordEvents = ['updated','created'];
     public function getActivitylogOptions(): LogOptions {
         return LogOptions::defaults()
