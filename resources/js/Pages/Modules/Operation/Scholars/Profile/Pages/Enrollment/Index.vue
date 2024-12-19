@@ -56,7 +56,7 @@ export default {
     props: ['enrollments'],
     methods: {
         checkBenefits(lists){
-            const released = lists.reduce((acc, val) => (val.status_id == 13)  ? acc + 1 : acc, 0);
+            const released = lists.reduce((acc, val) => (val.status_id == 20)  ? acc + 1 : acc, 0);
             return released +' of '+lists.length;
         },
         checkGrades(lists){

@@ -19,7 +19,8 @@ class ReleaseResource extends JsonResource
             'user' => new NameResource($this->user),
             'total' => $this->total,
             'status' => $this->status,
-            'created_at' => $this->created_at
+            'created_at' => $this->created_at,
+            'note' => '9999999999DEPT OF SCIENCE AND TECHN'.str_pad((str_replace('.', '', $this->total)), 15, '0', STR_PAD_LEFT).str_pad(('10236482000'), 19, '0', STR_PAD_LEFT).str_pad((5), 5, '0', STR_PAD_LEFT).' '.$this->batch
         ];
     }
 }

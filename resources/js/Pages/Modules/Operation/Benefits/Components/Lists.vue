@@ -42,20 +42,27 @@
                         <span :class="'badge '+list.status.color">{{list.status.name}}</span>
                     </td>
                     <td class="text-end">
-                        <b-button @click="openView(list)" variant="soft-info" v-b-tooltip.hover title="View" size="sm" class="edit-list me-1"><i class="ri-eye-fill align-bottom"></i> </b-button>
-                        <b-button v-if="list.status.name != 'Released'" @click="openConfirmation(list)" variant="soft-success" v-b-tooltip.hover title="Mark as Completed" size="sm" class="edit-list"><i class="ri-checkbox-circle-fill align-bottom"></i> </b-button>
+                        <!-- <b-button @click="openView(list)" variant="soft-info" v-b-tooltip.hover title="View" size="sm" class="edit-list me-1"><i class="ri-eye-fill align-bottom"></i> </b-button>
+                        <b-button v-if="list.status.name != 'Released'" @click="openConfirmation(list)" variant="soft-success" v-b-tooltip.hover title="Mark as Completed" size="sm" class="edit-list"><i class="ri-checkbox-circle-fill align-bottom"></i> </b-button> -->
+                      
+                        <b-button @click="viewLbp(list)" variant="soft-warning" v-b-tooltip.hover title="View LBP" size="sm" class="edit-list me-1"><i class="ri-bank-line align-bottom"></i> </b-button>
+                        <b-button @click="viewList(list)" variant="soft-info" v-b-tooltip.hover title="View" size="sm" class="edit-list me-1"><i class="ri-eye-fill align-bottom"></i> </b-button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
+    <LBP ref="lbp"/>
+    <List ref="list"/>
 </template>
 <script>
 import _ from 'lodash';
+import LBP from '../Modals/LBP.vue';
+import List from '../Modals/List.vue';
 import Multiselect from "@vueform/multiselect";
 import Pagination from "@/Shared/Components/Pagination.vue";
 export default {
-    components: { Multiselect, Pagination },
+    components: { Multiselect, Pagination, LBP, List },
     data(){
         return {
             currentUrl: window.location.origin,
@@ -106,6 +113,12 @@ export default {
         },
         refresh(){
             this.fetch();
+        },
+        viewLbp(data){
+            this.$refs.lbp.set(data);
+        },
+        viewList(data){
+            this.$refs.list.set(data);
         }
     }
 }

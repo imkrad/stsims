@@ -286,10 +286,8 @@ class InsightController extends Controller
         $array = [];
         $data = ScholarEducation::select('graduated_year AS x',\DB::raw('count(*) AS y'))
         ->when($code, function ($query, $code) {
-            $query ->whereHas('scholar',function ($query) use ($code) {
-                $query ->whereHas('address',function ($query) use ($code) {
-                    $query->where('province_code',$code)->where('is_permanent',1);
-                });
+            $query->whereHas('scholar',function ($query) use ($code) {
+              
                 $query->when($this->role, function ($query) {
                     switch ($this->role) {
                         case 'PSTO Staff':
@@ -328,31 +326,27 @@ class InsightController extends Controller
             'series' => $array,
             'number' =>  ($len != 0 && $len != 1) ? $d = $data[$len-1]['y']-$data[$len-2]['y'] : 0,
             'percent' => ($len != 0 && $len != 1) ? round($d/$data[$len-1]['y']*100) : 0,
-            'total' => ScholarEducation::when($code, function ($query, $code) {
-                $query->whereHas('scholar',function ($query) use ($code) {
-                    $query ->whereHas('address',function ($query) use ($code) {
-                        $query->where('province_code',$code);
-                    });
-                    $query->when($this->role, function ($query) {
-                        switch ($this->role) {
-                            case 'PSTO Staff':
-                                $query->whereHas('address', function ($query) {
-                                    $query->where('province_code', $this->assigned);
-                                });
-                                break;
-                            case 'University Coordinator':
-                                $query->whereHas('education', function ($query) {
-                                    $query->where('campus_id', $this->assigned);
-                                });
-                                break;
-                            default:
-                                $region = \Auth::user()->myrole->agency->region_code;
-                                $query->whereHas('address', function ($query) use ($region) {
-                                    $query->where('region_code', $region);
-                                });
-                        }
-                    });
-                });
+            'total' => ScholarEducation::when($this->role, function ($query) {
+                switch ($this->role) {
+                    case 'PSTO Staff':
+                        $query->whereHas('scholar',function ($query){
+                            $query->whereHas('address', function ($query) {
+                                $query->where('province_code', $this->assigned);
+                            });
+                        });
+                    break;
+                    case 'University Coordinator':
+                        $query->where('campus_id', $this->assigned);
+                    break;
+                    default:
+                        $query->whereHas('scholar',function ($query){
+                            $query->whereHas('status',function ($query) {
+                                $query->where('name','Graduated');
+                            })->whereHas('address', function ($query){
+                                $query->where('region_code',$this->assigned);
+                            });
+                        });
+                }
             })->count(),
         ];
     }

@@ -6,7 +6,7 @@
                     <ol class="breadcrumb p-3 py-2 bg-light mb-0">
                         <li class="breadcrumb-item">{{enrollment.semester.academic_year}}</li>
                         <li class="breadcrumb-item active" aria-current="page"> {{enrollment.semester.semester.name}} </li>
-                         <li class="breadcrumb-item active" aria-current="page"> {{enrollment.level}} </li>
+                         <li class="breadcrumb-item active" aria-current="page"> {{enrollment.level.others}} </li>
                     </ol>
                 </nav>
                 <div class="col-md-12">

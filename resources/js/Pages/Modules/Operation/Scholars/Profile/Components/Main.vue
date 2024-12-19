@@ -6,9 +6,9 @@
         <BTab title="Enrollments">
             <Enrollment :enrollments="scholar.enrollments"/>
         </BTab>
-        <BTab title="Financial Benefits">
+        <!-- <BTab title="Financial Benefits">
            
-        </BTab>
+        </BTab> -->
         <BTab title="Tracer" v-if="scholar.status.name == 'Graduated'">
            
         </BTab>

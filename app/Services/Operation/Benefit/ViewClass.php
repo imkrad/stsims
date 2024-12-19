@@ -7,6 +7,7 @@ use App\Models\Scholar;
 use App\Models\Enrollment;
 use App\Models\EnrollmentBenefit;
 use App\Http\Resources\Operation\NameResource;
+use App\Http\Resources\Operation\Benefits\LbpResource;
 use App\Http\Resources\Operation\Benefits\ListResource;
 use App\Http\Resources\Operation\Benefits\ReleaseResource;
 
@@ -130,5 +131,65 @@ class ViewClass
         })->paginate($request->count);
         return ListResource::collection($data);
 
+    }
+
+    public function released($request){
+        $scholars = Enrollment::select('scholar_id')
+        ->whereHas('benefits',function ($query) use ($request){
+            $query->where('release_id',$request->id);
+        })->groupBy('scholar_id')->pluck('scholar_id');
+        
+        $data = Scholar::select('id','program_id')
+        ->with('program:id,name')
+        ->with('profile:scholar_id,firstname,lastname,middlename')
+        ->withWhereHas('enrollments', function ($query) use ($request){
+            $query->select('id','scholar_id','semester_id')
+            ->withWhereHas('semester', function ($query) {
+                $query->select('id','academic_year','semester_id')
+                ->withWhereHas('semester', function ($query) {
+                    $query->select('id','name');
+                });
+            })
+            ->withWhereHas('benefits', function ($query) use ($request){
+                $query->select('id','enrollment_id','amount','month','privilege_id')->where('release_id',$request->id)
+                ->withWhereHas('privilege', function ($query) {
+                    $query->select('id','name','type','short','regular_amount','summer_amount');
+                });
+            });
+        })
+        ->whereIn('id',$scholars)
+        ->get()
+        ->sortBy('profile.lastname');
+        return ListResource::collection($data);
+    }
+
+    public function lbp($request){
+        $scholars = Enrollment::select('scholar_id')
+        ->whereHas('benefits',function ($query) use ($request){
+            $query->where('release_id',$request->id);
+        })->groupBy('scholar_id')->pluck('scholar_id');
+        
+        $data = Scholar::select('id','program_id')
+        ->with('program:id,name')
+        ->with('profile:scholar_id,firstname,lastname,middlename')
+        ->withWhereHas('enrollments', function ($query) use ($request){
+            $query->select('id','scholar_id','semester_id')
+            ->withWhereHas('semester', function ($query) {
+                $query->select('id','academic_year','semester_id')
+                ->withWhereHas('semester', function ($query) {
+                    $query->select('id','name');
+                });
+            })
+            ->withWhereHas('benefits', function ($query) use ($request){
+                $query->select('id','enrollment_id','amount','month','privilege_id')->where('release_id',$request->id)
+                ->withWhereHas('privilege', function ($query) {
+                    $query->select('id','name','type','short','regular_amount','summer_amount');
+                });
+            });
+        })
+        ->whereIn('id',$scholars)
+        ->get()
+        ->sortBy('profile.lastname');
+        return LbpResource::collection($data);
     }
 }
