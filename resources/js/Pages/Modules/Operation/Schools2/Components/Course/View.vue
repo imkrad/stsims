@@ -67,7 +67,7 @@
                         </div>
                         <div class="card bg-white rounded-bottom shadow-none mb-0" no-body style="height: calc(100vh - 397px); overflow: auto;">
                             <b-list-group flush v-if="activeProspectuses.length > 0">
-                                <BListGroupItem @click="filterReminder(list)" v-for="(list,index) in activeProspectuses" v-bind:key="index" style="cursor: pointer;" :class="(isActive(list.created_at)) ? 'bg-info-subtle' : ''">
+                                <BListGroupItem @click="openProspectus(list)" v-for="(list,index) in activeProspectuses" v-bind:key="index" style="cursor: pointer;" :class="(isActive(list.created_at)) ? 'bg-info-subtle' : ''">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-shrink-0 ms-1">
                                             <span v-if="list.is_locked"><i class="text-danger fs-16 ri-lock-2-fill"></i></span>
@@ -173,7 +173,7 @@
                                                         <table class="table align-middle table-centered mb-0">
                                                             <thead class="thead-fixed">
                                                                 <tr class="text-center bg-primary text-white fw-bold fs-13">
-                                                                    <th colspan="4" class="bg-soft-dark text-white">
+                                                                    <th colspan="5" class="bg-soft-dark text-white">
                                                                         <a v-if="tabIndex > 0" class="bx-tada float-start" @click="prevTab">
                                                                             <i class='bx bx-chevrons-left text-white'></i>
                                                                         </a>
@@ -184,20 +184,28 @@
                                                                     </th>
                                                                 </tr>
                                                                 <tr class="fs-11 bg-light">
+                                                                    <th class="text-center" style="width: 5%;"></th>
                                                                     <th class="text-center" style="width: 10%;">Code</th>
                                                                     <th>Subject</th>
-                                                                    <th style="width: 20%;" class="text-center">Unit</th>
-                                                                    <th style="width: 5%;"></th>
+                                                                    <th style="width: 5%;" class="text-center">Unit</th>
+                                                                    <th style="width: 10%;"></th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
                                                                 <tr class="fs-12" v-for="(course, index3) in semester.semesters[tabIndex].courses" v-bind:key="'a-'+index3">
+                                                                    <td class="text-center">
+                                                                        <i v-if="!course.is_nonacademic" class="ri-checkbox-circle-fill text-success fs-18" v-b-tooltip.hover title="Academic"></i>
+                                                                        <i v-else class="ri-close-circle-fill text-danger fs-18" v-b-tooltip.hover title="Non-Academic"></i>
+                                                                    </td>
                                                                     <td class="text-center">{{course.code}}</td>
                                                                     <td>{{course.subject}}</td>
                                                                     <td class="text-center">{{course.unit}}</td>
                                                                     <td class="text-end">
-                                                                        <b-button variant="soft-info" v-b-tooltip.hover title="View" size="sm" class="me-1 mt-n1 mb-n1">
-                                                                            <i class="ri-eye-fill align-bottom"></i>
+                                                                        <b-button @click="openEdit(course,index3)" variant="soft-warning" v-b-tooltip.hover title="Edit" size="sm" class="me-1 mt-n1 mb-n1">
+                                                                            <i class="ri-pencil-fill align-bottom"></i>
+                                                                        </b-button>
+                                                                        <b-button  @click="openRemove(index3)" variant="soft-danger" v-b-tooltip.hover title="Delete" size="sm" class="me-1 mt-n1 mb-n1">
+                                                                            <i class="ri-delete-bin-fill align-bottom"></i>
                                                                         </b-button>
                                                                     </td>
                                                                 </tr>
@@ -228,7 +236,7 @@
     <Status ref="status"/>
     <Lock ref="lock"/>
     <Save ref="save"/>
-    <Add  @saveSubject="addSubject" ref="add"/>
+    <Add  @saveSubject="addSubject" @editSubject="editSubject" ref="add"/>
 </template>
 <script>
 import _ from 'lodash';
@@ -283,14 +291,6 @@ export default {
         }
     },
     methods: {
-        prevTab() {
-            if (this.tabIndex > 0) {
-                this.tabIndex--;
-            }
-        },
-        nextTab() {
-            this.tabIndex++;
-        },
         save(){
             this.form.type = 'subjects';
             this.form.id = this.prospectus.id;
@@ -307,6 +307,9 @@ export default {
         openAdd(){
             this.$refs.add.show();
         },
+        openEdit(data,index){
+            this.$refs.add.edit(data,index);
+        },
         openView(data){
             this.prospectus = data;
             this.index = 0;
@@ -316,13 +319,18 @@ export default {
                 this.semesters = this.prospectus.subjects;
             }
         },
-        filterReminder(data){
+        openProspectus(data){
             if(data.created_at == this.activeList){
                 this.activeList = null;
                 this.prospectus = null;
             }else{
                 this.activeList = data.created_at;
                 this.openView(data);
+            }
+        },
+        openRemove(index) {
+            if (confirm("Are you sure you want to remove the subject?")) {
+                this.semesters[this.index].semesters[this.tabIndex].courses.splice(index, 1);
             }
         },
         isActive(name) {
@@ -340,14 +348,19 @@ export default {
         setIndex(index){
             this.index = index
         },
-        add(){
-            this.semesters[this.index].semesters[this.tabIndex].courses.push({code: '',subject: '',unit: '',is_lab: false,is_nonacademic: false})
-        },
         addSubject(subjectData) {
             this.semesters[this.index].semesters[this.tabIndex].courses.push(subjectData);
         },
-        rmv(one,two,three){
-            this.semesters[one].semesters[two].courses.splice(three,1);
+        editSubject(subjectData,index) {
+            this.semesters[this.index].semesters[this.tabIndex].courses[index] = subjectData;
+        },
+        prevTab() {
+            if (this.tabIndex > 0) {
+                this.tabIndex--;
+            }
+        },
+        nextTab() {
+            this.tabIndex++;
         },
         back(){
             this.$inertia.visit('/schools/'+this.code);
