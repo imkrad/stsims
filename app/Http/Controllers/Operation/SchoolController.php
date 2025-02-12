@@ -28,7 +28,7 @@ class SchoolController extends Controller
                 return $this->view->activeSemester($request);
             break;
             default:
-                return inertia('Modules/Operation/Schools/Index',[
+                return inertia('Modules/Operation/Schools2/Index',[
                     'dropdowns' => [
                         'gradings' => $this->dropdown->gradings(),
                         'terms' => $this->dropdown->terms(),
@@ -41,7 +41,7 @@ class SchoolController extends Controller
 
     public function show($code,Request $request){
         if($request->course){
-            return inertia('Modules/Operation/Schools/Components/Course/View',[
+            return inertia('Modules/Operation/Schools2/Components/Course/View',[
                 'course' => $this->view->course($request->course),
                 'code' => $code,
                 'dropdowns' => [
@@ -49,7 +49,7 @@ class SchoolController extends Controller
                 ]
             ]);
         }else{
-            return inertia('Modules/Operation/Schools/View',[
+            return inertia('Modules/Operation/Schools2/View',[
                 'campus' => $this->view->view($code),
                 'counts' => $this->view->counts($code),
                 'statuses' => $this->view->statuses($code),

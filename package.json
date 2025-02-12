@@ -6,7 +6,7 @@
         "build": "vite build"
     },
     "devDependencies": {
-        "@inertiajs/vue3": "^1.0.0",
+        "@inertiajs/vue3": "^2.0.3",
         "@vitejs/plugin-vue": "^5.0.0",
         "autoprefixer": "^10.4.12",
         "axios": "^1.7.7",
@@ -39,7 +39,7 @@
         "html2canvas": "^1.4.1",
         "lodash": "^4.17.21",
         "lottie-web": "^5.12.2",
-        "maska": "^2.1.10",
+        "maska": "^3.1.0",
         "moment": "^2.29.4",
         "prismjs": "^1.29.0",
         "qrcode-vue3": "^1.6.8",

@@ -120,9 +120,9 @@ class ViewClass
         })->count();
 
         $array = [
-            ['counts' => $total, 'name' => 'Total Scholars', 'icon' => 'ri-group-2-line', 'color' => 'info'],
-            ['counts' => $ongoing,'name' => 'Ongoing Scholars', 'icon' => 'ri-account-circle-line', 'color' => 'primary'],
-            ['counts' => $graduating,'name' => 'Total Graduates', 'icon' => 'bx bxs-graduation', 'color' => 'success'],
+            ['count' => $total, 'name' => 'Total Scholars', 'description' => 'The total number of enrolled scholars', 'icon' => 'ri-team-fill fs-20', 'color' => 'text-info'],
+            ['count' => $ongoing,'name' => 'Ongoing Scholars', 'description' => 'Scholars currently enrolled and studying', 'icon' => 'ri-emotion-fill fs-20', 'color' => 'text-primary'],
+            ['count' => $graduating,'name' => 'Total Graduates', 'description' => 'Scholars who have successfully graduated', 'icon' => 'bx bxs-graduation fs-20', 'color' => 'text-success'],
         ];
 
         return $array;
