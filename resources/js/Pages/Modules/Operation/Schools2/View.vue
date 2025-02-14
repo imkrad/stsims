@@ -149,8 +149,19 @@
                             </div>
                         </div>
                        
-                        <div class="card-body bg-white rounded-bottom">
-                            <BTabs nav-class="nav-pills nav-custom nav-custom-light" pills>
+                        <div class="card bg-white rounded-bottom shadow-none mb-0">
+                            <div class="step-arrow-nav mt-0">
+                                <ul class="nav nav-pills nav-justified custom-nav" role="tablist">
+                                    <li class="nav-item" role="presentation" v-for="(menu, index) in menus" v-bind:key="index">
+                                        <button class="nav-link fs-12 p-3" :class="(index == 0) ? 'active' : ''" 
+                                            :id="menu+'-tab'" data-bs-toggle="pill" :data-bs-target="'#'+menu" 
+                                            type="button" role="tab" :aria-controls="menu" aria-selected="true">
+                                           {{menu}}
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- <BTabs nav-class="nav-pills nav-custom nav-custom-light" pills>
                                 <BTab title="Overview">
                                     <div class="row" style="height: calc(100vh - 413px);">
                                         <div class="col-md-4 mt-3" v-for="(list,index) in counts" v-bind:key="index">
@@ -185,7 +196,27 @@
                                 <BTab title="Grading">
                                     <Grading :gradings="campus.gradings" :campus="campus.id"/>
                                 </BTab>
-                            </BTabs>
+                            </BTabs> -->
+                        </div>
+                        <div class="card-body bg-white rounded-bottom">
+                            <div class="tab-content">
+                                <div class="tab-pane" :class="(index == 0) ? 'show active' : ''" :id="menu" role="tabpanel" :aria-labelledby="menu+'-tab'" v-for="(menu, index) in menus" v-bind:key="index">
+                                    
+                                    <div class="carousel-container">
+                                        <div class="carousel-content">
+                                            <transition mode="out-in">
+                                                <div :key="tabIndex" class="tab-content">
+                                                    <Overview v-if="menu == 'Overview'"/>
+                                                    <Course v-if="menu == 'Courses'" :certifications="dropdowns.certifications" :type="campus.school.class.name" :campus="campus.id" :code="campus.code" :courses="campus.courses"/>
+                                                    <Semester v-if="menu == 'Semesters'" :semesters="campus.semesters" :terms="dropdowns.terms" :term="campus.term.name" :campus="campus.id"/>
+                                                    <Grading v-if="menu == 'Gradings'" :gradings="campus.gradings" :campus="campus.id"/>
+                                                </div>
+                                            </transition>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </BCol>
@@ -199,12 +230,13 @@
 import _ from 'lodash';
 import Name from './Modals/Name.vue';
 import simplebar from "simplebar-vue";
+import Overview from './Components/Overview/Index.vue';
 import Semester from './Components/Semester/Index.vue';
 import Course from './Components/Course/Index.vue';
 import Grading from './Components/Grading/Index.vue';
 import Multiselect from "@vueform/multiselect";
 export default {
-    components: { Multiselect, simplebar, Name, Course, Semester, Grading},
+    components: { Multiselect, simplebar, Name, Course, Semester, Grading, Overview },
     props:['campus','dropdowns','counts','statuses'],
     data(){
         return {
@@ -216,6 +248,9 @@ export default {
                 keyword: null,
                 class: null
             },
+            menus: [
+                'Overview', 'Courses','Semesters','Gradings'
+            ],
             active: null,
             index: null,
         }

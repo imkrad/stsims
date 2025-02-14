@@ -82,6 +82,7 @@ class ViewClass
             $data->courses->map(function ($course) use ($hashids) {
                 if ($course) {
                     $course->code = $hashids->encode($course->id);
+                    $course->hasActive = $course->hasActiveProspectus();
                 }
                 return $course;
             });

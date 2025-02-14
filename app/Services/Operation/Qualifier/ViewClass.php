@@ -3,6 +3,7 @@
 namespace App\Services\Operation\Qualifier;
 
 use App\Models\Qualifier;
+use App\Models\ListStatus;
 use App\Http\Resources\Operation\QualifierResource;
 
 class ViewClass
@@ -18,6 +19,22 @@ class ViewClass
             $this->assigned = null; 
             $this->role = null;
         }
+    }
+
+    public function counts(){
+
+        $statuses = ListStatus::where('type','Qualifier')->get()->map(function ($item) {
+            $region = \Auth::user()->myrole->agency->region_code;
+            return [
+                'value' => $item->id,
+                'name' => $item->name,
+                'icon' => $item->icon,
+                'color' => $item->color,
+                'others' => $item->others,
+                'count' => Qualifier::where('region',$region)->where('status_id',$item->id)->count()
+            ];
+        });
+        return $statuses;
     }
 
     public function lists($request){

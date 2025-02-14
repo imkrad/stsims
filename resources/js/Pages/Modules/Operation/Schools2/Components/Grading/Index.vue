@@ -1,5 +1,5 @@
 <template>
-     <b-row class="g-2 mb-2 mt-2">
+     <b-row class="g-2 mb-4" style="margin-top: -12px;">
         <b-col lg>
             <div class="input-group mb-1">
                 <span class="input-group-text"> <i class="ri-search-line search-icon"></i></span>
@@ -13,8 +13,8 @@
             </div>
         </b-col>
     </b-row>
-    <div class="table-responsive">
-        <simplebar data-simplebar style="height: calc(100vh - 480px);">
+    <div class="table-responsive table-card">
+        <simplebar data-simplebar style="height: calc(100vh - 460px);">
             <table class="table table-nowrap align-middle mb-0">
                 <thead class="table-light thead-fixed">
                     <tr class="fs-11">

@@ -28,7 +28,8 @@ class QualifierController extends Controller
                 return inertia('Modules/Operation/Qualifiers/Index',[
                     'dropdowns' => [
                         'statuses' => $this->dropdown->qualifier_statuses(),
-                    ]
+                    ],
+                    'counts' => $this->view->counts()
                 ]); 
         }   
     }   

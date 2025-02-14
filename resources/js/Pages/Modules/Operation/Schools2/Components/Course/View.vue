@@ -25,7 +25,7 @@
                                                         <div class="vr" style="width: 1px;"></div>
                                                         <div><span class="text-muted">Years :</span> {{course.years}} </div>
                                                         <div class="vr" style="width: 1px;"></div>
-                                                        <div><span class="text-muted">Added At :</span> {{course.created_at}} </div>
+                                                        <div><span class="text-muted">Added Date :</span> {{course.created_at}} </div>
                                                         <div class="vr" style="width: 1px;"></div>
                                                         <div><span class="text-muted">Last Updated :</span> {{course.updated_at}} </div>
                                                     </div>
@@ -93,7 +93,7 @@
                                 <p class="ms-3 mb-0 text-primary fs-12 fw-semibold">Historical Prospectus</p>
                             <hr class="text-muted mb-0"/>
                             <b-list-group flush v-if="inactiveProspectuses.length > 0">
-                                <BListGroupItem @click="filterReminder(list.created_at)" v-for="(list,index) in inactiveProspectuses" v-bind:key="index" style="cursor: pointer;" :class="(isActive(list.created_at)) ? 'bg-info-subtle' : ''">
+                                <BListGroupItem @click="openProspectus(list)" v-for="(list,index) in inactiveProspectuses" v-bind:key="index" style="cursor: pointer;" :class="(isActive(list.created_at)) ? 'bg-info-subtle' : ''">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-shrink-0 ms-1">
                                             <span v-if="list.is_locked"><i class="text-danger fs-16 ri-lock-2-fill"></i></span>
@@ -134,14 +134,20 @@
                                     <h5 class="mb-0 fs-14"><span class="text-body">School Year : {{prospectus.school_year}}</span></h5>
                                     <p class="text-muted text-truncate-two-lines fs-12">A collection of available academic programs</p>
                                 </div>
-                                <div class="flex-grow-0">
-                                    <button @click="openAdd()" class="btn btn-soft-primary btn-md btn-icon waves-effect waves-light me-1" type="button">
-                                        <div class="btn-content"><i class="ri-add-circle-fill"></i></div>
+                                <div class="flex-grow-0" v-if="!prospectus.is_active">
+                                    <button v-if="prospectus.is_completed" @click="openSave('lock',prospectus)" v-b-tooltip.hover :title="(prospectus.is_locked) ? 'Unlock' : 'Lock'" :class="(prospectus.is_locked) ? 'btn-light' : 'btn-danger'" class="btn w-md btn-label me-1" type="button">
+                                        <div v-if="prospectus.is_locked" class="btn-content"><i class="ri-lock-unlock-fill label-icon align-middle fs-12 me-2"></i>Unlocked</div>
+                                        <div v-else class="btn-content"><i class="ri-lock-fill label-icon align-middle fs-12 me-2"></i>Locked</div>
                                     </button>
-                                    <button @click="save()" class="btn btn-label me-1 w-md btn-success" type="button">
-                                        <div class="btn-content">
-                                            <i class="ri-checkbox-circle-fill label-icon align-middle fs-12 me-2"></i>Save
-                                        </div>
+                                    <button v-if="prospectus.is_locked" @click="openSave('status',prospectus)" class="btn btn-label me-1 w-md" :class="(prospectus.is_active) ? 'btn-danger' : 'btn-success'" type="button">
+                                        <div v-if="!prospectus.is_active" class="btn-content"><i class="ri-list-check label-icon align-middle fs-12 me-2"></i>Activate</div>
+                                        <div v-else class="btn-content"><i class="ri-list-check label-icon align-middle fs-12 me-2"></i>Deactivate</div>
+                                    </button>
+                                </div>
+                                <div class="flex-grow-0" v-else>
+                                    <button v-if="prospectus.is_completed" @click="openSave('status',prospectus)" class="btn btn-label me-1 w-md" :class="(prospectus.is_active) ? 'btn-danger' : 'btn-success'" type="button">
+                                        <div v-if="!prospectus.is_active" class="btn-content"><i class="ri-list-check label-icon align-middle fs-12 me-2"></i>Activate</div>
+                                        <div v-else class="btn-content"><i class="ri-list-check label-icon align-middle fs-12 me-2"></i>Deactivate</div>
                                     </button>
                                 </div>
                             </div>
@@ -168,7 +174,7 @@
                                             <transition mode="out-in">
                                                 <div :key="tabIndex" class="tab-content">
 
-                                                    <div class="table-responsive table-card" style="margin-top: -39px; height: calc(100vh - 430px); overflow: auto;">
+                                                    <div class="table-responsive table-card" style="margin-top: -39px; height: calc(100vh - 460px); overflow: auto;">
                                                         
                                                         <table class="table align-middle table-centered mb-0">
                                                             <thead class="thead-fixed">
@@ -187,18 +193,18 @@
                                                                     <th class="text-center" style="width: 5%;"></th>
                                                                     <th class="text-center" style="width: 10%;">Code</th>
                                                                     <th>Subject</th>
-                                                                    <th style="width: 5%;" class="text-center">Unit</th>
+                                                                    <th style="width: 7%;" class="text-center">Unit ({{ totalUnits(semester.semesters[tabIndex].courses) }})</th>
                                                                     <th style="width: 10%;"></th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody>
+                                                            <tbody v-if="semester.semesters[tabIndex].courses.length">
                                                                 <tr class="fs-12" v-for="(course, index3) in semester.semesters[tabIndex].courses" v-bind:key="'a-'+index3">
                                                                     <td class="text-center">
                                                                         <i v-if="!course.is_nonacademic" class="ri-checkbox-circle-fill text-success fs-18" v-b-tooltip.hover title="Academic"></i>
                                                                         <i v-else class="ri-close-circle-fill text-danger fs-18" v-b-tooltip.hover title="Non-Academic"></i>
                                                                     </td>
                                                                     <td class="text-center">{{course.code}}</td>
-                                                                    <td>{{course.subject}}</td>
+                                                                    <td>{{course.subject}} <span v-if="course.is_lab" class="text-muted">(Laboratory)</span></td>
                                                                     <td class="text-center">{{course.unit}}</td>
                                                                     <td class="text-end">
                                                                         <b-button @click="openEdit(course,index3)" variant="soft-warning" v-b-tooltip.hover title="Edit" size="sm" class="me-1 mt-n1 mb-n1">
@@ -208,6 +214,11 @@
                                                                             <i class="ri-delete-bin-fill align-bottom"></i>
                                                                         </b-button>
                                                                     </td>
+                                                                </tr>
+                                                            </tbody>
+                                                            <tbody v-else>
+                                                                <tr>
+                                                                    <td colspan="5" class="text-center text-muted fs-12">The prospectus does not contain any courses. Please add courses to continue</td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -221,11 +232,28 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            
+                            <button v-if="prospectus.is_locked" class="btn btn-soft-primary btn-md btn-icon waves-effect waves-light me-1 mt-n1 mb-n1" type="button" style="">
+                                <div class="btn-content"><i class="ri-lock-2-fill"></i></div>
+                            </button>
+                            <button v-if="!prospectus.is_locked" @click="openAdd()" class="btn btn-label me-1 mt-n1 mb-n1 w-md btn-light" type="button">
+                                <div class="btn-content">
+                                    <i class="ri-add-circle-fill label-icon align-middle fs-12 me-2"></i>Add
+                                </div>
+                            </button>
+                            <button v-if="!prospectus.is_locked" @click="save()" class="btn btn-label me-1 me-1 mt-n1 mb-n1 w-md btn-success float-end" type="button">
+                                <div class="btn-content">
+                                    <i class="ri-checkbox-circle-fill label-icon align-middle fs-12 me-2"></i>Save
+                                </div>
+                            </button>
                         </div>
                     </div>
-                    <div class="card bg-light-subtle shadow-none border" v-else>
-                       
+                    <div class="card bg-light-subtle shadow-none border d-flex justify-content-center align-items-center" style="height: calc(100vh - 277px);" v-else>
+                        <div class="text-center"><h4>View Prospectus</h4>
+                            <p class="text-muted">Please select a prospectus to view or modify. Note that only one active prospectus is allowed at a time.</p>
+                            <button @click="openCreate()" class="btn btn-primary btn-md" type="button">
+                                <div class="btn-content">Create New Prospectus</div>
+                            </button>
+                        </div>
                     </div>
                 </BCol>
             </BRow>
@@ -233,8 +261,8 @@
         </div>
     </div>
     <Prospectus ref="prospectus"/>
-    <Status ref="status"/>
-    <Lock ref="lock"/>
+    <Status @update="updateStatus" ref="status"/>
+    <Lock @update="updateLock" ref="lock"/>
     <Save ref="save"/>
     <Add  @saveSubject="addSubject" @editSubject="editSubject" ref="add"/>
 </template>
@@ -304,6 +332,9 @@ export default {
                 this.$refs.lock.set(data,type);
             }
         },
+        openCreate(){
+            this.$refs.prospectus.show(this.course.campus.term.name,this.course.years,this.course.id);
+        },
         openAdd(){
             this.$refs.add.show();
         },
@@ -353,6 +384,12 @@ export default {
         },
         editSubject(subjectData,index) {
             this.semesters[this.index].semesters[this.tabIndex].courses[index] = subjectData;
+        },
+        updateLock(data){
+            this.prospectus.is_locked = data;
+        },
+        updateStatus(data){
+            this.prospectus.is_active = data;
         },
         prevTab() {
             if (this.tabIndex > 0) {

@@ -35,6 +35,11 @@ class SchoolCampusCourse extends Model
         return $this->belongsTo('App\Models\SchoolCampus', 'campus_id', 'id');
     }
 
+    public function hasActiveProspectus()
+    {
+        return $this->prospectuses()->where('is_active', 1)->exists();
+    }
+
     public function getUpdatedAtAttribute($value)
     {
         return date('M d, Y g:i a', strtotime($value));

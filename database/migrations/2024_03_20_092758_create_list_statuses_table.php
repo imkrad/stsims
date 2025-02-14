@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('color',20)->default('n/a'); 
             $table->string('icon',100)->default('n/a');  
             $table->string('others')->default('n/a');
+            $table->boolean('is_main')->default(0);
             $table->boolean('is_active')->default(1);
             $table->timestamps();
         });

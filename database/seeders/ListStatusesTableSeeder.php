@@ -26,9 +26,10 @@ class ListStatusesTableSeeder extends Seeder
                 'color' => 'n/a',
                 'icon' => 'n/a',
                 'others' => 'n/a',
+                'is_main' => 0,
                 'is_active' => 1,
-                'created_at' => '2024-10-03 16:04:36',
-                'updated_at' => '2024-10-03 16:04:36',
+                'created_at' => '2024-10-04 00:04:36',
+                'updated_at' => '2024-10-04 00:04:36',
             ),
             1 => 
             array (
@@ -38,9 +39,10 @@ class ListStatusesTableSeeder extends Seeder
                 'color' => 'bg-dark-subtle',
                 'icon' => 'n/a',
                 'others' => 'text-dark',
+                'is_main' => 0,
                 'is_active' => 1,
-                'created_at' => '2024-10-03 16:05:00',
-                'updated_at' => '2024-10-03 16:05:00',
+                'created_at' => '2024-10-04 00:05:00',
+                'updated_at' => '2024-10-04 00:05:00',
             ),
             2 => 
             array (
@@ -50,9 +52,10 @@ class ListStatusesTableSeeder extends Seeder
                 'color' => 'bg-success-subtle',
                 'icon' => 'bx bxs-graduation',
                 'others' => 'text-success',
+                'is_main' => 1,
                 'is_active' => 1,
-                'created_at' => '2024-10-03 16:08:56',
-                'updated_at' => '2024-10-03 16:08:56',
+                'created_at' => '2024-10-04 00:08:56',
+                'updated_at' => '2024-10-04 00:08:56',
             ),
             3 => 
             array (
@@ -62,9 +65,10 @@ class ListStatusesTableSeeder extends Seeder
                 'color' => 'bg-danger-subtle',
                 'icon' => 'ri-close-circle-fill',
                 'others' => 'text-danger',
+                'is_main' => 1,
                 'is_active' => 1,
-                'created_at' => '2024-10-03 16:09:14',
-                'updated_at' => '2024-10-03 16:09:14',
+                'created_at' => '2024-10-04 00:09:14',
+                'updated_at' => '2024-10-04 00:09:14',
             ),
             4 => 
             array (
@@ -74,9 +78,10 @@ class ListStatusesTableSeeder extends Seeder
                 'color' => 'bg-warning-subtle',
                 'icon' => 'ri-error-warning-fill',
                 'others' => 'text-warning',
+                'is_main' => 1,
                 'is_active' => 1,
-                'created_at' => '2024-10-03 16:09:34',
-                'updated_at' => '2024-10-03 16:09:34',
+                'created_at' => '2024-10-04 00:09:34',
+                'updated_at' => '2024-10-04 00:09:34',
             ),
             5 => 
             array (
@@ -86,9 +91,10 @@ class ListStatusesTableSeeder extends Seeder
                 'color' => 'bg-info-subtle',
                 'icon' => 'ri-radio-button-fill',
                 'others' => 'text-info',
+                'is_main' => 1,
                 'is_active' => 1,
-                'created_at' => '2024-10-03 16:09:50',
-                'updated_at' => '2024-10-03 16:09:50',
+                'created_at' => '2024-10-04 00:09:50',
+                'updated_at' => '2024-10-04 00:09:50',
             ),
             6 => 
             array (
@@ -98,9 +104,10 @@ class ListStatusesTableSeeder extends Seeder
                 'color' => 'bg-primary-subtle',
                 'icon' => 'ri-checkbox-circle-fill',
                 'others' => 'text-primary',
+                'is_main' => 1,
                 'is_active' => 1,
-                'created_at' => '2024-10-03 16:10:26',
-                'updated_at' => '2024-10-03 16:10:26',
+                'created_at' => '2024-10-04 00:10:26',
+                'updated_at' => '2024-10-04 00:10:26',
             ),
             7 => 
             array (
@@ -110,9 +117,10 @@ class ListStatusesTableSeeder extends Seeder
                 'color' => 'bg-success',
                 'icon' => 'n/a',
                 'others' => 'GS',
+                'is_main' => 0,
                 'is_active' => 1,
-                'created_at' => '2024-10-03 16:12:03',
-                'updated_at' => '2024-10-03 16:12:03',
+                'created_at' => '2024-10-04 00:12:03',
+                'updated_at' => '2024-10-04 00:12:03',
             ),
             8 => 
             array (
@@ -122,9 +130,10 @@ class ListStatusesTableSeeder extends Seeder
                 'color' => 'bg-info',
                 'icon' => 'n/a',
                 'others' => 'CUP',
+                'is_main' => 0,
                 'is_active' => 1,
-                'created_at' => '2024-10-03 16:12:44',
-                'updated_at' => '2024-10-03 16:12:44',
+                'created_at' => '2024-10-04 00:12:44',
+                'updated_at' => '2024-10-04 00:12:44',
             ),
             9 => 
             array (
@@ -134,9 +143,10 @@ class ListStatusesTableSeeder extends Seeder
                 'color' => 'bg-warning',
                 'icon' => 'n/a',
                 'others' => 'CPA',
+                'is_main' => 0,
                 'is_active' => 1,
-                'created_at' => '2024-10-03 16:13:25',
-                'updated_at' => '2024-10-03 16:13:25',
+                'created_at' => '2024-10-04 00:13:25',
+                'updated_at' => '2024-10-04 00:13:25',
             ),
             10 => 
             array (
@@ -146,9 +156,10 @@ class ListStatusesTableSeeder extends Seeder
                 'color' => 'bg-danger',
                 'icon' => 'n/a',
                 'others' => 'LOA',
+                'is_main' => 0,
                 'is_active' => 1,
-                'created_at' => '2024-10-03 16:13:48',
-                'updated_at' => '2024-10-03 16:13:48',
+                'created_at' => '2024-10-04 00:13:48',
+                'updated_at' => '2024-10-04 00:13:48',
             ),
             11 => 
             array (
@@ -158,9 +169,10 @@ class ListStatusesTableSeeder extends Seeder
                 'color' => 'bg-dark',
                 'icon' => 'n/a',
                 'others' => 'NR',
+                'is_main' => 0,
                 'is_active' => 1,
-                'created_at' => '2024-10-03 16:13:48',
-                'updated_at' => '2024-10-03 16:13:48',
+                'created_at' => '2024-10-04 00:13:48',
+                'updated_at' => '2024-10-04 00:13:48',
             ),
             12 => 
             array (
@@ -170,9 +182,10 @@ class ListStatusesTableSeeder extends Seeder
                 'color' => 'bg-warning',
                 'icon' => 'n/a',
                 'others' => 'n/a',
+                'is_main' => 0,
                 'is_active' => 1,
-                'created_at' => '2024-10-03 16:13:48',
-                'updated_at' => '2024-10-03 16:13:48',
+                'created_at' => '2024-10-04 00:13:48',
+                'updated_at' => '2024-10-04 00:13:48',
             ),
             13 => 
             array (
@@ -182,9 +195,10 @@ class ListStatusesTableSeeder extends Seeder
                 'color' => 'bg-danger',
                 'icon' => 'n/a',
                 'others' => 'n/a',
+                'is_main' => 0,
                 'is_active' => 1,
-                'created_at' => '2024-10-03 16:13:48',
-                'updated_at' => '2024-10-03 16:13:48',
+                'created_at' => '2024-10-04 00:13:48',
+                'updated_at' => '2024-10-04 00:13:48',
             ),
             14 => 
             array (
@@ -194,9 +208,10 @@ class ListStatusesTableSeeder extends Seeder
                 'color' => 'bg-dark',
                 'icon' => 'n/a',
                 'others' => 'n/a',
+                'is_main' => 0,
                 'is_active' => 1,
-                'created_at' => '2024-10-03 16:13:48',
-                'updated_at' => '2024-10-03 16:13:48',
+                'created_at' => '2024-10-04 00:13:48',
+                'updated_at' => '2024-10-04 00:13:48',
             ),
             15 => 
             array (
@@ -206,9 +221,10 @@ class ListStatusesTableSeeder extends Seeder
                 'color' => 'bg-success',
                 'icon' => 'n/a',
                 'others' => 'n/a',
+                'is_main' => 0,
                 'is_active' => 1,
-                'created_at' => '2024-10-03 16:13:48',
-                'updated_at' => '2024-10-03 16:13:48',
+                'created_at' => '2024-10-04 00:13:48',
+                'updated_at' => '2024-10-04 00:13:48',
             ),
             16 => 
             array (
@@ -218,9 +234,10 @@ class ListStatusesTableSeeder extends Seeder
                 'color' => 'bg-success',
                 'icon' => 'n/a',
                 'others' => 'n/a',
+                'is_main' => 0,
                 'is_active' => 1,
-                'created_at' => '2024-10-03 16:13:48',
-                'updated_at' => '2024-10-03 16:13:48',
+                'created_at' => '2024-10-04 00:13:48',
+                'updated_at' => '2024-10-04 00:13:48',
             ),
             17 => 
             array (
@@ -230,9 +247,10 @@ class ListStatusesTableSeeder extends Seeder
                 'color' => 'bg-warning',
                 'icon' => 'n/a',
                 'others' => 'n/a',
+                'is_main' => 0,
                 'is_active' => 1,
-                'created_at' => '2024-10-03 16:13:48',
-                'updated_at' => '2024-10-03 16:13:48',
+                'created_at' => '2024-10-04 00:13:48',
+                'updated_at' => '2024-10-04 00:13:48',
             ),
             18 => 
             array (
@@ -242,9 +260,10 @@ class ListStatusesTableSeeder extends Seeder
                 'color' => 'bg-info',
                 'icon' => 'n/a',
                 'others' => 'n/a',
+                'is_main' => 0,
                 'is_active' => 1,
-                'created_at' => '2024-10-03 16:13:48',
-                'updated_at' => '2024-10-03 16:13:48',
+                'created_at' => '2024-10-04 00:13:48',
+                'updated_at' => '2024-10-04 00:13:48',
             ),
             19 => 
             array (
@@ -254,9 +273,10 @@ class ListStatusesTableSeeder extends Seeder
                 'color' => 'bg-success',
                 'icon' => 'n/a',
                 'others' => 'n/a',
+                'is_main' => 0,
                 'is_active' => 1,
-                'created_at' => '2024-10-03 16:13:48',
-                'updated_at' => '2024-10-03 16:13:48',
+                'created_at' => '2024-10-04 00:13:48',
+                'updated_at' => '2024-10-04 00:13:48',
             ),
             20 => 
             array (
@@ -266,9 +286,10 @@ class ListStatusesTableSeeder extends Seeder
                 'color' => 'bg-danger',
                 'icon' => 'n/a',
                 'others' => 'n/a',
+                'is_main' => 0,
                 'is_active' => 1,
-                'created_at' => '2024-10-03 16:13:48',
-                'updated_at' => '2024-10-03 16:13:48',
+                'created_at' => '2024-10-04 00:13:48',
+                'updated_at' => '2024-10-04 00:13:48',
             ),
             21 => 
             array (
@@ -278,9 +299,10 @@ class ListStatusesTableSeeder extends Seeder
                 'color' => 'bg-dark-subtle',
                 'icon' => 'ri-checkbox-circle-fill',
                 'others' => 'text-dark',
+                'is_main' => 0,
                 'is_active' => 1,
-                'created_at' => '2024-10-03 16:10:26',
-                'updated_at' => '2024-10-03 16:10:26',
+                'created_at' => '2024-10-04 00:10:26',
+                'updated_at' => '2024-10-04 00:10:26',
             ),
             22 => 
             array (
@@ -290,9 +312,10 @@ class ListStatusesTableSeeder extends Seeder
                 'color' => 'bg-success-subtle',
                 'icon' => 'bx bxs-graduation',
                 'others' => 'text-success',
+                'is_main' => 0,
                 'is_active' => 1,
-                'created_at' => '2024-10-03 16:08:56',
-                'updated_at' => '2024-10-03 16:08:56',
+                'created_at' => '2024-10-04 00:08:56',
+                'updated_at' => '2024-10-04 00:08:56',
             ),
         ));
 

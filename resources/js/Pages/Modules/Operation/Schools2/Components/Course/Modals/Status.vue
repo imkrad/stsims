@@ -44,6 +44,7 @@ export default {
             this.form.put('/management/update',{
                 preserveScroll: true,
                 onSuccess: (response) => {
+                    this.$emit('update',(this.prospectus.is_active) ? 0 : 1);
                     this.showModal = false;
                 }
             });

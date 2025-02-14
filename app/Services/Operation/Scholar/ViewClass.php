@@ -4,6 +4,7 @@ namespace App\Services\Operation\Scholar;
 
 use Hashids\Hashids;
 use App\Models\Scholar;
+use App\Models\ListStatus;
 use App\Http\Resources\Operation\ScholarResource;
 
 class ViewClass
@@ -19,6 +20,27 @@ class ViewClass
             $this->assigned = null; 
             $this->role = null;
         }
+    }
+
+    public function counts(){
+
+        $statuses = ListStatus::where('is_main',1)->where('type','Progress')->get()->map(function ($item) {
+            $agency = \Auth::user()->myrole->agency_id;
+            return [
+                'value' => $item->id,
+                'name' => $item->name,
+                'icon' => $item->icon,
+                'color' => $item->color,
+                'others' => $item->others,
+                'type' => $item->type,
+                'count' => Scholar::whereHas('education',function ($query) use ( $agency) {
+                    $query->whereHas('campus',function ($query) use ( $agency) {
+                        $query->where('agency_id', $agency);
+                    });
+                })->where('status_id',$item->id)->count()
+            ];
+        });
+        return $statuses;
     }
 
     public function lists($request){
@@ -72,9 +94,11 @@ class ViewClass
                         });
                     break;
                     default: 
-                        $region = \Auth::user()->myrole->agency->region_code;
-                        $query->whereHas('address',function ($query) use ($region) {
-                            $query->where('region_code',$region);
+                        $region = \Auth::user()->myrole->agency_id;
+                        $query->whereHas('education',function ($query) use ($region) {
+                            $query->whereHas('campus',function ($query) use ($region) {
+                                $query->where('agency_id',$region);
+                            });
                         });
                 }
             })
@@ -90,7 +114,7 @@ class ViewClass
         $id = $hashids->decode($code);
 
         $data = new ScholarResource(
-            Scholar::with('profile','reference','program.program','program.type','status')
+            Scholar::with('profile','reference','program.program','program.type','status','information')
             ->with('education.course','education.campus.school','education.level')
             ->with('enrollments.semester.semester','enrollments.level','enrollments.benefits.privilege','enrollments.benefits.status','enrollments.subjects')
             ->with('address.region','address.province','address.municipality','address.barangay')

@@ -23,6 +23,7 @@ class DropdownClass
             return [
                 'value' => $item->id,
                 'name' => $item->name,
+                'icon' => $item->icon,
                 'color' => $item->color,
                 'others' => $item->others,
                 'type' => $item->type,

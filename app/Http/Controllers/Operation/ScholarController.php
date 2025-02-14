@@ -31,14 +31,15 @@ class ScholarController extends Controller
                 return inertia('Modules/Operation/Scholars/Index',[
                     'dropdowns' => [
                         'statuses' => $this->dropdown->statuses(),
-                    ]
+                    ],
+                    'counts' => $this->view->counts()
                 ]); 
         }   
     }  
     
     public function show($code){
         return inertia('Modules/Operation/Scholars/Profile/Index',[
-            'scholar' => $this->view->view($code)
+            's' => $this->view->view($code)
         ]);
     }
 }

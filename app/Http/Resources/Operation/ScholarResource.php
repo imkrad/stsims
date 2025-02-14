@@ -16,6 +16,7 @@ class ScholarResource extends JsonResource
         return [
             'id' => $this->id,
             'code' => $code,
+            'avatar' => ($this->profile->avatar === 'avatar.jpg') ? '/images/avatars/'.$this->profile->avatar : '/storage/'.$this->profile->avatar,
             'awarded_year' => $this->awarded_year,
             'spas_id' => $this->spas_id,
             'profile' => $this->profile,
@@ -23,6 +24,7 @@ class ScholarResource extends JsonResource
             'status' => $this->status,
             'program' => $this->program,
             'education' => $this->education,
+            'information' => $this->information,
             'enrollments' => $this->enrollments,
             'address' => $this->address,
         ];

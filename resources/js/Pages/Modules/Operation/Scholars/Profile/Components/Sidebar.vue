@@ -1,167 +1,116 @@
 <template>
-    <table class="table">
-        <tbody>
-            <tr>
-                <td style="border-right: none; border-top: none; border-left: none;">
-                    <span class="fw-semibold fs-12 ms-2">Scholar Information</span>
-                    <!-- <i @click="openUpdate()" class="mdi mdi-file-document-edit-outline fs-18 mb-n2 mt-n1 text-muted float-end" style="cursor: pointer;"></i> -->
-                </td>
-            </tr>
-            <tr>
-                <td style="border-left: none;">
-                    <div class="row">
-                        
-                        <div class="col-md-12">
-                            <div class="d-flex mt-0">
-                                <div class="flex-shrink-0 avatar-xs align-self-center me-3">
-                                    <div class="avatar-title bg-light rounded-circle fs-16 text-primary">
-                                        <i class="ri-service-fill"></i>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1 overflow-hidden">
-                                    <p class="mb-1 fs-12 text-muted">Status :</p> <span :class="'badge '+scholar.status.color+' '+scholar.status.others">{{scholar.status.name}}</span>
-                                </div>
-                            </div>
+    <div class="card bg-light-subtle shadow-none border">
+        <div class="card-header bg-light-subtle">
+            <div class="d-flex mb-n3">
+                <div class="flex-shrink-0 me-3">
+                    <div style="height:2.5rem;width:2.5rem;">
+                        <span class="avatar-title bg-primary-subtle rounded p-2 mt-n1">
+                            <i class="ri-information-fill text-primary fs-24"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="flex-grow-1">
+                    <h5 class="mb-0 fs-14"><span class="text-body">Scholar Details</span></h5>
+                    <p class="text-muted text-truncate-two-lines fs-12">Latest semester and scholar statuses at a glance</p>
+                </div>
+            </div>
+        </div>
+        <div class="card-body bg-white rounded-bottom border-bottom">
+            <p class="mb-0 text-primary fs-12 fw-semibold">Contact Information</p>
+        </div>
+        <div class="card bg-white rounded-bottom shadow-none mb-0" style="height: calc(100vh - 400px); overflow: auto;">
+            <ul class="list-group list-group-flush border-dashed mb-n4 mt-n3 p-3">
+                <li class="list-group-item px-0">
+                    <div class="d-flex">
+                        <div class="flex-shrink-0 avatar-xs">
+                            <span class="avatar-title bg-light p-1 rounded-circle">
+                                <i class="ri-cellphone-fill text-primary"></i>
+                            </span>
                         </div>
-                        <!-- <div class="col-md-12">
-                            <div class="d-flex mt-3">
-                                <div class="flex-shrink-0 avatar-xs align-self-center me-3">
-                                    <div class="avatar-title bg-light rounded-circle fs-16 text-primary">
-                                        <i class="ri-service-fill"></i>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1 overflow-hidden">
-                                    <p class="mb-1 fs-12 text-muted">Program :</p> 
-                                    <h6 class="text-truncate mb-0 fs-12">{{ scholar.program.program.name + ' - ' + scholar.program.name }}</h6>
-                                </div>
-                            </div>
-                        </div> -->
-                        <div class="col-md-12">
-                            <div class="d-flex mt-3">
-                                <div class="flex-shrink-0 avatar-xs align-self-center me-3">
-                                    <div class="avatar-title bg-light rounded-circle fs-16 text-primary">
-                                        <i class="ri-calendar-fill"></i>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1 overflow-hidden">
-                                    <p class="mb-1 fs-12 text-muted">Awarded Year :</p> 
-                                    <h6 class="text-truncate mb-0 fs-12">{{ scholar.awarded_year }}</h6>
-                                </div>
-                            </div>
+                        <div class="flex-grow-1 ms-2">
+                            <h6 class="mb-0 fs-12">{{scholar.information.contact_no}}</h6>
+                            <p class="fs-11 mb-0 text-muted">Contact no.</p>
                         </div>
                     </div>
-                </td>
-            </tr>
-            <tr>
-                <td style="border-right: none; border-left: none;">
-                    <span class="fw-semibold fs-12 ms-2">Education Information</span>
-                    <!-- <i @click="openUpdate()" class="mdi mdi-file-document-edit-outline fs-18 mb-n2 mt-n1 text-muted float-end" style="cursor: pointer;"></i> -->
-                </td>
-            </tr>
-            <tr>
-                <td style="border-right: none; border-left: none;">
-                    <div class="row ms-n2 mb-0">
-                        <div class="col-md-12">
-                            <div class="d-flex mt-0">
-                                <div class="flex-shrink-0 avatar-xs align-self-center me-3">
-                                    <div class="avatar-title bg-light rounded-circle fs-16 text-primary"><i class="ri-hotel-fill"></i>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1 overflow-hidden">
-                                    <p class="mb-1 fs-12 text-muted">School :</p> 
-                                    <h6 class="text-truncate mb-0 fs-12">{{ scholar.education.campus.school.name + ((scholar.education.campus.campus == 'Main') ? '' : ' - '+scholar.education.campus.campus) }}</h6>
-                                </div>
-                            </div>
+                </li>
+                <li class="list-group-item px-0">
+                    <div class="d-flex">
+                        <div class="flex-shrink-0 avatar-xs">
+                            <span class="avatar-title bg-light p-1 rounded-circle">
+                                <i class="ri-mail-fill text-primary"></i>
+                            </span>
                         </div>
-                        <div class="col-md-12">
-                            <div class="d-flex mt-3">
-                                <div class="flex-shrink-0 avatar-xs align-self-center me-3">
-                                    <div class="avatar-title bg-light rounded-circle fs-16 text-primary"><i class="bx bxs-graduation"></i>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1 overflow-hidden">
-                                    <p class="mb-1 fs-12 text-muted">Course :</p>
-                                    <h6 class="text-truncate mb-0"> <span class="fs-12">{{ scholar.education.course.shortcut }}</span></h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="d-flex mt-3">
-                                <div class="flex-shrink-0 avatar-xs align-self-center me-3">
-                                    <div class="avatar-title bg-light rounded-circle fs-16 text-primary"><i class="mdi mdi-seal-variant"></i>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1 overflow-hidden">
-                                    <p class="mb-1 fs-12 text-muted">Level :</p>
-                                    <h6 class="text-truncate mb-0"> <span class="fs-12">{{ (scholar.education.level) ? scholar.education.level.others : '-' }}</span></h6>
-                                </div>
-                            </div>
+                        <div class="flex-grow-1 ms-2">
+                            <h6 class="mb-0 fs-12">{{scholar.information.email}}</h6>
+                            <p class="fs-11 mb-0 text-muted">Email Address</p>
                         </div>
                     </div>
-                </td>
-            </tr>
-            <tr>
-                <td style="border-right: none; border-left: none;">
-                    <span class="fw-semibold fs-12 ms-2">Address Information</span>
-                    <!-- <i @click="openUpdate()" class="mdi mdi-file-document-edit-outline fs-18 mb-n2 mt-n1 text-muted float-end" style="cursor: pointer;"></i> -->
-                </td>
-            </tr>
-            <tr>
-                <td style="border-left: none;">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="d-flex mt-0">
-                                <div class="flex-shrink-0 avatar-xs align-self-center me-3">
-                                    <div class="avatar-title bg-light rounded-circle fs-16 text-primary">
-                                        <i class="ri-map-pin-fill"></i>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1 overflow-hidden">
-                                    <p class="mb-1 fs-12 text-muted">Address :</p>  <h6 class="text-truncate mb-0"> {{(scholar.address.address) ? scholar.address.address : 'n/a'}} </h6>
-                                </div>
-                            </div>
+                </li>
+            </ul>
+            <hr class="text-muted"/>
+                <p class="ms-3 mb-0 text-primary fs-12 fw-semibold">Academic Information</p>
+            <hr class="text-muted mb-1"/>
+            <ul class="list-group list-group-flush border-dashed mb-n4 mt-n3 p-3">
+                <li class="list-group-item px-0">
+                    <div class="d-flex">
+                        <div class="flex-shrink-0 avatar-xs">
+                            <span class="avatar-title bg-light p-1 rounded-circle">
+                                <i class="ri-hotel-fill text-primary"></i>
+                            </span>
                         </div>
-                        <div class="col-md-12">
-                            <div class="d-flex mt-3">
-                                <div class="flex-shrink-0 avatar-xs align-self-center me-3">
-                                    <div class="avatar-title bg-light rounded-circle fs-16 text-primary">
-                                        <i class="ri-pushpin-fill"></i>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1 overflow-hidden">
-                                    <p class="mb-1 fs-12 text-muted">Municipality :</p>  <h6 class="text-truncate mb-0"> {{scholar.address.municipality.name}} </h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="d-flex mt-3">
-                                <div class="flex-shrink-0 avatar-xs align-self-center me-3">
-                                    <div class="avatar-title bg-light rounded-circle fs-16 text-primary">
-                                        <i class="ri-road-map-fill"></i>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1 overflow-hidden">
-                                    <p class="mb-1 fs-12 text-muted">Province :</p>  <h6 class="text-truncate mb-0"> {{scholar.address.province.name}} </h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="d-flex mt-3">
-                                <div class="flex-shrink-0 avatar-xs align-self-center me-3">
-                                    <div class="avatar-title bg-light rounded-circle fs-16 text-primary">
-                                        <i class="ri-earth-fill"></i>
-                                    </div>
-                                </div>
-                                <div class="flex-grow-1 overflow-hidden">
-                                    <p class="mb-1 fs-12 text-muted">Region :</p> <h6 class="text-truncate mb-0"> {{scholar.address.region.region}} </h6>
-                                </div>
-                            </div>
+                        <div class="flex-grow-1 ms-2">
+                            <h6 class="mb-0 fs-12">{{ scholar.education.campus.school.name + ((scholar.education.campus.campus == 'Main') ? '' : ' - '+scholar.education.campus.campus) }}</h6>
+                            <p class="fs-11 mb-0 text-muted">School</p>
                         </div>
                     </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                </li>
+                <li class="list-group-item px-0">
+                    <div class="d-flex">
+                        <div class="flex-shrink-0 avatar-xs">
+                            <span class="avatar-title bg-light p-1 rounded-circle">
+                                <i class="bx bxs-graduation text-primary"></i>
+                            </span>
+                        </div>
+                        <div class="flex-grow-1 ms-2">
+                            <h6 class="mb-0 fs-12">{{ scholar.education.course.shortcut }}</h6>
+                            <p class="fs-11 mb-0 text-muted">Course</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item px-0">
+                    <div class="d-flex">
+                        <div class="flex-shrink-0 avatar-xs">
+                            <span class="avatar-title bg-light p-1 rounded-circle">
+                                <i class="mdi mdi-seal-variant text-primary"></i>
+                            </span>
+                        </div>
+                        <div class="flex-grow-1 ms-2">
+                            <h6 class="mb-0 fs-12">{{ (scholar.education.level) ? scholar.education.level.others : 'Not Available' }}</h6>
+                            <p class="fs-11 mb-0 text-muted">Level</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <hr class="text-muted"/>
+                <p class="ms-3 mb-0 text-primary fs-12 fw-semibold">Residential Information</p>
+            <hr class="text-muted mb-2"/>
+            <ul class="list-group list-group-flush border-dashed mb-n4 mt-n3 p-3">
+                <li class="list-group-item px-0">
+                    <div class="d-flex">
+                        <div class="flex-shrink-0 avatar-xs">
+                            <span class="avatar-title bg-light p-1 rounded-circle">
+                                <i class="ri-map-pin-fill text-primary"></i>
+                            </span>
+                        </div>
+                        <div class="flex-grow-1 ms-2">
+                            <h6 class="mb-0 fs-12">{{scholar.address.province.name}}, {{scholar.address.municipality.name}}, {{(scholar.address.barangay) ? scholar.address.barangay.name : '-'}}, {{(scholar.address.address) ? scholar.address.address : ''}}</h6>
+                            <p class="fs-11 mb-0 text-muted">Home Address</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
 </template>
 <script>
 export default {
