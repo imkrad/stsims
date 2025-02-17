@@ -26,6 +26,7 @@ class ScholarResource extends JsonResource
             'education' => $this->education,
             'information' => $this->information,
             'enrollments' => $this->enrollments,
+            'tracer' => $this->tracer,
             'address' => $this->address,
         ];
     }

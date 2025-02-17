@@ -114,7 +114,7 @@ class ViewClass
         $id = $hashids->decode($code);
 
         $data = new ScholarResource(
-            Scholar::with('profile','reference','program.program','program.type','status','information')
+            Scholar::with('profile','reference','program.program','program.type','status','information','tracer')
             ->with('education.course','education.campus.school','education.level')
             ->with('enrollments.semester.semester','enrollments.level','enrollments.benefits.privilege','enrollments.benefits.status','enrollments.subjects')
             ->with('address.region','address.province','address.municipality','address.barangay')

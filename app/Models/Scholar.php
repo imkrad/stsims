@@ -18,6 +18,11 @@ class Scholar extends Model
         return $this->hasOne('App\Models\ScholarProfile', 'scholar_id');
     } 
 
+    public function tracer()
+    {
+        return $this->hasOne('App\Models\ScholarTracer', 'scholar_id');
+    } 
+
     public function education()
     {
         return $this->hasOne('App\Models\ScholarEducation', 'scholar_id');

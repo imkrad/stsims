@@ -10,7 +10,7 @@
                     </div>
                 </div>
                 <div class="flex-grow-1">
-                    <h5 class="mb-0 fs-14"><span class="text-body">School Details</span></h5>
+                    <h5 class="mb-0 fs-14"><span class="text-body">Scholar Management Tabs</span></h5>
                     <p class="text-muted text-truncate-two-lines fs-12">Comprehensive information about the school's courses, semesters, grading system, and academic policies</p>
                 </div>
             </div>
@@ -36,8 +36,10 @@
                     <div class="carousel-container">
                         <div class="carousel-content">
                             <transition mode="out-in">
-                                <div :key="tabIndex" class="tab-content">
-                                   
+                                <div :key="tabIndex" class="tab-content" style="height: calc(100vh - 431px);">
+                                    <Tracer :scholar="scholar" v-if="menu == 'Tracer'"/>
+                                    <Information :scholar="scholar" v-if="menu == 'Information'"/>
+                                    <Activity :scholar="scholar" v-else-if="menu == 'Activities'"/>
                                 </div>
                             </transition>
                         </div>
@@ -49,14 +51,16 @@
     </div>
 </template>
 <script>
-import Enrollment from '../Pages/Enrollment/Index.vue';
+import Tracer from './Tracer/Index.vue';
+import Activity from './Activity/Index.vue';
+import Information from './Information/Index.vue';
 export default {
     props: ['scholar'],
-    components: { Enrollment },
+    components: { Information, Activity, Tracer },
     data(){
         return {
             menus: [
-                'Overview','Prospectus','Enrollments','Tracer','Information','Activity Logs'
+                'Overview','Information','Prospectus','Enrollments','Tracer','Activities'
             ],
         }
     }
